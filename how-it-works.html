@@ -1,0 +1,2839 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How It Works | People Partner AI</title>
+  <meta name="description" content="Discover how our HR assistant simplifies complex tasks and provides guidance to support confident people decisions" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-navy: #1a2b55;
+      --secondary-navy: #1a2b55;
+      --accent-gold: #d4af37;
+      --icon-gold: #e0bc4a;
+      --light-gold: #f4e8c1;
+      --light-blue: #e6f0ff;
+      --light-bg: #f8f9fa;
+      --dark-bg: #0a1128;
+      --text-light: #ffffff;
+      --text-dark: #333333;
+      --text-muted: #6c757d;
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --border-radius: 12px;
+      --border-radius-lg: 20px;
+      --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --box-shadow-lg: 0 20px 60px rgba(15, 26, 58, 0.12);
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
+
+    .dark-mode {
+      --primary-navy: #1a2b55;
+      --secondary-navy: #2c3e6f;
+      --light-bg: #1a2b55;
+      --text-light: #f8f9fa;
+      --text-dark: #e9ecef;
+      --text-muted: #adb5bd;
+      --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      --box-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+      --glass-bg: rgba(44, 62, 111, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'DM Sans', Inter, system-ui, -apple-system;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      transition: var(--transition);
+      line-height: 1.6;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Utility Bar */
+    .utility-bar {
+      background: var(--primary-navy);
+      color: var(--text-light);
+      padding: 10px 0;
+      font-size: 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .utility-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .utility-usp {
+      display: flex;
+      align-items: center;
+    }
+
+    .utility-usp i {
+      margin-right: 8px;
+      color: var(--icon-gold);
+    }
+
+    /* Main Header */
+    .main-header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: var(--transition);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .dark-mode .main-header {
+      background-color: rgba(10, 17, 40, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--primary-navy);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .dark-mode .logo {
+      color: var(--text-light);
+    }
+
+    .logo:hover {
+      transform: translateY(-1px);
+    }
+
+    .logo img {
+      height: 36px;
+      margin-right: 12px;
+    }
+
+    /* Navigation */
+    .nav-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin-right: 28px;
+    }
+
+    .nav-links li {
+      margin: 0 18px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: var(--transition);
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .dark-mode .nav-links a {
+      color: var(--text-light);
+    }
+
+    .nav-links a.active {
+      color: var(--text-dark);
+    }
+
+    .dark-mode .nav-links a.active {
+      color: var(--text-light);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-right: 20px;
+      color: var(--text-dark);
+      transition: var(--transition);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .dark-mode .theme-toggle {
+      color: var(--text-light);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .theme-toggle:hover {
+      color: var(--accent-gold);
+      transform: rotate(15deg);
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    .theme-toggle i {
+      position: absolute;
+      transition: var(--transition);
+      font-size: 1.3rem;
+    }
+
+    .theme-toggle .fa-sun {
+      color: #FFD700;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .dark-mode .theme-toggle .fa-sun {
+      opacity: 0;
+      transform: scale(0) rotate(90deg);
+    }
+
+    .theme-toggle .fa-moon {
+      color: #f8f9fa;
+      opacity: 0;
+      transform: scale(0) rotate(-90deg);
+    }
+
+    .dark-mode .theme-toggle .fa-moon {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    /* Buttons */
+    .auth-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      font-size: 0.95rem;
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.7s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary-navy);
+      color: var(--primary-navy);
+      background: transparent;
+    }
+
+    .dark-mode .btn-outline {
+      border-color: var(--text-light);
+      color: var(--text-light);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(15, 26, 58, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+      background: var(--accent-gold);
+      color: var(--primary-navy);
+      border: none;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-white {
+      background-color: white;
+      color: var(--primary-navy);
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-light);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 140px 0 100px;
+      background: linear-gradient(135deg, #0a1128, #1e3a8a, #2b4c7e);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.03"><polygon points="0,0 1000,100 1000,0"/></svg>'),
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(30, 58, 138, 0.15) 0%, transparent 50%),
+        linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+      background-size: cover;
+      z-index: 1;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero h1 {
+      font-size: 4rem; /* Increased font size */
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      letter-spacing: -0.02em;
+    }
+    
+    .hero p {
+      font-size: 1.5rem; /* Increased font size */
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      background: var(--light-gold);
+      border: 1px solid var(--accent-gold);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      margin: 50px 0;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+    
+    .dark-mode .disclaimer {
+      background: rgba(212, 175, 55, 0.2);
+    }
+    
+    .disclaimer-icon {
+      font-size: 22px;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    
+    .disclaimer-content h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--primary-navy);
+    }
+    
+    .dark-mode .disclaimer-content h4 {
+      color: var(--text-light);
+    }
+    
+    .disclaimer-content p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* CO-PILOT DEMO SECTION */
+    .copilot-demo-section {
+      padding: 120px 0;
+      background-color: var(--light-bg);
+      position: relative;
+    }
+    
+    .copilot-demo-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 80px;
+    }
+    
+    .section-header h2 {
+      font-size: 3.25rem; /* Increased font size */
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: var(--primary-navy);
+      letter-spacing: -0.02em;
+    }
+    
+    .dark-mode .section-header h2 {
+      color: var(--text-light);
+    }
+    
+    .section-header p {
+      font-size: 1.35rem; /* Increased font size */
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* Modern Monitor Design */
+    .monitor-container {
+      max-width: 100%;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .monitor-frame {
+      background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+      border: 16px solid #0f0f0f;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 
+        inset 0 0 30px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .monitor-screen {
+      background: #1a2b55;
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .monitor-screen::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(26, 43, 85, 0.1) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    /* Demo Launch Button */
+    .demo-launch-container {
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .demo-launch-btn {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #e6c44a 100%);
+      color: var(--primary-navy);
+      border: none;
+      padding: 20px 40px; /* Increased padding for bigger button */
+      border-radius: var(--border-radius);
+      font-weight: 700;
+      font-size: 1.3rem; /* Increased font size */
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .demo-launch-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.7s;
+    }
+
+    .demo-launch-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
+    }
+
+    .demo-launch-btn:hover::before {
+      left: 100%;
+    }
+
+    .demo-launch-btn i {
+      font-size: 1.5rem; /* Increased icon size */
+      transition: transform 0.3s ease;
+    }
+
+    .demo-launch-btn:hover i {
+      transform: scale(1.2);
+    }
+
+    .monitor-stand {
+      height: 50px;
+      background: linear-gradient(to bottom, #2a2a2a, #151515);
+      position: relative;
+      margin-top: -1px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .monitor-base {
+      width: 200px;
+      height: 12px;
+      background: #151515;
+      border-radius: 6px 6px 8px 8px;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .monitor-base::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 8px;
+      background: #1a1a1a;
+      border-radius: 4px 4px 0 0;
+    }
+
+    /* Interactive Demo Container */
+    .interactive-demo-container {
+      max-width: 100%;
+      background: #fafbfc;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 8px;
+      margin-top: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 100;
+    }
+
+    .interactive-demo-container.expanded {
+      max-height: 100%;
+      opacity: 1;
+      transform: scale(1);
+      margin-bottom: 0;
+    }
+
+    .demo-header-bar {
+      padding: 14px 24px;
+      background: var(--primary-navy);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-header-bar h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Logo in white circle - UPDATED */
+    .demo-logo-circle {
+      width: 32px;
+      height: 32px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .demo-logo-circle img {
+      height: 18px;
+      width: 18px;
+    }
+
+    .demo-close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .demo-close-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .demo-content {
+      display: flex;
+      gap: 0;
+      height: calc(100vh - 150px);
+      width: 100%;
+    }
+
+    .demo-sidebar {
+      width: 280px;
+      background: #fafbfc;
+      padding: 20px;
+      border-right: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      overflow-y: auto;
+    }
+
+    .demo-sidebar h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--primary-navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .demo-sidebar h4 i {
+      color: var(--accent-gold);
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: transparent;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-2px);
+      background: white;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    .feature-text {
+      flex: 1;
+    }
+
+    .feature-text h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--primary-navy);
+    }
+
+    .feature-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .demo-chat-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    .chat-header {
+      padding: 14px 20px;
+      background: #f1f5f9;
+      color: var(--primary-navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .chat-header h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .chat-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    .chat-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .chat-action-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--border-radius);
+      background: rgba(15, 26, 58, 0.08);
+      color: var(--primary-navy);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .chat-action-btn:hover {
+      background: rgba(15, 26, 58, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: #fafbfc;
+      height: calc(100% - 140px);
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 10px;
+      max-width: 85%;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: messageSlideIn 0.5s forwards;
+    }
+
+    .chat-message.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .message-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+      flex-shrink: 0;
+      background: var(--primary-navy);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chat-message.user .message-avatar {
+      background: var(--primary-navy);
+    }
+
+    .chat-message.assistant .message-avatar {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .message-avatar.pp-icon {
+      background: white;
+      border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .message-avatar.pp-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('assets/img/favicon.png') center/contain no-repeat;
+      background-size: 18px 18px;
+    }
+
+    .message-bubble {
+      padding: 12px 16px;
+      border-radius: 18px;
+      line-height: 1.5;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      transition: var(--transition);
+      max-width: 100%;
+    }
+
+    .chat-message.assistant .message-bubble {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      color: var(--text-dark);
+    }
+
+    .dark-mode .chat-message.assistant .message-bubble {
+      background: rgba(30, 58, 138, 0.3);
+      color: var(--text-light);
+    }
+
+    .chat-message.user .message-bubble {
+      background: var(--primary-navy);
+      color: white;
+    }
+
+    .chat-controls {
+      padding: 16px 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: #fafbfc;
+      height: 140px;
+    }
+
+    .demo-progress {
+      height: 4px;
+      background: #e9ecef;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .demo-progress-bar {
+      height: 100%;
+      background: var(--accent-gold);
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    .demo-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .demo-btn {
+      padding: 8px 16px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .demo-btn-primary {
+      background: var(--accent-gold);
+      color: var(--primary-navy);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+    }
+
+    .demo-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+    }
+
+    .demo-btn-secondary {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .demo-btn-secondary:hover {
+      background: #e9ecef;
+      transform: translateY(-2px);
+    }
+
+    /* User Input Area */
+    .user-input-area {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .user-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 24px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .user-input:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    }
+
+    .send-btn {
+      background: var(--accent-gold);
+      color: var(--primary-navy);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1.1rem;
+    }
+
+    .send-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Demo Disclaimer */
+    .demo-disclaimer {
+      background: var(--light-gold);
+      border: 1px solid var(--accent-gold);
+      border-radius: var(--border-radius);
+      padding: 14px 18px;
+      margin: 30px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      transition: var(--transition);
+      max-width: 700px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dark-mode .demo-disclaimer {
+      background: rgba(212, 175, 55, 0.2);
+      color: var(--text-light);
+    }
+
+    .demo-disclaimer i {
+      color: var(--accent-gold);
+      font-size: 1rem;
+    }
+
+    /* Typing Indicator */
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+      background: white;
+      border-radius: 18px;
+      width: fit-content;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      animation: typing 1.4s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes typing {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes messageSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* HOW IT WORKS STEPS */
+    .steps-section {
+      padding: 120px 0;
+      background-color: var(--light-bg);
+      position: relative;
+    }
+    
+    .steps-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .benefit-card {
+      background: var(--light-bg);
+      border-radius: var(--border-radius-lg);
+      padding: 50px 35px;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent-gold);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--box-shadow-lg);
+    }
+    
+    .benefit-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--accent-gold);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 32px;
+      color: var(--primary-navy);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+      transition: var(--transition);
+    }
+    
+    .benefit-card:hover .benefit-icon {
+      transform: scale(1.05) rotate(5deg);
+    }
+    
+    .benefit-card h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      color: var(--primary-navy);
+    }
+    
+    .dark-mode .benefit-card h3 {
+      color: var(--text-light);
+    }
+    
+    .benefit-card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+      font-size: 1.05rem;
+    }
+    
+    .benefit-features {
+      list-style: none;
+      text-align: left;
+    }
+    
+    .benefit-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 1rem;
+      color: var(--text-dark);
+      transition: var(--transition);
+    }
+    
+    .benefit-features li:hover {
+      transform: translateX(5px);
+    }
+    
+    .benefit-features li::before {
+      content: "✓";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: #10b981;
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .benefit-features li:hover::before {
+      transform: scale(1.1);
+    }
+
+    /* FEATURES SECTION */
+    .features-section {
+      padding: 120px 0;
+      background-color: var(--light-bg);
+      position: relative;
+    }
+    
+    .features-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Flip Card Container */
+    .flip-card {
+      background-color: transparent;
+      perspective: 1000px;
+      height: 320px;
+    }
+    
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: var(--box-shadow);
+      border-radius: var(--border-radius-lg);
+    }
+    
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    /* Front and back styling */
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--border-radius-lg);
+      padding: 45px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .flip-card-front {
+      background: var(--light-bg);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .flip-card-back {
+      background: var(--primary-navy);
+      color: white;
+      transform: rotateY(180deg);
+      text-align: left;
+      justify-content: flex-start;
+      padding-top: 40px;
+    }
+    
+    .dark-mode .flip-card-front {
+      background: var(--light-bg);
+    }
+    
+    .dark-mode .flip-card-back {
+      background: var(--secondary-navy);
+    }
+    
+    /* Updated icon styling */
+    .feature-card-icon {
+      width: 120px;
+      height: 120px;
+      background: transparent;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 48px;
+      color: #FFD700;
+      transition: var(--transition);
+    }
+    
+    .flip-card:hover .feature-card-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .feature-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      color: var(--primary-navy);
+      line-height: 1.3;
+      min-height: 3.9rem;
+    }
+    
+    .dark-mode .feature-card h3 {
+      color: var(--text-light);
+    }
+    
+    .feature-card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    
+    /* Back side content */
+    .flip-card-back p {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .flip-card-back ul {
+      list-style: none;
+      text-align: left;
+      margin-top: 10px;
+    }
+    
+    .flip-card-back li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .flip-card-back li::before {
+      content: "✓";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: var(--accent-gold);
+      color: var(--primary-navy);
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 120px 0 150px;
+      background: linear-gradient(135deg, var(--primary-navy) 0%, #0f1a3a 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.03"><polygon points="0,0 1000,100 1000,0"/></svg>');
+      background-size: cover;
+    }
+    
+    .cta-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-content h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      color: white;
+    }
+    
+    .cta-content p {
+      font-size: 1.375rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: white;
+      color: var(--text-dark);
+      padding: 70px 0 20px;
+      position: relative;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    }
+
+    /* NEWSLETTER & FOOTER LINKS SECTION */
+    .footer-newsletter-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 80px;
+      margin-bottom: 50px;
+    }
+
+    .newsletter-column {
+      flex: 1;
+      max-width: 550px;
+    }
+
+    .newsletter-column h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary-navy);
+    }
+
+    .newsletter-column p {
+      font-size: 1rem;
+      margin-bottom: 24px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .newsletter-form {
+      width: 100%;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 12px;
+      max-width: 450px;
+    }
+
+    .email-input {
+      flex: 1;
+      padding: 14px 18px;
+      background-color: #f8f9fa;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      color: var(--text-dark);
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .email-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .email-input:focus {
+      outline: none;
+      border-color: rgba(243, 190, 51, 0.5);
+      box-shadow: 0 0 0 3px rgba(243, 190, 51, 0.2);
+      background-color: white;
+    }
+
+    .subscribe-btn {
+      background-color: #f3be33;
+      color: #0d1433;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(243, 190, 51, 0.3);
+    }
+
+    .subscribe-btn:hover {
+      background-color: #e6b12f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(243, 190, 51, 0.4);
+    }
+
+    .footer-links-column {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+    }
+
+    .footer-link-category h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: var(--primary-navy);
+    }
+
+    .footer-link-category ul {
+      list-style: none;
+    }
+
+    .footer-link-category li {
+      margin-bottom: 14px;
+    }
+
+    .footer-link-category a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .footer-link-category a:hover {
+      color: var(--accent-gold);
+    }
+
+    .footer-link-category a:hover::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--accent-gold);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 18px;
+    }
+
+    .social-icons a {
+      color: var(--text-muted);
+      font-size: 1.3rem;
+      transition: var(--transition);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .social-icons a:hover {
+      color: var(--accent-gold);
+      background: rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: right;
+      line-height: 1;
+      max-width: 900px;
+      white-space: nowrap;
+    }
+
+    .copyright p {
+      margin: 0;
+    }
+
+    /* TRUST INDICATORS */
+    .trust-indicators {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      min-width: 150px;
+      margin: 0 10px;
+    }
+
+    .trust-icon {
+      font-size: 2.5rem;
+      color: var(--accent-gold);
+      margin-bottom: 15px;
+    }
+
+    .trust-text {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* FLOATING CHAT BUBBLE */
+    .floating-chat {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+    }
+
+    .chat-bubble {
+      width: 70px;
+      height: 70px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 3px solid white;
+    }
+
+    .chat-bubble::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .chat-bubble:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.8);
+    }
+
+    .chat-bubble:hover::before {
+      opacity: 1;
+    }
+
+    .chat-bubble::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      padding: 3px;
+      background: var(--accent-gold);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .chat-bubble:hover::after {
+      opacity: 1;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 0 24px;
+      }
+      
+      .hero h1 {
+        font-size: 3.25rem;
+      }
+      
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-newsletter-section {
+        gap: 60px;
+      }
+      
+      .footer-links-grid {
+        gap: 40px;
+      }
+
+      .demo-content {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .demo-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      
+      .cta-content h2 {
+        white-space: normal;
+        font-size: 2.5rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .trust-indicators {
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .copyright {
+        text-align: center;
+        max-width: 100%;
+        white-space: normal;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+      
+      .hero {
+        padding: 120px 0 80px;
+      }
+      
+      .hero h1 {
+        font-size: 2.75rem;
+      }
+      
+      .hero p {
+        font-size: 1.25rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+      
+      .section-header h2 {
+        font-size: 2.5rem;
+      }
+      
+      .steps-section, .copilot-demo-section, .features-section, .cta-section {
+        padding: 80px 0;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .disclaimer {
+        padding: 24px;
+      }
+      
+      .floating-chat {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .nav-links, .auth-buttons {
+        display: none;
+      }
+
+      .demo-sidebar {
+        padding: 20px;
+      }
+
+      .trust-indicators {
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .footer-newsletter-section {
+        flex-direction: column;
+        gap: 40px;
+      }
+      
+      .newsletter-column, .footer-links-column {
+        max-width: 100%;
+        text-align: center;
+      }
+      
+      .input-group {
+        flex-direction: column;
+        max-width: 100%;
+      }
+      
+      .email-input {
+        margin-bottom: 12px;
+      }
+      
+      .footer-links-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+      
+      .footer-link-category h4 {
+        margin-bottom: 15px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .copyright {
+        text-align: center;
+        max-width: 100%;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <div class="container utility-content">
+      <div class="utility-usp">
+        <i class="fas fa-star"></i>
+        <span>What's New: HR Situation Simulator now available!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header - UPDATED with pricing page header -->
+  <header class="main-header" id="mainHeader">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.png" alt="People Partner Logo">
+        People Partner
+      </a>
+      
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="how-it-works.html" class="active">How It Works</a></li>
+          <li><a href="hr-copilot.html">HR Copilot</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+        
+        <div class="header-actions">
+          <div class="auth-buttons">
+            <a href="sign-in.html" class="btn btn-outline">Sign In</a>
+            <a href="create-account.html" class="btn btn-primary">Start Free Trial</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>How People Partner AI Works</h1>
+      <p>Discover how our HR assistant simplifies complex tasks<br>and provides guidance to support confident people decisions</p>
+      <div class="hero-buttons">
+        <a href="#try-copilot" class="btn btn-primary">
+          <!-- Changed icon to 2 speech bubbles -->
+          <i class="fas fa-comments" style="color: white;"></i>
+          Try HR Copilot
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="container">
+    <div class="disclaimer">
+      <div class="disclaimer-icon">⚠️</div>
+      <div class="disclaimer-content">
+        <h4>Important Information</h4>
+        <p>People Partner AI provides HR guidance based on ACAS codes of practice and employment law principles. Our responses are for informational purposes only and should not be considered legal advice. For complex or high-risk situations, always consult with qualified legal professionals.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CO-PILOT DEMO SECTION -->
+  <section class="copilot-demo-section" id="try-copilot">
+    <div class="container">
+      <div class="section-header">
+        <h2>See People Partner HR Copilot In Action</h2>
+        <p>Experience our AI assistant with this interactive demo. Ask common HR questions and see how People Partner AI provides thoughtful, practical guidance.</p>
+      </div>
+      
+      <!-- Modern Monitor Demo Container -->
+      <div class="monitor-container">
+        <div class="monitor-frame">
+          <div class="monitor-screen">
+            <!-- Launch Demo Button -->
+            <div class="demo-launch-container">
+              <button class="demo-launch-btn" id="demoToggle">
+                <i class="fas fa-play-circle"></i>
+                Launch Interactive Demo
+              </button>
+            </div>
+            
+            <!-- Interactive Demo Content -->
+            <div class="interactive-demo-container" id="interactiveDemo">
+              <div class="demo-header-bar">
+                <h3>
+                  <div class="demo-logo-circle">
+                    <img src="assets/img/favicon.png" alt="People Partner Logo">
+                  </div>
+                  HR Copilot Demo
+                </h3>
+                <button class="demo-close-btn" id="demoClose">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              
+              <div class="demo-content">
+                <div class="demo-sidebar">
+                  <div>
+                    <h4>Popular HR Scenarios</h4>
+                    <div class="feature-item" data-prompt="How do I handle an employee's flexible working request?">
+                      <div class="feature-text">
+                        <h5>Flexible Working</h5>
+                        <p>Manage remote work requests</p>
+                      </div>
+                    </div>
+                    
+                    <div class="feature-item" data-prompt="What's the process for managing poor performance?">
+                      <div class="feature-text">
+                        <h5>Performance Issues</h5>
+                        <p>Handle underperformance fairly</p>
+                      </div>
+                    </div>
+                    
+                    <div class="feature-item" data-prompt="How should I handle long-term sickness absence?">
+                      <div class="feature-text">
+                        <h5>Sickness Absence</h5>
+                        <p>Manage health-related leave</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4>HR Tools</h4>
+                    <div class="feature-item" data-prompt="Can you generate an employment contract template?">
+                      <div class="feature-text">
+                        <h5>Document Templates</h5>
+                        <p>Generate HR documents</p>
+                      </div>
+                    </div>
+                    
+                    <div class="feature-item" data-prompt="What are the steps for a redundancy process?">
+                      <div class="feature-text">
+                        <h5>Redundancy Process</h5>
+                        <p>Navigate layoffs correctly</p>
+                      </div>
+                    </div>
+                    
+                    <div class="feature-item" data-prompt="How to conduct a disciplinary hearing?">
+                      <div class="feature-text">
+                        <h5>Disciplinary Procedures</h5>
+                        <p>Follow fair processes</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="demo-chat-area">
+                  <div class="chat-header">
+                    <div>
+                      <h3>HR Copilot</h3>
+                      <div class="chat-status">
+                        <span class="status-dot"></span>
+                        <span>Available</span>
+                      </div>
+                    </div>
+                    <div class="chat-actions">
+                      <button class="chat-action-btn" id="uploadBtn">
+                        <i class="fas fa-upload"></i>
+                      </button>
+                      <button class="chat-action-btn" id="clearBtn">
+                        <i class="fas fa-broom"></i>
+                      </button>
+                      <button class="chat-action-btn" id="deleteBtn">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div class="chat-messages" id="chatMessages">
+                    <div class="chat-message assistant">
+                      <div class="message-avatar pp-icon"></div>
+                      <div class="message-bubble">
+                        Hello! I'm your HR Copilot. I can help with HR guidance, policy questions, and document creation. The demo will start automatically in a moment.
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="chat-controls">
+                    <div class="demo-progress">
+                      <div class="demo-progress-bar" id="demoProgress"></div>
+                    </div>
+                    
+                    <div class="demo-buttons">
+                      <button class="demo-btn demo-btn-primary" id="startDemo">
+                        <i class="fas fa-play"></i> <span id="demoBtnText">Start Demo</span>
+                      </button>
+                      <button class="demo-btn demo-btn-secondary" id="stopDemo">
+                        <i class="fas fa-stop"></i> Stop Demo
+                      </button>
+                      <button class="demo-btn demo-btn-secondary" id="resetDemo">
+                        <i class="fas fa-redo"></i> Reset
+                      </button>
+                    </div>
+                    
+                    <!-- User Input Area -->
+                    <div class="user-input-area">
+                      <input type="text" class="user-input" id="userInput" placeholder="Type your message here...">
+                      <button class="send-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="monitor-stand">
+          <div class="monitor-base"></div>
+        </div>
+      </div>
+      
+      <!-- Demo Disclaimer -->
+      <div class="demo-disclaimer">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>People Partner AI provides HR guidance not legal advice. Always verify outputs before use.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS STEPS -->
+  <section class="steps-section" id="steps">
+    <div class="container">
+      <div class="section-header">
+        <h2>Simple, Effective HR Support</h2>
+        <p>People Partner AI transforms complex HR processes into simple, actionable steps that save time and reduce risk.</p>
+      </div>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>Ask in Plain English</h3>
+          <p>No HR jargon required. Describe your situation naturally and get instant, practical guidance.</p>
+          <ul class="benefit-features">
+            <li>Natural language understanding</li>
+            <li>Context-aware responses</li>
+            <li>Follow-up questions for clarity</li>
+            <li>No technical knowledge needed</li>
+          </ul>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Get Expert Guidance</h3>
+          <p>Receive ACAS-aligned advice with step-by-step processes tailored to your specific situation.</p>
+          <ul class="benefit-features">
+            <li>ACAS-compliant processes</li>
+            <li>Step-by-step guidance</li>
+            <li>Best practice recommendations</li>
+            <li>Risk assessment included</li>
+          </ul>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-file-contract"></i>
+          </div>
+          <h3>Instant Documents</h3>
+          <p>Create professional HR documents with our library of 100+ compliant templates.</p>
+          <ul class="benefit-features">
+            <li>100+ document templates</li>
+            <li>Auto-populated with your details</li>
+            <li>Legally compliant content</li>
+            <li>Customisable to your needs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Powerful HR Features</h2>
+        <p>Transform your HR operations with tools designed to save time, reduce risk, and boost confidence</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="feature-card-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <h3>Instant HR Answers</h3>
+              <p>Get immediate, ACAS-aligned guidance on any HR question - no more searching through policies or waiting for advice.</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Our AI assistant provides immediate responses to your HR questions, saving you time and reducing uncertainty.</p>
+              <ul>
+                <li>24/7 access to HR guidance</li>
+                <li>ACAS-compliant responses</li>
+                <li>Context-aware advice</li>
+                <li>Follow-up questions for clarity</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="feature-card-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <h3>Professional Documents</h3>
+              <p>Generate perfectly formatted HR letters and policies instantly, customised to your specific situation.</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Create compliant HR documents in seconds with our extensive template library.</p>
+              <ul>
+                <li>100+ document templates</li>
+                <li>Auto-populated with your details</li>
+                <li>Legally compliant content</li>
+                <li>Customisable to your needs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="feature-card-icon">
+                <i class="fas fa-lock"></i>
+              </div>
+              <h3>Privacy First</h3>
+              <p>Your HR data is protected with enterprise-grade security and strict privacy controls.</p>
+            </div>
+            <div class="flip-card-back">
+              <p>We prioritise the security and confidentiality of your sensitive HR information.</p>
+              <ul>
+                <li>End-to-end encryption</li>
+                <li>GDPR & CCPA compliant</li>
+                <li>Zero data retention policy</li>
+                <li>Role-based access controls</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="feature-card-icon">
+                <i class="fas fa-calculator"></i>
+              </div>
+              <h3>Accurate Calculations & Entitlements</h3>
+              <p>Eliminate errors with precise calculations for redundancy pay, notice periods, and statutory entitlements.</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Automate complex calculations to ensure accuracy and compliance.</p>
+              <ul>
+                <li>Redundancy pay calculations</li>
+                <li>Holiday entitlement tracking</li>
+                <li>Notice period calculations</li>
+                <li>Statutory payment calculations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="feature-card-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Confident Decision Making</h3>
+              <p>Access step-by-step guidance for complex HR scenarios, reducing risk and building manager confidence.</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Make better people decisions with our structured guidance and tools.</p>
+              <ul>
+                <li>Step-by-step process guides</li>
+                <li>Scenario-based learning</li>
+                <li>Risk assessment tools</li>
+                <li>Decision documentation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="feature-card-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <h3>Time-Saving Automation</h3>
+              <p>Automate repetitive HR tasks and streamline processes, freeing up time for strategic people initiatives.</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Streamline your HR processes with our automation tools.</p>
+              <ul>
+                <li>Automated document generation</li>
+                <li>Process workflow automation</li>
+                <li>Reminder and notification system</li>
+                <li>Bulk action capabilities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container cta-content">
+      <h2>Ready to Transform Your HR?</h2>
+      <p>Join thousands of HR professionals who use People Partner AI to save time, reduce risk, and make better people decisions.</p>
+      <a href="signup.html" class="btn btn-white">
+        Start Free Trial
+      </a>
+      
+      <!-- Trust Indicators -->
+      <div class="trust-indicators">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="trust-text">Privacy First</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="trust-text">Save 10+ Hours Weekly</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <i class="fas fa-user-check"></i>
+          </div>
+          <div class="trust-text">Used by 5,000+ HR Professionals</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <i class="fas fa-file-contract"></i>
+          </div>
+          <div class="trust-text">100+ Document Templates</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Newsletter & Footer Links Section -->
+      <div class="footer-newsletter-section">
+        <!-- Left Column: Newsletter -->
+        <div class="newsletter-column">
+          <h3>Stay Updated</h3>
+          <p>Get the latest HR insights and product updates delivered to your inbox</p>
+          <form class="newsletter-form">
+            <div class="input-group">
+              <input type="email" class="email-input" placeholder="Enter your email" required>
+              <button type="submit" class="subscribe-btn">Subscribe</button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Right Column: Footer Links -->
+        <div class="footer-links-column">
+          <div class="footer-links-grid">
+            <div class="footer-link-category">
+              <h4>Platform</h4>
+              <ul>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="hr-copilot.html">HR Copilot</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-link-category">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-link-category">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Book a Demo</a></li>
+                <li><a href="#">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <div class="copyright">
+          <p>© 2025 People Partner. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CHAT BUBBLE -->
+  <div class="floating-chat">
+    <div class="chat-bubble" id="chatBubble">
+      <i class="fas fa-comment-alt" style="color: white;"></i>
+    </div>
+  </div>
+
+  <script>
+    // === THEME TOGGLE ===
+    const themeToggle = document.getElementById('themeToggle');
+    const mainHeader = document.getElementById('mainHeader');
+    
+    // Check for saved theme preference or default to light
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Apply the saved theme on page load
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      // Toggle the dark mode class
+      document.body.classList.toggle('dark-mode');
+      
+      // Update localStorage based on the current state
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // === INTERACTIVE DEMO FUNCTIONALITY ===
+    const interactiveDemo = document.getElementById('interactiveDemo');
+    const demoToggle = document.getElementById('demoToggle');
+    const demoClose = document.getElementById('demoClose');
+    const chatMessages = document.getElementById('chatMessages');
+    const startDemoBtn = document.getElementById('startDemo');
+    const stopDemoBtn = document.getElementById('stopDemo');
+    const resetDemoBtn = document.getElementById('resetDemo');
+    const demoProgress = document.getElementById('demoProgress');
+    const featureItems = document.querySelectorAll('.feature-item');
+    const chatBubble = document.getElementById('chatBubble');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const deleteBtn = document.getElementById('deleteBtn');
+    const demoBtnText = document.getElementById('demoBtnText');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    
+    let isDemoRunning = false;
+    let currentDemoStep = 0;
+    let demoTimeout;
+    
+    // Demo conversation script
+    const conversation = [
+      { 
+        type: 'assistant', 
+        text: "Hello! I'm your HR Copilot. I can help with HR guidance, policy questions, and document creation. Let me show you how I work with a typical HR scenario.",
+        delay: 1500
+      },
+      { 
+        type: 'user', 
+        text: "How do I handle an employee's flexible working request?",
+        delay: 2000
+      },
+      { 
+        type: 'assistant', 
+        text: "Flexible working requests need careful consideration. Employees with 26 weeks' service have a statutory right to request flexible working. You should:\n\n1. Arrange a meeting to discuss the request\n2. Consider the business impact objectively\n3. Provide a decision within 3 months\n4. Offer an appeal process if refused\n\nCould you tell me more about the specific request and your business concerns?",
+        delay: 3000
+      },
+      { 
+        type: 'user', 
+        text: "The employee wants to work from home 3 days a week. We're concerned about team collaboration and monitoring their work.",
+        delay: 2000
+      },
+      { 
+        type: 'assistant', 
+        text: "Those are common concerns with hybrid arrangements. Here's my recommendation:\n\n1. Establish clear expectations for availability during remote days\n2. Implement collaboration tools (Teams, Slack, project management software)\n3. Schedule regular team check-ins and one-on-ones\n4. Consider a 3-month trial period to assess impact\n5. Document the agreed arrangement in writing\n\nWould you like me to generate a hybrid working policy template for your organisation?",
+        delay: 3000
+      },
+      { 
+        type: 'user', 
+        text: "Yes, please generate a policy template we can customise.",
+        delay: 1500
+      },
+      { 
+        type: 'assistant', 
+        text: "I've created a comprehensive hybrid working policy template for you. It includes:\n\n• Eligibility criteria and request procedure\n• Equipment, security, and health & safety requirements\n• Performance expectations and monitoring arrangements\n• Communication protocols and team coordination\n• Trial period provisions and review process\n\nYou can customise it with your company details. Would you like me to email it to relevant stakeholders or download it now?",
+        delay: 3000
+      },
+      { 
+        type: 'assistant', 
+        text: "This demonstrates how I can help with HR scenarios. In the full version, you can:\n\n• Ask any HR question and get instant, ACAS-aligned guidance\n• Generate 100+ HR document templates\n• Calculate entitlements and statutory payments\n• Access our complete policy library\n• Practice scenarios with our HR simulator",
+        delay: 2500
+      }
+    ];
+    
+    // Toggle demo visibility
+    demoToggle.addEventListener('click', () => {
+      interactiveDemo.classList.add('expanded');
+      demoToggle.style.display = 'none';
+      mainHeader.style.display = 'none';
+      
+      // Auto-start demo after 1.5 seconds
+      setTimeout(() => {
+        runDemo();
+      }, 1500);
+    });
+    
+    demoClose.addEventListener('click', () => {
+      interactiveDemo.classList.remove('expanded');
+      mainHeader.style.display = 'block';
+      setTimeout(() => {
+        demoToggle.style.display = 'inline-flex';
+      }, 500);
+      stopDemo();
+    });
+    
+    // Function to add a message to the chat
+    function addMessage(message, type, delay = 0) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          const messageDiv = document.createElement('div');
+          messageDiv.className = `chat-message ${type}`;
+          
+          const avatar = document.createElement('div');
+          avatar.className = type === 'assistant' ? 'message-avatar pp-icon' : 'message-avatar';
+          avatar.textContent = type === 'user' ? 'You' : '';
+          
+          const bubble = document.createElement('div');
+          bubble.className = 'message-bubble';
+          
+          // Convert line breaks to HTML
+          const formattedMessage = message.replace(/\n/g, '<br>');
+          bubble.innerHTML = formattedMessage;
+          
+          messageDiv.appendChild(avatar);
+          messageDiv.appendChild(bubble);
+          chatMessages.appendChild(messageDiv);
+          
+          // Scroll to bottom
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          
+          // Update progress
+          currentDemoStep++;
+          updateProgress();
+          
+          resolve();
+        }, delay);
+      });
+    }
+    
+    // Function to show typing indicator
+    function showTypingIndicator() {
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'chat-message assistant';
+      
+      const avatar = document.createElement('div');
+      avatar.className = 'message-avatar pp-icon';
+      
+      const bubble = document.createElement('div');
+      bubble.className = 'typing-indicator';
+      bubble.innerHTML = `
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      `;
+      
+      typingDiv.appendChild(avatar);
+      typingDiv.appendChild(bubble);
+      chatMessages.appendChild(typingDiv);
+      
+      // Scroll to bottom
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      
+      return typingDiv;
+    }
+    
+    // Function to update progress bar
+    function updateProgress() {
+      const progress = (currentDemoStep / conversation.length) * 100;
+      demoProgress.style.width = `${progress}%`;
+    }
+    
+    // Function to run the demo
+    async function runDemo() {
+      if (isDemoRunning) return;
+      
+      isDemoRunning = true;
+      startDemoBtn.disabled = true;
+      startDemoBtn.innerHTML = '<i class="fas fa-play"></i> Demo Running';
+      demoBtnText.textContent = 'Demo Running';
+      stopDemoBtn.style.display = 'flex';
+      
+      // Clear any existing messages
+      chatMessages.innerHTML = '';
+      currentDemoStep = 0;
+      updateProgress();
+      
+      // Run through the conversation
+      for (const message of conversation) {
+        if (!isDemoRunning) break;
+        
+        // Show typing indicator before assistant messages
+        if (message.type === 'assistant') {
+          const typingIndicator = showTypingIndicator();
+          await new Promise(resolve => {
+            demoTimeout = setTimeout(() => {
+              typingIndicator.remove();
+              resolve();
+            }, 2000);
+          });
+        }
+        
+        if (!isDemoRunning) break;
+        await addMessage(message.text, message.type, message.delay);
+      }
+      
+      isDemoRunning = false;
+      startDemoBtn.disabled = false;
+      startDemoBtn.innerHTML = '<i class="fas fa-play"></i> Start Demo';
+      demoBtnText.textContent = 'Start Demo';
+      stopDemoBtn.style.display = 'none';
+    }
+    
+    // Function to stop the demo
+    function stopDemo() {
+      isDemoRunning = false;
+      startDemoBtn.disabled = false;
+      startDemoBtn.innerHTML = '<i class="fas fa-play"></i> Start Demo';
+      demoBtnText.textContent = 'Start Demo';
+      stopDemoBtn.style.display = 'none';
+      clearTimeout(demoTimeout);
+    }
+    
+    // Function to reset the demo
+    function resetDemo() {
+      stopDemo();
+      
+      chatMessages.innerHTML = '';
+      currentDemoStep = 0;
+      updateProgress();
+      
+      // Add initial message
+      addMessage("Hello! I'm your HR Copilot. I can help with HR guidance, policy questions, and document creation. Click \"Start Demo\" to see how I work, or try one of the scenarios on the left.", 'assistant', 100);
+    }
+    
+    // Function to handle feature item clicks
+    function handleFeatureClick(prompt) {
+      if (isDemoRunning) return;
+      
+      resetDemo();
+      
+      // Add user message immediately
+      const userMessageDiv = document.createElement('div');
+      userMessageDiv.className = 'chat-message user';
+      
+      const userAvatar = document.createElement('div');
+      userAvatar.className = 'message-avatar';
+      userAvatar.textContent = 'You';
+      
+      const userBubble = document.createElement('div');
+      userBubble.className = 'message-bubble';
+      userBubble.textContent = prompt;
+      
+      userMessageDiv.appendChild(userAvatar);
+      userMessageDiv.appendChild(userBubble);
+      chatMessages.appendChild(userMessageDiv);
+      
+      // Show typing indicator
+      const typingIndicator = showTypingIndicator();
+      
+      // Generate and show response after delay
+      setTimeout(() => {
+        typingIndicator.remove();
+        
+        // Simple response based on prompt
+        let response = "I can help with that! In the full version, I would provide detailed guidance, step-by-step processes, and relevant templates for this situation.";
+        
+        if (prompt.includes("flexible working")) {
+          response = "For flexible working requests, I'd guide you through the statutory process, help assess business impact, and provide template letters for acceptance/refusal with valid business reasons.";
+        } else if (prompt.includes("performance")) {
+          response = "For performance issues, I'd outline the fair process from informal discussion to formal capability procedure, with template meeting invites, improvement plans, and warning letters.";
+        } else if (prompt.includes("sickness")) {
+          response = "For long-term sickness, I'd guide you through maintaining contact, obtaining medical advice, considering adjustments, and the fair process for capability dismissal if needed.";
+        } else if (prompt.includes("redundancy")) {
+          response = "For redundancy processes, I'd provide the full fair procedure including consultation requirements, selection criteria, alternative employment, and calculation of statutory payments.";
+        } else if (prompt.includes("disciplinary")) {
+          response = "For disciplinary procedures, I'd outline the ACAS code including investigation, hearing procedure, possible outcomes, and right of appeal with all necessary template documents.";
+        } else if (prompt.includes("contract")) {
+          response = "I can generate a comprehensive employment contract template tailored to your needs, including all statutory requirements and optional clauses for specific situations.";
+        }
+        
+        addMessage(response, 'assistant', 100);
+      }, 2000);
+      
+      // Scroll to bottom
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Handle user input
+    function handleUserInput() {
+      const message = userInput.value.trim();
+      if (message) {
+        addMessage(message, 'user', 0);
+        userInput.value = '';
+        
+        // Show typing indicator
+        const typingIndicator = showTypingIndicator();
+        
+        // Generate response after delay
+        setTimeout(() => {
+          typingIndicator.remove();
+          addMessage("In the full version, I would provide a detailed response to your specific question. For now, try one of the pre-defined scenarios to see how I work.", 'assistant', 100);
+        }, 2000);
+      }
+    }
+    
+    // Event listeners
+    startDemoBtn.addEventListener('click', () => {
+      if (isDemoRunning) {
+        stopDemo();
+      } else {
+        runDemo();
+      }
+    });
+    
+    stopDemoBtn.addEventListener('click', stopDemo);
+    
+    resetDemoBtn.addEventListener('click', resetDemo);
+    
+    // Add click listeners to feature items
+    featureItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const prompt = item.getAttribute('data-prompt');
+        handleFeatureClick(prompt);
+      });
+    });
+    
+    // Chat action buttons
+    uploadBtn.addEventListener('click', () => {
+      alert('Upload functionality would be implemented in the full version');
+    });
+    
+    clearBtn.addEventListener('click', () => {
+      if (confirm('Clear the conversation?')) {
+        resetDemo();
+      }
+    });
+    
+    deleteBtn.addEventListener('click', () => {
+      if (confirm('Delete this conversation?')) {
+        resetDemo();
+      }
+    });
+    
+    // User input handling
+    sendBtn.addEventListener('click', handleUserInput);
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        handleUserInput();
+      }
+    });
+    
+    // Floating chat bubble
+    chatBubble.addEventListener('click', () => {
+      document.getElementById('try-copilot').scrollIntoView({ behavior: 'smooth' });
+      interactiveDemo.classList.add('expanded');
+      mainHeader.style.display = 'none';
+      demoToggle.style.display = 'none';
+      
+      // Auto-start demo after 1.5 seconds
+      setTimeout(() => {
+        runDemo();
+      }, 1500);
+    });
+
+    // === FLIP CARD AUTO-FLIP BACK ===
+    document.addEventListener('DOMContentLoaded', function() {
+      const flipCards = document.querySelectorAll('.flip-card');
+      
+      flipCards.forEach(card => {
+        let flipTimeout;
+        
+        card.addEventListener('mouseenter', function() {
+          // Clear any existing timeout
+          clearTimeout(flipTimeout);
+          
+          // Set timeout to flip back after 7 seconds
+          flipTimeout = setTimeout(() => {
+            card.querySelector('.flip-card-inner').style.transform = 'rotateY(0deg)';
+          }, 7000);
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          // Clear timeout if user moves mouse away
+          clearTimeout(flipTimeout);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

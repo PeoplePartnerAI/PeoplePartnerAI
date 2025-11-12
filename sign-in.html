@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign In | PeoplePartner AI</title>
+  <meta name="description" content="Sign in to your PeoplePartner AI account. Access your ACAS-aligned HR copilot platform." />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0A2463;
+      --primary-dark: #06193D;
+      --primary-light: #1E3A8A;
+      --accent: #FFB800;
+      --text: #0f172a;
+      --text-light: #475569;
+      --text-muted: #64748b;
+      --bg: #ffffff;
+      --bg-soft: #f8fafc;
+      --border: #e2e8f0;
+      --shadow: 0 2px 8px rgba(10,36,99,.06);
+    }
+
+    [data-theme="dark"] {
+      --text: #e2e8f0;
+      --text-light: #cbd5e1;
+      --text-muted: #94a3b8;
+      --bg: #0f172a;
+      --bg-soft: #1e293b;
+      --border: #334155;
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --primary-light: #60a5fa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100vh;
+      font-family: 'DM Sans', Inter, system-ui;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a, a:visited, a:hover, a:active {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .auth-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100vh;
+    }
+
+    /* LEFT PANEL */
+    .auth-brand {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-brand::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,184,0,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .brand-header {
+      position: absolute;
+      top: 40px;
+      left: 48px;
+      z-index: 2;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .brand-logo strong {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .brand-content {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+      margin-top: auto;
+      margin-bottom: 60px;
+    }
+
+    .brand-content h1 {
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .brand-content p {
+      font-size: 16px;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 32px;
+    }
+
+    .brand-features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .brand-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 10px;
+      padding: 10px 14px;
+      backdrop-filter: blur(8px);
+      transition: .2s;
+    }
+
+    .brand-feature:hover { background: rgba(255,255,255,.15); }
+
+    .brand-feature-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .brand-feature-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand-feature-text h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .brand-feature-text p {
+      font-size: 13px;
+      color: rgba(255,255,255,.85);
+      margin: 0;
+    }
+
+    /* RIGHT PANEL */
+    .auth-form-container {
+      background: var(--bg);
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .theme-toggle-auth {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: transparent;
+      border: none; /* removed outline */
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: .2s;
+      opacity: 0.5;
+    }
+
+    .theme-toggle-auth:hover {
+      background: var(--bg-soft);
+      opacity: 0.8;
+    }
+
+    .theme-toggle-auth svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--text);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .auth-form-wrapper {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .auth-form-header { margin-bottom: 32px; }
+    .auth-form-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .auth-form-header p {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .auth-form-header p a {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary);
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .form-checkbox input {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .form-checkbox label {
+      font-size: 13px;
+      color: var(--text-light);
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .form-link {
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .2s;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .form-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 20px 0;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .form-divider::before,
+    .form-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn-social {
+      flex: 1;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      color: var(--text);
+      font-weight: 600;
+      padding: 11px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .btn-social:hover {
+      border-color: var(--primary);
+      background: var(--bg-soft);
+      transform: translateY(-1px);
+    }
+
+    .btn-social img { width: 18px; height: 18px; }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .form-footer a {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    @media (max-width: 1024px) {
+      .auth-container { grid-template-columns: 1fr; }
+      .auth-brand { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+
+    <!-- LEFT PANEL -->
+    <div class="auth-brand">
+      <div class="brand-header">
+        <a href="index.html" class="brand-logo">
+          <img src="assets/img/favicon.png" alt="PeoplePartner logo">
+          <strong>PeoplePartner AI</strong>
+        </a>
+      </div>
+
+      <div class="brand-content">
+        <h1>Welcome Back to Your HR Copilot</h1>
+        <p>Access instant, ACAS-compliant guidance and expert-level support whenever you need it.</p>
+
+        <div class="brand-features">
+          <div class="brand-feature">
+            <div class="brand-feature-icon">⚡</div>
+            <div class="brand-feature-text">
+              <h3>Instant Expert Guidance</h3>
+              <p>Get ACAS-aligned answers in under 60 seconds.</p>
+            </div>
+          </div>
+
+          <div class="brand-feature">
+            <div class="brand-feature-icon">🛡️</div>
+            <div class="brand-feature-text">
+              <h3>Privacy First</h3>
+              <p>Your data is yours. We never store chats or use them for training.</p>
+            </div>
+          </div>
+
+          <div class="brand-feature">
+            <div class="brand-feature-icon">⏱️</div>
+            <div class="brand-feature-text">
+              <h3>Time Reclaimed</h3>
+              <p>Save hours each week with automated HR intelligence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="auth-form-container">
+      <button class="theme-toggle-auth" id="themeToggle" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" class="sun-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg viewBox="0 0 24 24" class="moon-icon" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+
+      <div class="auth-form-wrapper">
+        <div class="auth-form-header">
+          <h2>Sign In</h2>
+          <p>Don't have an account? <a href="signup.html">Start your 7-day free trial</a></p>
+        </div>
+
+        <form id="signInForm">
+          <div class="form-group">
+            <label for="email">Work Email Address</label>
+            <input type="email" id="email" placeholder="you@company.co.uk" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+          </div>
+
+          <div class="form-options">
+            <div class="form-checkbox">
+              <input type="checkbox" id="remember">
+              <label for="remember">Remember me</label>
+            </div>
+            <a href="#" class="form-link">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+
+        <div class="form-divider">or continue with</div>
+
+        <div class="social-buttons">
+          <button class="btn btn-social">
+            <img src="https://www.google.com/favicon.ico" alt="Google icon">Google
+          </button>
+          <button class="btn btn-social">
+            <img src="https://www.microsoft.com/favicon.ico" alt="Microsoft icon">Microsoft
+          </button>
+        </div>
+
+        <div class="form-footer">
+          By signing in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const sunIcon = themeToggle.querySelector('.sun-icon');
+    const moonIcon = themeToggle.querySelector('.moon-icon');
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      sunIcon.style.display = isDark ? 'block' : 'none';
+      moonIcon.style.display = isDark ? 'none' : 'block';
+    });
+
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    html.setAttribute('data-theme', initialTheme);
+    sunIcon.style.display = initialTheme === 'light' ? 'block' : 'none';
+    moonIcon.style.display = initialTheme === 'dark' ? 'block' : 'none';
+
+    document.getElementById('signInForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Signing in…');
+    });
+  </script>
+</body>
+</html>
