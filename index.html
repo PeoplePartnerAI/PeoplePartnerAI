@@ -2615,45 +2615,107 @@
         flex-direction: column;
       }
     }
-    /* === MOBILE HEADER FIXES === */
+    /* === FINAL MOBILE HEADER REFINEMENT === */
 @media (max-width: 768px) {
+  /* Tighter spacing for header area */
+  .main-header {
+    padding: 6px 0;
+  }
+
   .header-content {
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 14px 0;
-  }
-
-  .logo img {
-    height: 32px;
-    margin-right: 8px;
-  }
-
-  .nav-container {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 100%;
-  }
-
-  .auth-buttons {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .container.header-content {
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+
+  /* Align theme toggle neatly top-right */
+  .theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    margin-right: 0;
+    transform: scale(0.9);
+  }
+
+  /* Buttons side-by-side and visually even */
+  .auth-buttons {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
     gap: 10px;
   }
 
   .auth-buttons .btn {
-    width: 100%;
-    text-align: center;
-    font-size: 15px;
-    padding: 12px;
+    flex: 1;
+    font-size: 14.5px;
+    padding: 10px 12px;
   }
 
+  /* Announcement bar text handling */
+  .utility-bar {
+    font-size: 13px;
+    text-align: center;
+    padding: 6px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+/* === FINAL MOBILE HEADER REFINEMENT === */
+@media (max-width: 768px) {
+  /* Tighter spacing for header area */
+  .main-header {
+    padding: 6px 0;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .container.header-content {
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+
+  /* Align theme toggle neatly top-right */
   .theme-toggle {
     position: absolute;
-    top: 18px;
-    right: 18px;
+    top: 10px;
+    right: 14px;
+    margin-right: 0;
+    transform: scale(0.9);
   }
 
+  /* Buttons side-by-side and visually even */
+  .auth-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .auth-buttons .btn {
+    flex: 1;
+    font-size: 14.5px;
+    padding: 10px 12px;
+  }
+
+  /* Announcement bar text handling */
   .utility-bar {
     font-size: 13px;
     text-align: center;
@@ -3661,5 +3723,4 @@
     });
   </script>
 </body>
-
 </html>
