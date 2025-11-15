@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
   <title>People Partner AI | HR Clarity, Whenever You Need It</title>
   <meta name="description" content="Make confident people decisions with instant, ACAS-aligned answers, templates, and step-by-step guidance — all in one platform." />
   
@@ -59,6 +59,7 @@
 
     html {
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
@@ -68,6 +69,8 @@
       line-height: 1.6;
       font-weight: 400;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .container {
@@ -135,6 +138,7 @@
       color: var(--primary-navy);
       text-decoration: none;
       transition: var(--transition);
+      z-index: 1001;
     }
 
     .dark-mode .logo {
@@ -202,6 +206,64 @@
     .header-actions {
       display: flex;
       align-items: center;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primary-navy);
+      margin: 3px auto;
+      transition: var(--transition);
+    }
+
+    .dark-mode .mobile-menu-toggle span {
+      background: var(--text-light);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
     }
 
     /* Theme Toggle */
@@ -284,6 +346,8 @@
       font-size: 0.95rem;
       position: relative;
       overflow: hidden;
+      min-height: 44px;
+      min-width: 44px;
     }
 
     .btn::before {
@@ -542,7 +606,7 @@
     }
 
     .dark-mode .copilot-body {
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.3);
     }
 
     /* UPDATED: Chat message styling with names on the side */
@@ -616,8 +680,9 @@
     }
 
     .dark-mode .user-message {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(44, 62, 111, 0.8);
       color: var(--text-light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .copilot-message {
@@ -852,6 +917,11 @@
     .flip-front {
       background: white;
       color: var(--primary-navy);
+    }
+
+    .dark-mode .flip-front {
+      background: var(--primary-navy);
+      color: var(--text-light);
     }
 
     .flip-front i {
@@ -1657,6 +1727,8 @@
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* IMPROVED: Smoother transition */
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* IMPROVED: Enhanced shadow */
+      min-height: 44px;
+      min-width: 44px;
     }
 
     .carousel-btn:hover {
@@ -1927,6 +1999,7 @@
       transition: var(--transition);
       white-space: nowrap;
       box-shadow: 0 4px 12px rgba(243, 190, 51, 0.3);
+      min-height: 44px;
     }
 
     .subscribe-btn:hover {
@@ -2059,6 +2132,8 @@
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 1000;
       border: 3px solid white;
+      min-height: 44px;
+      min-width: 44px;
     }
 
     .chat-widget:hover {
@@ -2117,6 +2192,8 @@
       color: white;
       font-size: 1.2rem;
       cursor: pointer;
+      min-height: 44px;
+      min-width: 44px;
     }
 
     .chat-body {
@@ -2188,6 +2265,7 @@
       font-weight: 700;
       cursor: pointer;
       transition: var(--transition);
+      min-height: 44px;
     }
 
     .chat-submit:hover {
@@ -2250,6 +2328,7 @@
       font-size: 0.9rem;
       border: none;
       min-width: 120px;
+      min-height: 44px;
     }
 
     .cookie-accept {
@@ -2384,6 +2463,8 @@
       color: var(--text-muted);
       cursor: pointer;
       transition: all 0.3s ease;
+      min-height: 44px;
+      min-width: 44px;
     }
 
     .dark-mode .demo-popup-close {
@@ -2507,9 +2588,63 @@
       }
     }
     
+    /* MOBILE-SPECIFIC OPTIMIZATIONS */
     @media (max-width: 768px) {
       .container {
         padding: 0 20px;
+      }
+      
+      /* Mobile Navigation */
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 80px 30px 30px;
+        margin: 0;
+        transition: var(--transition);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        overflow-y: auto;
+      }
+      
+      .dark-mode .nav-links {
+        background: var(--primary-navy);
+      }
+      
+      .nav-links.active {
+        right: 0;
+      }
+      
+      .nav-links li {
+        margin: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      
+      .dark-mode .nav-links li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .nav-links a {
+        display: block;
+        padding: 15px 0;
+        font-size: 1.1rem;
+        width: 100%;
+      }
+      
+      .mobile-menu-overlay {
+        display: block;
       }
       
       .hero {
@@ -2518,7 +2653,7 @@
 
       .hero-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
       }
 
       .hero-text {
@@ -2534,17 +2669,24 @@
       }
       
       .hero h1 {
-        font-size: 2.25rem;
+        font-size: clamp(2rem, 8vw, 2.5rem);
+        line-height: 1.2;
       }
       
       .hero p {
         font-size: 1.1rem;
+        line-height: 1.5;
       }
 
       .hero-features {
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .hero-feature-item {
+        white-space: normal;
+        text-align: center;
       }
       
       .hero-buttons {
@@ -2560,7 +2702,13 @@
       }
       
       .section-header h2 {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+        line-height: 1.2;
+      }
+      
+      .section-header p {
+        font-size: 1.1rem;
+        line-height: 1.5;
       }
       
       .section, .cta-section {
@@ -2597,10 +2745,6 @@
         margin-bottom: 12px;
       }
       
-      .nav-links {
-        display: none;
-      }
-
       .copyright {
         text-align: center;
         max-width: 100%;
@@ -2612,6 +2756,19 @@
         transform: none;
       }
 
+      .copilot-body {
+        min-height: 350px;
+      }
+      
+      .message {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+      
+      .message-content {
+        max-width: 75%;
+      }
+
       .cta-buttons {
         flex-direction: column;
         align-items: center;
@@ -2621,12 +2778,54 @@
         grid-template-columns: 1fr;
       }
 
+      .flip-card {
+        height: 250px;
+      }
+      
+      .flip-front, .flip-back {
+        padding: 20px;
+      }
+      
+      .flip-front i {
+        font-size: 2.5rem;
+      }
+      
+      .flip-front h3 {
+        font-size: 1.3rem;
+      }
+      
+      .flip-back p {
+        font-size: 1rem;
+      }
+
       .process-steps-grid {
         grid-template-columns: 1fr;
       }
 
+      .process-step {
+        padding: 30px 20px;
+      }
+      
+      .process-step-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+      }
+
       .features-grid {
         grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        padding: 30px 20px;
+        height: auto;
+        min-height: 300px;
+      }
+      
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
       }
 
       .carousel-slide {
@@ -2641,12 +2840,51 @@
         font-size: 1.1rem;
       }
 
-      .dashboard-content {
-        grid-template-columns: 1fr;
+      .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
       }
 
+      .monitor-content {
+        gap: 30px;
+      }
+      
+      .monitor-screen {
+        height: 380px;
+        padding: 15px;
+      }
+      
+      .dashboard-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .left-panel, .right-panel {
+        flex: none;
+      }
+      
+      .welcome-card {
+        padding: 20px 15px;
+        height: auto;
+      }
+      
       .usage-stats {
         flex-direction: column;
+        gap: 10px;
+      }
+      
+      .metric-box {
+        height: auto;
+        padding: 20px 15px;
+      }
+      
+      .roi-summary {
+        margin-top: 20px;
+      }
+      
+      .roi-points {
+        gap: 15px;
       }
 
       .chat-container {
@@ -2657,8 +2895,149 @@
       .demo-popup-buttons {
         flex-direction: column;
       }
+      
+      /* Improved mobile interactions */
+      .btn:hover {
+        transform: none;
+      }
+      
+      .flip-card:hover .flip-inner {
+        transform: none;
+      }
+      
+      .feature-card:hover {
+        transform: none;
+      }
+      
+      .process-step:hover {
+        transform: none;
+      }
+      
+      /* Enhanced scrolling performance */
+      .hero, .section {
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      /* Better form handling on iOS */
+      input, textarea, select {
+        -webkit-appearance: none;
+        border-radius: 0;
+      }
     }
     
+    /* Small mobile devices */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .hero {
+        padding: 60px 0 40px;
+      }
+      
+      .section, .cta-section {
+        padding: 60px 0;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: none;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .cta-content h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+      }
+      
+      .cta-content p {
+        font-size: 1.1rem;
+      }
+      
+      .cookie-content {
+        padding: 15px 20px;
+      }
+      
+      .cookie-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .cookie-btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      
+      .demo-popup-content {
+        padding: 30px 20px;
+      }
+      
+      .demo-popup-buttons {
+        flex-direction: column;
+      }
+      
+      .chat-container {
+        width: calc(100% - 30px);
+        right: 15px;
+        bottom: 80px;
+      }
+      
+      .chat-widget {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      /* Prevent zoom on input focus for iOS */
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea {
+        font-size: 16px; /* Prevents zoom on focus in iOS */
+      }
+    }
+    
+    /* Tablet optimizations */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .container {
+        padding: 0 20px;
+      }
+      
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero-content {
+        gap: 50px;
+      }
+      
+      .copilot-visual {
+        max-width: 450px;
+      }
+      
+      .process-steps-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .monitor-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .monitor-container {
+        transform: scale(0.85);
+      }
+    }
   </style>
 </head>
 <body>
@@ -2681,7 +3060,14 @@
       </a>
       
       <div class="nav-container">
-        <ul class="nav-links">
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="hr-copilot.html">HR Copilot</a></li>
           <li><a href="pricing.html">Pricing</a></li>
@@ -2700,6 +3086,9 @@
         </div>
       </div>
     </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
   </header>
 
   <!-- HERO SECTION -->
@@ -2727,7 +3116,7 @@
             <a href="create-account.html" class="btn btn-primary">
               Start Free Trial
             </a>
-            <a href="how-it-works.html#demo" class="btn btn-secondary" id="watchDemoBtn">
+            <a href="how-it-works.html#try-copilot" class="btn btn-primary">
               <i class="fas fa-play-circle"></i>
               Watch Demo
             </a>
@@ -3203,7 +3592,7 @@
           <a href="create-account.html" class="btn btn-primary">
             Start Free Trial
           </a>
-          <a href="how-it-works.html#demo" class="btn btn-secondary" id="watchDemoBtn2">
+          <a href="how-it-works.html#try-copilot" class="btn btn-secondary" id="btn btn-secondary">
             Watch Demo
           </a>
         </div>
@@ -3262,8 +3651,6 @@
       <div class="footer-bottom">
         <div class="social-icons">
           <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
 
@@ -3328,7 +3715,7 @@
       <h3>See People Partner in Action</h3>
       <p>Watch how managers turn complex HR questions into confident decisions in minutes.</p>
       <div class="demo-popup-buttons">
-        <a href="how-it-works.html#demo" class="btn btn-primary">Watch Demo</a>
+        <a href="how-it-works.html#try-copilot" class="btn btn-primary">Watch Demo</a>
         <button class="btn btn-outline" id="demoPopupLater">Maybe Later</button>
       </div>
     </div>
@@ -3337,6 +3724,38 @@
   <script>
     // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const navLinks = document.getElementById('navLinks');
+      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      
+      if (mobileMenuToggle && navLinks && mobileMenuOverlay) {
+        mobileMenuToggle.addEventListener('click', function() {
+          this.classList.toggle('active');
+          navLinks.classList.toggle('active');
+          mobileMenuOverlay.classList.toggle('active');
+          document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        mobileMenuOverlay.addEventListener('click', function() {
+          mobileMenuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+          this.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on a link
+        const navLinksItems = navLinks.querySelectorAll('a');
+        navLinksItems.forEach(link => {
+          link.addEventListener('click', function() {
+            mobileMenuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+      
       // Theme Toggle
       const themeToggle = document.getElementById('themeToggle');
       const body = document.body;
@@ -3648,14 +4067,14 @@
       if (watchDemoBtn) {
         watchDemoBtn.addEventListener('click', (e) => {
           e.preventDefault();
-          window.location.href = 'how-it-works.html#demo';
+          window.location.href = 'how-it-works.html#try-copilot';
         });
       }
 
       if (watchDemoBtn2) {
         watchDemoBtn2.addEventListener('click', (e) => {
           e.preventDefault();
-          window.location.href = 'how-it-works.html#demo';
+          window.location.href = 'how-it-works.html#try-copilot';
         });
       }
 
