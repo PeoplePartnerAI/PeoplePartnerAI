@@ -2652,10 +2652,15 @@
       
       .header-content {
         padding: 8px 0; /* Tighter vertical padding */
+        display: flex;
+        align-items: center;
       }
       
       .logo {
         font-size: 1.1rem; /* Smaller logo text */
+        flex: 1;
+        text-align: center;
+        margin-left: 0;
       }
       
       .logo img {
@@ -3012,7 +3017,7 @@
       }
       
       .footer-links-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr 1fr; /* Keep side by side on mobile */
         gap: 30px;
         text-align: center;
       }
@@ -3164,6 +3169,11 @@
       
       .footer {
         padding: 40px 0 12px;
+      }
+      
+      .footer-links-grid {
+        grid-template-columns: 1fr; /* Stack on very small screens */
+        gap: 25px;
       }
       
       /* Prevent zoom on input focus for iOS */
@@ -3375,7 +3385,7 @@
       }
 
       .footer-links-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 30px;
         text-align: center;
       }
@@ -3939,19 +3949,19 @@
   <!-- Main Header - UPDATED TO MATCH PRICING PAGE -->
   <header class="main-header" id="mainHeader">
     <div class="container header-content">
+      <!-- Mobile Menu Toggle - NOW ON LEFT -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
       <a href="index.html" class="logo">
         <img src="assets/img/logo.png" alt="People Partner Logo">
         People Partner
       </a>
       
       <div class="nav-container">
-        <!-- Mobile Menu Toggle - NOW ON LEFT -->
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        
         <ul class="nav-links" id="navLinks">
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="hr-copilot.html">HR Copilot</a></li>
