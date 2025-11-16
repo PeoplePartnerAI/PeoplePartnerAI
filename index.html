@@ -16,88 +16,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* All existing CSS remains the same until the mobile breakpoint */
-    
-    /* === MOBILE HEADER OPTIMISATION === */
-    @media (max-width: 768px) {
-      /* HEADER - Mobile Optimisation */
-      .main-header {
-        height: 56px; /* Reduced height for premium compact feel */
-      }
-      
-      .header-content {
-        padding: 8px 0; /* Tighter vertical padding */
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
-        gap: 16px;
-      }
-      
-      /* Hamburger menu on the left */
-      .mobile-menu-toggle {
-        display: flex;
-        order: 1;
-        margin-right: 0;
-        justify-self: start;
-      }
-      
-      /* Logo + Company Name centered */
-      .logo {
-        justify-self: start;
-        font-size: 1.1rem;
-        margin: 0;
-      }
-      
-      .logo img {
-        height: 28px;
-        margin-right: 8px;
-      }
-      
-      /* Auth buttons - hide Sign In from header */
-      .auth-buttons {
-        justify-self: end;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      
-      /* Hide Sign In button from visible header */
-      .auth-buttons .btn-outline {
-        display: none;
-      }
-      
-      /* Hide Start Free Trial button from visible header */
-      .auth-buttons .btn-primary {
-        display: none;
-      }
-      
-      /* Theme toggle adjustments */
-      .theme-toggle {
-        width: 36px;
-        height: 36px;
-        margin-left: 8px;
-        font-size: 1.1rem;
-      }
-      
-      /* Hide desktop navigation */
-      .nav-links {
-        display: none;
-      }
-      
-      /* Adjust mobile menu positioning */
-      .mobile-menu {
-        display: flex;
-        width: 85%;
-        max-width: 320px;
-      }
-      
-      /* Ensure Start Free Trial button is in mobile menu */
-      .mobile-menu-actions .btn-primary {
-        display: flex;
-      }
-    }
-
-    /* All other existing CSS remains unchanged */
     :root {
       --primary-navy: #1a2b55;
       --secondary-navy: #0F1A3A;
@@ -2889,7 +2807,7 @@
         line-height: 1.5;
       }
       
-      /* === CARD GRIDS - Perfect Mobile StackING === */
+      /* === CARD GRIDS - Perfect Mobile Stacking === */
       .card-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -3091,6 +3009,12 @@
       .footer-newsletter-section {
         gap: 30px;
         margin-bottom: 40px;
+      }
+      
+      .footer-links-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
       }
       
       .footer-bottom {
@@ -3324,6 +3248,11 @@
         gap: 40px;
       }
 
+      .footer-links-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
       .glass-badge {
         display: none;
       }
@@ -3443,6 +3372,12 @@
       .footer-newsletter-section {
         flex-direction: column;
         gap: 40px;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
       }
 
       .footer-bottom {
@@ -3988,20 +3923,18 @@
 
     /* === MAINTAIN EXISTING BREAKPOINTS & LAYOUT === */
     /* No structural changes - only size and spacing refinements */
-
-    /* === FINAL MOBILE FOOTER FIX - 3 COLUMNS ONLY === */
     @media (max-width: 768px) {
-      .footer-links-grid {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 20px !important;
-        text-align: center !important;
-      }
+  .footer-links-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
 
-      .footer-link-category {
-        margin-bottom: 0 !important;
-      }
-    }
+  .footer-link-category {
+    margin-bottom: 0 !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -4018,19 +3951,19 @@
   <!-- Main Header - UPDATED TO MATCH PRICING PAGE -->
   <header class="main-header" id="mainHeader">
     <div class="container header-content">
-      <!-- Mobile Menu Toggle - NOW ON LEFT -->
-      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      
       <a href="index.html" class="logo">
         <img src="assets/img/logo.png" alt="People Partner Logo">
         People Partner
       </a>
       
       <div class="nav-container">
+        <!-- Mobile Menu Toggle - NOW ON LEFT -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        
         <ul class="nav-links" id="navLinks">
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="hr-copilot.html">HR Copilot</a></li>
@@ -4071,11 +4004,11 @@
         <li><a href="hr-copilot.html">HR Copilot</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="sign-in.html">Sign In</a></li>
       </ul>
       
       <div class="mobile-menu-actions">
         <a href="create-account.html" class="btn btn-primary">Start Free Trial</a>
+        <a href="sign-in.html" class="btn btn-outline">Sign In</a>
       </div>
     </div>
   </header>
