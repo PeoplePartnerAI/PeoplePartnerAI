@@ -208,7 +208,7 @@
       align-items: center;
     }
 
-    /* Mobile Menu Toggle */
+    /* Mobile Menu Toggle - MOVED TO LEFT */
     .mobile-menu-toggle {
       display: none;
       flex-direction: column;
@@ -220,6 +220,8 @@
       cursor: pointer;
       padding: 0;
       z-index: 1001;
+      order: -1; /* Move to left */
+      margin-right: 16px;
     }
 
     .mobile-menu-toggle span {
@@ -264,6 +266,116 @@
     .mobile-menu-overlay.active {
       opacity: 1;
       visibility: visible;
+    }
+
+    /* Mobile Menu - LEFT SIDED with Close Button */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 85%;
+      max-width: 320px;
+      height: 100vh;
+      background: white;
+      z-index: 1000;
+      transition: var(--transition);
+      box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .dark-mode .mobile-menu {
+      background: var(--primary-navy);
+    }
+
+    .mobile-menu.active {
+      left: 0;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 25px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-mode .mobile-menu-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dark-mode .mobile-menu-close {
+      color: var(--text-light);
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      padding: 20px 0;
+      flex: 1;
+    }
+
+    .mobile-nav-links li {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-mode .mobile-nav-links li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-nav-links a {
+      display: block;
+      padding: 16px 25px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .dark-mode .mobile-nav-links a {
+      color: var(--text-light);
+    }
+
+    .mobile-nav-links a:hover {
+      background: rgba(0, 0, 0, 0.03);
+      color: var(--accent-gold);
+    }
+
+    .dark-mode .mobile-nav-links a:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-menu-actions {
+      padding: 20px 25px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-mode .mobile-menu-actions {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu-actions .btn {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .mobile-menu-actions .btn:last-child {
+      margin-bottom: 0;
     }
 
     /* Theme Toggle */
@@ -2272,7 +2384,7 @@
       background: #e6c44a;
     }
 
-    /* 🍪 COOKIE CONSENT BANNER - Premium Design */
+    /* 🍪 COOKIE CONSENT BANNER - Premium Design with More Options */
     .cookie-consent {
       position: fixed;
       bottom: 0;
@@ -2342,13 +2454,24 @@
       box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
     }
 
-    .cookie-decline {
+    .cookie-necessary {
       background: transparent;
       color: white;
       border: 1.5px solid rgba(255, 255, 255, 0.3);
     }
 
-    .cookie-decline:hover {
+    .cookie-necessary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .cookie-deny {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cookie-deny:hover {
       background: rgba(255, 255, 255, 0.1);
       transform: translateY(-2px);
     }
@@ -2541,24 +2664,17 @@
       }
       
       .mobile-menu-toggle {
-        width: 40px;
-        height: 40px;
-        margin-left: 0; /* Align left */
-      }
-      
-      .mobile-menu-toggle span {
-        width: 22px;
-        height: 2px;
+        display: flex; /* Show hamburger menu */
+        order: -1; /* Move to left */
+        margin-right: 16px;
       }
       
       .nav-links {
-        padding: 80px 25px 30px; /* Tighter mobile menu */
-        width: 85%; /* Better viewport fit */
+        display: none; /* Hide desktop nav */
       }
       
-      .nav-links a {
-        font-size: 1rem;
-        padding: 14px 0; /* Balanced touch targets */
+      .auth-buttons .btn-primary {
+        display: none; /* Hide Start Free Trial button from header on mobile */
       }
       
       .auth-buttons {
@@ -2577,12 +2693,18 @@
         margin-left: 8px;
       }
       
+      /* === MOBILE MENU STYLES === */
+      .mobile-menu {
+        display: flex; /* Show mobile menu */
+      }
+      
       /* === HERO SECTION - Perfect Mobile Scaling === */
       .hero {
         padding: 70px 0 50px; /* Tighter vertical spacing */
       }
       
       .hero-content {
+        grid-template-columns: 1fr;
         gap: 40px;
       }
       
@@ -2936,11 +3058,13 @@
       .cookie-content {
         padding: 20px;
         text-align: center;
+        flex-direction: column;
       }
       
       .cookie-buttons {
         flex-direction: column;
         gap: 10px;
+        width: 100%;
       }
       
       .cookie-btn {
@@ -3174,51 +3298,7 @@
       }
       
       .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background: white;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 80px 30px 30px;
-        margin: 0;
-        transition: var(--transition);
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        overflow-y: auto;
-      }
-      
-      .dark-mode .nav-links {
-        background: var(--primary-navy);
-      }
-      
-      .nav-links.active {
-        right: 0;
-      }
-      
-      .nav-links li {
-        margin: 0;
-        width: 100%;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      }
-      
-      .dark-mode .nav-links li {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      
-      .nav-links a {
-        display: block;
-        padding: 15px 0;
-        font-size: 1.1rem;
-        width: 100%;
-      }
-      
-      .mobile-menu-overlay {
-        display: block;
+        display: none;
       }
       
       .hero {
@@ -3685,14 +3765,6 @@
         height: 40px;
       }
       
-      .nav-links {
-        padding: 80px 25px 25px; /* Tighter mobile menu */
-      }
-      
-      .nav-links a {
-        padding: 12px 0; /* Compact mobile nav items */
-      }
-      
       .auth-buttons {
         gap: 6px; /* Very tight on mobile */
       }
@@ -3707,10 +3779,6 @@
         width: 36px;
         height: 36px;
         margin-left: 8px;
-      }
-      
-      .btn-outline {
-        display: none; /* Maintain existing mobile behavior */
       }
     }
 
@@ -3877,7 +3945,7 @@
       </a>
       
       <div class="nav-container">
-        <!-- Mobile Menu Toggle -->
+        <!-- Mobile Menu Toggle - NOW ON LEFT -->
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
           <span></span>
           <span></span>
@@ -3906,6 +3974,31 @@
     
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Mobile Menu - LEFT SIDED -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <div class="logo">
+          <img src="assets/img/logo.png" alt="People Partner Logo">
+          People Partner
+        </div>
+        <button class="mobile-menu-close" id="mobileMenuClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <ul class="mobile-nav-links">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="hr-copilot.html">HR Copilot</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+      
+      <div class="mobile-menu-actions">
+        <a href="create-account.html" class="btn btn-primary">Start Free Trial</a>
+        <a href="sign-in.html" class="btn btn-outline">Sign In</a>
+      </div>
+    </div>
   </header>
 
   <!-- HERO SECTION -->
@@ -4510,7 +4603,7 @@
     </div>
   </div>
 
-  <!-- 🍪 COOKIE CONSENT BANNER - Premium Design -->
+  <!-- 🍪 COOKIE CONSENT BANNER - Premium Design with More Options -->
   <div class="cookie-consent" id="cookieConsent">
     <div class="cookie-content">
       <div class="cookie-text">
@@ -4518,7 +4611,8 @@
       </div>
       <div class="cookie-buttons">
         <button class="cookie-btn cookie-accept" id="cookieAccept">Accept All</button>
-        <button class="cookie-btn cookie-decline" id="cookieDecline">Manage Preferences</button>
+        <button class="cookie-btn cookie-necessary" id="cookieNecessary">Strictly Necessary</button>
+        <button class="cookie-btn cookie-deny" id="cookieDeny">Deny</button>
       </div>
     </div>
   </div>
@@ -4541,32 +4635,40 @@
   <script>
     // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
-      // Mobile menu functionality
+      // Mobile menu functionality - UPDATED FOR LEFT-SIDED MENU
       const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-      const navLinks = document.getElementById('navLinks');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
       const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
       
-      if (mobileMenuToggle && navLinks && mobileMenuOverlay) {
+      if (mobileMenuToggle && mobileMenu && mobileMenuClose && mobileMenuOverlay) {
         mobileMenuToggle.addEventListener('click', function() {
           this.classList.toggle('active');
-          navLinks.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
           mobileMenuOverlay.classList.toggle('active');
-          document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+          document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        mobileMenuClose.addEventListener('click', function() {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
         });
         
         mobileMenuOverlay.addEventListener('click', function() {
           mobileMenuToggle.classList.remove('active');
-          navLinks.classList.remove('active');
+          mobileMenu.classList.remove('active');
           this.classList.remove('active');
           document.body.style.overflow = '';
         });
         
         // Close menu when clicking on a link
-        const navLinksItems = navLinks.querySelectorAll('a');
-        navLinksItems.forEach(link => {
+        const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-links a');
+        mobileNavLinks.forEach(link => {
           link.addEventListener('click', function() {
             mobileMenuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+            mobileMenu.classList.remove('active');
             mobileMenuOverlay.classList.remove('active');
             document.body.style.overflow = '';
           });
@@ -4805,10 +4907,11 @@
         });
       }
 
-      // Cookie Consent Functionality
+      // Cookie Consent Functionality - UPDATED WITH MORE OPTIONS
       const cookieConsent = document.getElementById('cookieConsent');
       const cookieAccept = document.getElementById('cookieAccept');
-      const cookieDecline = document.getElementById('cookieDecline');
+      const cookieNecessary = document.getElementById('cookieNecessary');
+      const cookieDeny = document.getElementById('cookieDeny');
 
       // Check if user has already made a choice
       const cookieChoice = localStorage.getItem('cookieConsent');
@@ -4826,9 +4929,16 @@
         });
       }
 
-      if (cookieDecline) {
-        cookieDecline.addEventListener('click', () => {
-          localStorage.setItem('cookieConsent', 'declined');
+      if (cookieNecessary) {
+        cookieNecessary.addEventListener('click', () => {
+          localStorage.setItem('cookieConsent', 'necessary');
+          cookieConsent.classList.remove('show');
+        });
+      }
+
+      if (cookieDeny) {
+        cookieDeny.addEventListener('click', () => {
+          localStorage.setItem('cookieConsent', 'denied');
           cookieConsent.classList.remove('show');
         });
       }
