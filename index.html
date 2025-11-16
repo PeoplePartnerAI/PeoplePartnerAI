@@ -2513,6 +2513,580 @@
       transform: rotate(45deg);
     }
 
+    /* ===== MOBILE OPTIMIZATION - Rocket.new Inspired ===== */
+    /* Preserves all desktop functionality while optimizing mobile appearance */
+
+    @media (max-width: 768px) {
+      /* === GLOBAL MOBILE REFINEMENTS === */
+      .container {
+        padding: 0 20px;
+      }
+      
+      /* === HEADER OPTIMIZATION - Smaller & Tighter === */
+      .main-header {
+        height: 60px; /* Reduced from ~80px */
+      }
+      
+      .header-content {
+        padding: 8px 0; /* Tighter vertical padding */
+      }
+      
+      .logo {
+        font-size: 1.1rem; /* Smaller logo text */
+      }
+      
+      .logo img {
+        height: 28px; /* Smaller logo image */
+        margin-right: 8px;
+      }
+      
+      .mobile-menu-toggle {
+        width: 40px;
+        height: 40px;
+        margin-left: 0; /* Align left */
+      }
+      
+      .mobile-menu-toggle span {
+        width: 22px;
+        height: 2px;
+      }
+      
+      .nav-links {
+        padding: 80px 25px 30px; /* Tighter mobile menu */
+        width: 85%; /* Better viewport fit */
+      }
+      
+      .nav-links a {
+        font-size: 1rem;
+        padding: 14px 0; /* Balanced touch targets */
+      }
+      
+      .auth-buttons {
+        gap: 8px;
+      }
+      
+      .btn {
+        padding: 10px 18px;
+        min-height: 40px;
+        font-size: 0.9rem;
+      }
+      
+      .theme-toggle {
+        width: 40px;
+        height: 40px;
+        margin-left: 8px;
+      }
+      
+      /* === HERO SECTION - Perfect Mobile Scaling === */
+      .hero {
+        padding: 70px 0 50px; /* Tighter vertical spacing */
+      }
+      
+      .hero-content {
+        gap: 40px;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem; /* Perfect mobile readability */
+        line-height: 1.2;
+        margin-bottom: 1.2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+        max-width: 100%;
+      }
+      
+      .hero-features {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 1.8rem;
+      }
+      
+      .hero-feature-item {
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 2rem;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+      
+      .trust-note {
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+      }
+      
+      /* === COPILOT VISUAL - Scaled for Mobile === */
+      .copilot-visual {
+        margin: 0 auto;
+        max-width: 100%;
+      }
+      
+      .copilot-card {
+        transform: scale(0.95);
+        transform-origin: center;
+      }
+      
+      .copilot-body {
+        min-height: 320px; /* Optimized for mobile */
+      }
+      
+      .message {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+      }
+      
+      .message-content {
+        max-width: 80%; /* Better message fit */
+      }
+      
+      .glass-badge {
+        transform: scale(0.8); /* Scaled badges */
+      }
+      
+      .badge-time {
+        top: 15%;
+        right: -15px;
+      }
+      
+      .badge-fees {
+        bottom: 8%;
+        left: -15px;
+      }
+      
+      /* === SECTIONS - Tighter Vertical Rhythm === */
+      .section {
+        padding: 70px 0; /* Reduced vertical padding */
+      }
+      
+      .section-header {
+        margin-bottom: 60px;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1.2rem;
+      }
+      
+      .section-header p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+      
+      /* === CARD GRIDS - Perfect Mobile Stacking === */
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .flip-card {
+        height: 240px; /* Optimized mobile height */
+      }
+      
+      .flip-front, .flip-back {
+        padding: 20px;
+      }
+      
+      .flip-front i {
+        font-size: 2.2rem;
+        margin-bottom: 16px;
+      }
+      
+      .flip-front h3 {
+        font-size: 1.3rem;
+      }
+      
+      .flip-back p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      
+      /* === PROCESS STEPS - Clean Mobile Layout === */
+      .process-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .process-step {
+        padding: 30px 20px;
+      }
+      
+      .process-step-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        margin-bottom: 16px;
+      }
+      
+      .process-step h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .process-step p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      
+      /* === FEATURE CARDS - Mobile Optimized === */
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .feature-card {
+        padding: 30px 20px;
+        height: auto;
+        min-height: 280px;
+      }
+      
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      
+      .feature-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      .feature-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      
+      /* === MONITOR DASHBOARD - Mobile Scaling === */
+      .monitor-content {
+        gap: 40px;
+      }
+      
+      .monitor-container {
+        transform: scale(0.85);
+        margin: -20px auto; /* Compensate for scaling */
+      }
+      
+      .monitor-screen {
+        height: 360px;
+        padding: 15px;
+      }
+      
+      .dashboard-content {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .welcome-card {
+        padding: 20px 15px;
+        height: auto;
+        margin-top: -5px;
+      }
+      
+      .welcome-card h2 {
+        font-size: 1.1rem;
+      }
+      
+      .welcome-card p {
+        font-size: 0.9rem;
+      }
+      
+      .usage-stats {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .metric-box {
+        height: auto;
+        padding: 20px 15px;
+        min-height: 90px;
+      }
+      
+      .roi-summary {
+        margin-top: 20px;
+        width: 100%;
+      }
+      
+      .roi-summary h3 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+      }
+      
+      .roi-points {
+        gap: 16px;
+      }
+      
+      /* === CAROUSEL - Mobile Friendly === */
+      .carousel-slide {
+        padding: 50px 25px;
+      }
+      
+      .carousel-slide h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+      
+      .carousel-slide p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+      
+      .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+      }
+      
+      .carousel-indicator {
+        width: 40px;
+        height: 5px;
+      }
+      
+      /* === CTA SECTION - Mobile Optimized === */
+      .cta-section {
+        padding: 70px 0;
+      }
+      
+      .cta-content h2 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+      }
+      
+      .cta-content p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+      }
+      
+      /* === FOOTER - Compact Mobile Layout === */
+      .footer {
+        padding: 50px 0 15px;
+      }
+      
+      .footer-newsletter-section {
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+      
+      .footer-links-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding-top: 25px;
+      }
+      
+      .input-group {
+        flex-direction: column;
+      }
+      
+      .email-input {
+        margin-bottom: 12px;
+      }
+      
+      .social-icons {
+        justify-content: center;
+      }
+      
+      /* === UTILITY & WIDGETS === */
+      .utility-bar {
+        padding: 6px 0;
+        font-size: 0.8rem;
+      }
+      
+      .chat-widget {
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+      }
+      
+      .chat-container {
+        width: calc(100% - 40px);
+        right: 20px;
+        bottom: 86px;
+      }
+      
+      .cookie-content {
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .cookie-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .cookie-btn {
+        width: 100%;
+      }
+      
+      .demo-popup-content {
+        padding: 30px 20px;
+        margin: 20px;
+      }
+    }
+
+    /* === SMALL MOBILE REFINEMENTS (375px-430px) === */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .hero {
+        padding: 60px 0 40px;
+      }
+      
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .section-header h2 {
+        font-size: 1.8rem;
+      }
+      
+      .section-header p {
+        font-size: 1rem;
+      }
+      
+      .btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .copilot-body {
+        min-height: 300px;
+      }
+      
+      .message {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+      }
+      
+      .flip-card {
+        height: 220px;
+      }
+      
+      .process-step {
+        padding: 25px 18px;
+      }
+      
+      .feature-card {
+        padding: 25px 18px;
+        min-height: 260px;
+      }
+      
+      .monitor-container {
+        transform: scale(0.78);
+      }
+      
+      .carousel-slide {
+        padding: 40px 20px;
+      }
+      
+      .carousel-slide h3 {
+        font-size: 1.6rem;
+      }
+      
+      .carousel-slide p {
+        font-size: 1rem;
+      }
+      
+      .cta-section {
+        padding: 60px 0;
+      }
+      
+      .cta-content h2 {
+        font-size: 1.9rem;
+      }
+      
+      .cta-content p {
+        font-size: 1rem;
+      }
+      
+      .footer {
+        padding: 40px 0 12px;
+      }
+      
+      /* Prevent zoom on input focus for iOS */
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        font-size: 16px;
+      }
+    }
+
+    /* === ENSURE NO HORIZONTAL SCROLLING === */
+    @media (max-width: 768px) {
+      body {
+        overflow-x: hidden;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    /* === IMPROVED MOBILE INTERACTIONS === */
+    @media (max-width: 768px) {
+      /* Disable hover effects for better touch experience */
+      .btn:hover {
+        transform: none;
+      }
+      
+      .flip-card:hover .flip-inner {
+        transform: none;
+      }
+      
+      .feature-card:hover {
+        transform: none;
+      }
+      
+      .process-step:hover {
+        transform: none;
+      }
+      
+      /* Enhanced scrolling performance */
+      .hero, .section {
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .container {
