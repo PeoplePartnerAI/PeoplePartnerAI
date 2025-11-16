@@ -30,66 +30,45 @@
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
-        gap: 12px;
+        gap: 16px;
       }
       
       /* Hamburger menu on the left */
       .mobile-menu-toggle {
-        display: flex !important; /* Force show hamburger */
+        display: flex;
         order: 1;
         margin-right: 0;
         justify-self: start;
       }
       
-      /* Logo + Company Name centered and smaller */
+      /* Logo + Company Name centered */
       .logo {
         justify-self: center;
-        font-size: 1rem !important; /* Smaller text */
+        font-size: 1.1rem;
         margin: 0;
       }
       
       .logo img {
-        height: 24px !important; /* Smaller logo */
-        margin-right: 6px;
+        height: 28px;
+        margin-right: 8px;
       }
       
-      /* Header actions on the right */
-      .header-actions {
-        justify-self: end;
-      }
-      
-      /* Auth buttons adjustments */
-      .auth-buttons {
-        display: flex !important;
-        align-items: center;
-        gap: 6px;
-      }
-      
-      /* Hide Start Free Trial button from visible header */
-      .auth-buttons .btn-primary {
-        display: none !important;
-      }
-      
-      /* Show Sign In button */
+      /* Hide Sign In button from visible header */
       .auth-buttons .btn-outline {
-        display: flex !important;
-        padding: 6px 12px !important;
-        min-height: 32px !important;
-        font-size: 0.8rem !important;
+        display: none;
       }
       
-      /* Show theme toggle */
+      /* Theme toggle adjustments */
       .theme-toggle {
-        display: flex !important;
-        width: 32px !important;
-        height: 32px !important;
-        margin-left: 6px !important;
-        font-size: 1rem !important;
+        width: 36px;
+        height: 36px;
+        margin-left: 8px;
+        font-size: 1.1rem;
       }
       
       /* Hide desktop navigation */
       .nav-links {
-        display: none !important;
+        display: none;
       }
       
       /* Adjust mobile menu positioning */
@@ -103,79 +82,55 @@
       .mobile-menu-actions .btn-primary {
         display: flex;
       }
-      
-      /* Hide nav container on mobile */
-      .nav-container {
-        display: contents; /* Allow grid to handle layout */
-      }
     }
 
     /* === MOBILE FOOTER OPTIMISATION === */
     @media (max-width: 768px) {
       .footer-links-grid {
-        grid-template-columns: repeat(3, 1fr) !important; /* Three columns side-by-side */
-        gap: 20px !important;
+        grid-template-columns: repeat(3, 1fr); /* Three columns side-by-side */
+        gap: 20px;
         text-align: center;
       }
       
       .footer-link-category {
-        margin-bottom: 0 !important; /* Remove vertical spacing between categories */
+        margin-bottom: 0; /* Remove vertical spacing between categories */
       }
       
       .footer-link-category h4 {
-        font-size: 0.9rem !important;
-        margin-bottom: 10px !important;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
       }
       
       .footer-link-category li {
-        margin-bottom: 6px !important;
+        margin-bottom: 8px;
       }
       
       .footer-link-category a {
-        font-size: 0.8rem !important;
+        font-size: 0.85rem;
       }
       
       /* Ensure footer fits neatly on mobile */
       .footer-newsletter-section {
-        margin-bottom: 30px !important;
-        gap: 30px !important;
+        margin-bottom: 30px;
       }
       
       .footer {
-        padding: 40px 0 15px !important;
-      }
-      
-      .newsletter-column,
-      .footer-links-column {
-        max-width: 100% !important;
-      }
-      
-      .input-group {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .email-input {
-        margin-bottom: 0;
+        padding: 40px 0 15px;
       }
     }
 
     /* === VERY SMALL SCREENS ADJUSTMENT === */
     @media (max-width: 480px) {
       .footer-links-grid {
-        gap: 15px !important;
+        gap: 15px;
       }
       
       .footer-link-category h4 {
-        font-size: 0.85rem !important;
+        font-size: 0.9rem;
       }
       
       .footer-link-category a {
-        font-size: 0.75rem !important;
-      }
-      
-      .footer-newsletter-section {
-        gap: 25px !important;
+        font-size: 0.8rem;
       }
     }
 
@@ -4156,11 +4111,11 @@
         <li><a href="hr-copilot.html">HR Copilot</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="resources.html">Resources</a></li>
+        <li><a href="sign-in.html">Sign In</a></li>
       </ul>
       
       <div class="mobile-menu-actions">
         <a href="create-account.html" class="btn btn-primary">Start Free Trial</a>
-        <a href="sign-in.html" class="btn btn-outline">Sign In</a>
       </div>
     </div>
   </header>
