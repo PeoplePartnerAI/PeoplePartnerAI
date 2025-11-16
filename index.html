@@ -43,7 +43,7 @@
       
       /* Logo + Company Name centered */
       .logo {
-        justify-self: center;
+        justify-self: start;
         font-size: 1.1rem;
         margin: 0;
       }
@@ -53,8 +53,21 @@
         margin-right: 8px;
       }
       
+      /* Auth buttons - hide Sign In from header */
+      .auth-buttons {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
       /* Hide Sign In button from visible header */
       .auth-buttons .btn-outline {
+        display: none;
+      }
+      
+      /* Hide Start Free Trial button from visible header */
+      .auth-buttons .btn-primary {
         display: none;
       }
       
@@ -2926,7 +2939,7 @@
         line-height: 1.5;
       }
       
-      /* === CARD GRIDS - Perfect Mobile Stacking === */
+      /* === CARD GRIDS - Perfect Mobile StackING === */
       .card-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -4058,19 +4071,19 @@
   <!-- Main Header - UPDATED TO MATCH PRICING PAGE -->
   <header class="main-header" id="mainHeader">
     <div class="container header-content">
+      <!-- Mobile Menu Toggle - NOW ON LEFT -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
       <a href="index.html" class="logo">
         <img src="assets/img/logo.png" alt="People Partner Logo">
         People Partner
       </a>
       
       <div class="nav-container">
-        <!-- Mobile Menu Toggle - NOW ON LEFT -->
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        
         <ul class="nav-links" id="navLinks">
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="hr-copilot.html">HR Copilot</a></li>
