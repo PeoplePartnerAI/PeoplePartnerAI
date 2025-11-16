@@ -97,56 +97,6 @@
       }
     }
 
-    /* === MOBILE FOOTER OPTIMISATION === */
-    @media (max-width: 768px) {
-      .footer-links-grid {
-        grid-template-columns: repeat(3, 1fr); /* Three columns side-by-side */
-        gap: 20px;
-        text-align: center;
-      }
-      
-      .footer-link-category {
-        margin-bottom: 0; /* Remove vertical spacing between categories */
-      }
-      
-      .footer-link-category h4 {
-        font-size: 0.95rem;
-        margin-bottom: 12px;
-      }
-      
-      .footer-link-category li {
-        margin-bottom: 8px;
-      }
-      
-      .footer-link-category a {
-        font-size: 0.85rem;
-      }
-      
-      /* Ensure footer fits neatly on mobile */
-      .footer-newsletter-section {
-        margin-bottom: 30px;
-      }
-      
-      .footer {
-        padding: 40px 0 15px;
-      }
-    }
-
-    /* === VERY SMALL SCREENS ADJUSTMENT === */
-    @media (max-width: 480px) {
-      .footer-links-grid {
-        gap: 15px;
-      }
-      
-      .footer-link-category h4 {
-        font-size: 0.9rem;
-      }
-      
-      .footer-link-category a {
-        font-size: 0.8rem;
-      }
-    }
-
     /* All other existing CSS remains unchanged */
     :root {
       --primary-navy: #1a2b55;
@@ -3143,12 +3093,6 @@
         margin-bottom: 40px;
       }
       
-      .footer-links-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-      }
-      
       .footer-bottom {
         flex-direction: column;
         gap: 20px;
@@ -3380,11 +3324,6 @@
         gap: 40px;
       }
 
-      .footer-links-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-      }
-
       .glass-badge {
         display: none;
       }
@@ -3504,12 +3443,6 @@
       .footer-newsletter-section {
         flex-direction: column;
         gap: 40px;
-      }
-
-      .footer-links-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
       }
 
       .footer-bottom {
@@ -4055,6 +3988,20 @@
 
     /* === MAINTAIN EXISTING BREAKPOINTS & LAYOUT === */
     /* No structural changes - only size and spacing refinements */
+
+    /* === FINAL MOBILE FOOTER FIX - 3 COLUMNS ONLY === */
+    @media (max-width: 768px) {
+      .footer-links-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+        text-align: center !important;
+      }
+
+      .footer-link-category {
+        margin-bottom: 0 !important;
+      }
+    }
   </style>
 </head>
 <body>
