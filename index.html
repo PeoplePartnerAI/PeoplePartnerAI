@@ -30,61 +30,66 @@
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
-        gap: 16px;
+        gap: 12px;
       }
       
       /* Hamburger menu on the left */
       .mobile-menu-toggle {
-        display: flex;
+        display: flex !important; /* Force show hamburger */
         order: 1;
         margin-right: 0;
         justify-self: start;
       }
       
-      /* Logo + Company Name centered */
+      /* Logo + Company Name centered and smaller */
       .logo {
         justify-self: center;
-        font-size: 1.1rem;
+        font-size: 1rem !important; /* Smaller text */
         margin: 0;
       }
       
       .logo img {
-        height: 28px;
-        margin-right: 8px;
+        height: 24px !important; /* Smaller logo */
+        margin-right: 6px;
       }
       
-      /* Sign In button on the right */
-      .auth-buttons {
+      /* Header actions on the right */
+      .header-actions {
         justify-self: end;
-        display: flex;
+      }
+      
+      /* Auth buttons adjustments */
+      .auth-buttons {
+        display: flex !important;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
       }
       
       /* Hide Start Free Trial button from visible header */
       .auth-buttons .btn-primary {
-        display: none;
+        display: none !important;
       }
       
       /* Show Sign In button */
       .auth-buttons .btn-outline {
-        display: flex;
-        padding: 8px 16px;
-        min-height: 36px;
-        font-size: 0.85rem;
+        display: flex !important;
+        padding: 6px 12px !important;
+        min-height: 32px !important;
+        font-size: 0.8rem !important;
       }
       
-      /* Theme toggle adjustments */
+      /* Show theme toggle */
       .theme-toggle {
-        width: 36px;
-        height: 36px;
-        margin-left: 8px;
-        font-size: 1.1rem;
+        display: flex !important;
+        width: 32px !important;
+        height: 32px !important;
+        margin-left: 6px !important;
+        font-size: 1rem !important;
       }
       
       /* Hide desktop navigation */
       .nav-links {
-        display: none;
+        display: none !important;
       }
       
       /* Adjust mobile menu positioning */
@@ -98,55 +103,79 @@
       .mobile-menu-actions .btn-primary {
         display: flex;
       }
+      
+      /* Hide nav container on mobile */
+      .nav-container {
+        display: contents; /* Allow grid to handle layout */
+      }
     }
 
     /* === MOBILE FOOTER OPTIMISATION === */
     @media (max-width: 768px) {
       .footer-links-grid {
-        grid-template-columns: repeat(3, 1fr); /* Three columns side-by-side */
-        gap: 20px;
+        grid-template-columns: repeat(3, 1fr) !important; /* Three columns side-by-side */
+        gap: 20px !important;
         text-align: center;
       }
       
       .footer-link-category {
-        margin-bottom: 0; /* Remove vertical spacing between categories */
+        margin-bottom: 0 !important; /* Remove vertical spacing between categories */
       }
       
       .footer-link-category h4 {
-        font-size: 0.95rem;
-        margin-bottom: 12px;
+        font-size: 0.9rem !important;
+        margin-bottom: 10px !important;
       }
       
       .footer-link-category li {
-        margin-bottom: 8px;
+        margin-bottom: 6px !important;
       }
       
       .footer-link-category a {
-        font-size: 0.85rem;
+        font-size: 0.8rem !important;
       }
       
       /* Ensure footer fits neatly on mobile */
       .footer-newsletter-section {
-        margin-bottom: 30px;
+        margin-bottom: 30px !important;
+        gap: 30px !important;
       }
       
       .footer {
-        padding: 40px 0 15px;
+        padding: 40px 0 15px !important;
+      }
+      
+      .newsletter-column,
+      .footer-links-column {
+        max-width: 100% !important;
+      }
+      
+      .input-group {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .email-input {
+        margin-bottom: 0;
       }
     }
 
     /* === VERY SMALL SCREENS ADJUSTMENT === */
     @media (max-width: 480px) {
       .footer-links-grid {
-        gap: 15px;
+        gap: 15px !important;
       }
       
       .footer-link-category h4 {
-        font-size: 0.9rem;
+        font-size: 0.85rem !important;
       }
       
       .footer-link-category a {
-        font-size: 0.8rem;
+        font-size: 0.75rem !important;
+      }
+      
+      .footer-newsletter-section {
+        gap: 25px !important;
       }
     }
 
