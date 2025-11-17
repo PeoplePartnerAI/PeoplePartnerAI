@@ -33,6 +33,7 @@
       --box-shadow-lg: 0 20px 60px rgba(15, 26, 58, 0.12);
       --glass-bg: rgba(255, 255, 255, 0.15);
       --glass-border: rgba(255, 255, 255, 0.2);
+      --lite-blue: #3b82f6;
     }
 
     .dark-mode {
@@ -46,6 +47,7 @@
       --box-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
       --glass-bg: rgba(44, 62, 111, 0.7);
       --glass-border: rgba(255, 255, 255, 0.1);
+      --lite-blue: #60a5fa;
     }
 
     * {
@@ -267,6 +269,89 @@
       transform: scale(1) rotate(0deg);
     }
 
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: var(--transition);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .dark-mode .mobile-menu-toggle {
+      color: var(--text-light);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-menu-toggle:hover {
+      color: var(--accent-gold);
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      padding: 20px;
+    }
+
+    .dark-mode .mobile-menu {
+      background: var(--dark-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .mobile-nav-links li {
+      margin-bottom: 15px;
+    }
+
+    .mobile-nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: var(--transition);
+      display: block;
+      padding: 10px 0;
+    }
+
+    .dark-mode .mobile-nav-links a {
+      color: var(--text-light);
+    }
+
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active {
+      color: var(--accent-gold);
+    }
+
+    .mobile-auth-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
     /* Buttons */
     .auth-buttons {
       display: flex;
@@ -435,6 +520,7 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       margin-bottom: 40px;
+      align-items: stretch;
     }
     
     .pricing-card {
@@ -501,6 +587,10 @@
     
     .pricing-price {
       margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 120px;
     }
     
     .price-amount {
@@ -546,7 +636,7 @@
     }
     
     .feature-icon {
-      margin-right: 12px;
+      margin-right: 8px;
       margin-top: 4px;
       flex-shrink: 0;
       width: 20px;
@@ -585,6 +675,18 @@
     
     .dark-mode .pricing-features li span {
       color: var(--text-light);
+    }
+    
+    .lite-text {
+      color: var(--lite-blue);
+      font-style: italic;
+      font-weight: 600;
+    }
+    
+    .essentials-text {
+      color: var(--lite-blue);
+      font-style: italic;
+      font-weight: 600;
     }
     
     .pricing-cta {
@@ -699,13 +801,13 @@
     .section-header {
       text-align: center;
       max-width: 800px;
-      margin: 0 auto 40px; /* Reduced margin */
+      margin: 0 auto 40px;
     }
     
     .section-header h2 {
-      font-size: 2.2rem; /* Reduced font size */
+      font-size: 2.2rem;
       font-weight: 800;
-      margin-bottom: 0.8rem; /* Reduced margin */
+      margin-bottom: 0.8rem;
       color: var(--primary-navy);
       letter-spacing: -0.02em;
     }
@@ -715,14 +817,14 @@
     }
     
     .section-header p {
-      font-size: 1rem; /* Reduced font size */
+      font-size: 1rem;
       color: var(--text-muted);
     }
     
     .faq-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px; /* Reduced gap */
+      gap: 24px;
       max-width: 1000px;
       margin: 0 auto;
     }
@@ -730,7 +832,7 @@
     .faq-item {
       background: var(--light-bg);
       border-radius: var(--border-radius);
-      padding: 20px; /* Reduced padding */
+      padding: 20px;
       transition: var(--transition);
       border: 2px solid rgba(0, 0, 0, 0.08);
     }
@@ -747,9 +849,9 @@
     }
     
     .faq-item h4 {
-      font-size: 1.1rem; /* Reduced font size */
+      font-size: 1.1rem;
       font-weight: 700;
-      margin-bottom: 10px; /* Reduced margin */
+      margin-bottom: 10px;
       color: var(--primary-navy);
     }
     
@@ -759,8 +861,8 @@
     
     .faq-item p {
       color: var(--text-muted);
-      line-height: 1.5; /* Reduced line height */
-      font-size: 0.9rem; /* Reduced font size */
+      line-height: 1.5;
+      font-size: 0.9rem;
     }
 
     /* NEW FOOTER STYLES */
@@ -1053,7 +1155,7 @@
       opacity: 1;
     }
 
-    /* PREMIUM CONTACT FORM STYLES - UPDATED */
+    /* EXACT HOMEPAGE CONTACT FORM STYLES */
     .contact-modal {
       display: none;
       position: fixed;
@@ -1075,8 +1177,9 @@
     .contact-form-container {
       background: white;
       border-radius: var(--border-radius-lg);
-      width: 380px;
-      height: 441px;
+      width: 320px;
+      height: auto;
+      min-height: 500px;
       box-shadow: 
         0 25px 50px -12px rgba(0, 0, 0, 0.25),
         0 0 0 1px rgba(255, 255, 255, 0.1);
@@ -1095,8 +1198,8 @@
     .contact-form-banner {
       background: linear-gradient(135deg, #0a1128 0%, #1e3a8a 40%, #2b4c7e 100%);
       color: white;
-      padding: 20px 30px;
-      text-align: center;
+      padding: 12px 20px;
+      text-align: left;
       position: relative;
       overflow: hidden;
     }
@@ -1114,7 +1217,7 @@
     }
 
     .contact-form-banner h3 {
-      font-size: 1.15rem;
+      font-size: 1rem;
       font-weight: 700;
       margin: 0;
       position: relative;
@@ -1123,16 +1226,16 @@
     .close-contact-form {
       background: none;
       border: none;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       cursor: pointer;
       color: var(--text-light);
       transition: var(--transition);
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 10px;
+      right: 10px;
       z-index: 2;
-      width: 32px;
-      height: 32px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1147,30 +1250,42 @@
     }
 
     .contact-form-content {
-      padding: 20px 28px 28px;
-      overflow-y: auto;
-      height: calc(100% - 70px);
+      padding: 20px;
+      height: calc(100% - 50px);
     }
 
+    /* Homepage greeting box styling */
     .contact-greeting {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
+      background: var(--light-blue);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
       text-align: center;
+      border-left: 4px solid var(--accent-gold);
     }
 
     .dark-mode .contact-greeting {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-greeting p {
+      margin: 0;
+      font-weight: 500;
+      color: var(--primary-navy);
+    }
+
+    .dark-mode .contact-greeting p {
       color: var(--text-light);
-      opacity: 0.8;
     }
 
     .form-group {
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      text-align: left;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       font-weight: 600;
       color: var(--text-dark);
       font-size: 0.85rem;
@@ -1184,8 +1299,8 @@
     .form-group textarea {
       width: 100%;
       padding: 10px 12px;
-      border: 2px solid rgba(0, 0, 0, 0.08);
-      border-radius: 10px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
       background: rgba(255, 255, 255, 0.9);
       color: var(--text-dark);
       font-size: 0.85rem;
@@ -1214,7 +1329,7 @@
     }
 
     .form-group textarea {
-      min-height: 85px;
+      min-height: 80px;
       resize: vertical;
     }
 
@@ -1224,12 +1339,12 @@
       background: linear-gradient(135deg, var(--accent-gold) 0%, #e6c12e 100%);
       color: var(--primary-navy);
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       font-weight: 700;
       font-size: 0.9rem;
       cursor: pointer;
       transition: var(--transition);
-      margin-top: 4px;
+      margin-top: 10px;
       box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
       position: relative;
       overflow: hidden;
@@ -1275,7 +1390,7 @@
 
       .contact-form-container {
         width: 90%;
-        max-width: 380px;
+        max-width: 320px;
       }
     }
 
@@ -1289,8 +1404,12 @@
         display: none;
       }
 
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
       .hero {
-        height: 450px; /* Adjusted for mobile */
+        height: 450px;
       }
 
       .hero h1 {
@@ -1359,11 +1478,11 @@
       }
 
       .contact-form-container {
-        height: 420px;
+        height: 500px;
       }
 
       .contact-form-content {
-        padding: 18px;
+        padding: 20px;
       }
     }
   </style>
@@ -1404,7 +1523,24 @@
               <i class="fas fa-moon"></i>
             </button>
           </div>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-links">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="hr-copilot.html">HR Copilot</a></li>
+        <li><a href="pricing.html" class="active">Pricing</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+      <div class="mobile-auth-buttons">
+        <a href="sign-in.html" class="btn btn-outline">Sign In</a>
+        <a href="create-account.html" class="btn btn-primary">Start Free Trial</a>
       </div>
     </div>
   </header>
@@ -1425,7 +1561,7 @@
     <div class="container">
       <div class="pricing-header">
         <h1>Find Your Perfect Plan</h1>
-        <p>All plans include a 14-day free trial with full access to all features</p>
+        <p>All plans include a 7-day free trial with full access to all features</p>
       </div>
       
       <!-- Billing Toggle -->
@@ -1439,21 +1575,21 @@
       </div>
       
       <div class="pricing-grid">
-        <!-- Lite Plan -->
+        <!-- NextGen Plan -->
         <div class="pricing-card">
-          <h3 class="pricing-tier">Lite</h3>
-          <p class="pricing-description">For solo founders or small businesses wanting basic HR clarity</p>
+          <h3 class="pricing-tier">NextGen</h3>
+          <p class="pricing-description">Kickstart your HR journey with essential tools</p>
           
           <div class="pricing-price">
-            <div class="price-amount">£52</div>
-            <div class="price-billing">per month, billed annually</div>
+            <div class="price-amount">£25</div>
+            <div class="price-billing">per month, billed monthly</div>
             <div class="vat-note">+ VAT</div>
           </div>
           
           <ul class="pricing-features">
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>75 Tokens per month</span>
+              <span>60 tokens per month</span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
@@ -1461,23 +1597,55 @@
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>Access to 5 HR templates</span>
+              <span>HR Copilot <span class="lite-text">Lite</span></span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>2 calculator tools</span>
+              <span>Situation Simulator <span class="lite-text">Lite</span></span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>Basic ACAS guidance</span>
+              <span>3 Templates <span class="essentials-text">Essentials</span></span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>Email support (72-hour response)</span>
+              <span>2 Manager Guides <span class="essentials-text">Essentials</span></span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>Situation Simulator</span>
+              <span>2 Calculators <span class="essentials-text">Essentials</span></span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Micro-Learning Sessions <span class="essentials-text">Essentials</span></span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>PeoplePartner Academy <span class="essentials-text">Essentials</span></span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Monthly Masterclass <span class="essentials-text">Essentials</span></span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Real-time compliance updates</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Email support</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-excluded">✗</div>
+              <span>Up to 30 Exports / month</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-excluded">✗</div>
+              <span>Personalised Recommendations</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-excluded">✗</div>
+              <span>Monthly HR Essentials Digest</span>
             </li>
             <li>
               <div class="feature-icon feature-excluded">✗</div>
@@ -1495,20 +1663,20 @@
         </div>
         
         <!-- Professional Plan -->
-        <div class="pricing-card featured">
+        <div class="pricing-card">
           <h3 class="pricing-tier">Professional</h3>
-          <p class="pricing-description">Best for small teams that want instant, practical HR support</p>
+          <p class="pricing-description">Streamline HR processes for growing businesses</p>
           
           <div class="pricing-price">
-            <div class="price-amount">£177</div>
-            <div class="price-billing">per month, billed annually</div>
+            <div class="price-amount">£175</div>
+            <div class="price-billing">per month, billed monthly</div>
             <div class="vat-note">+ VAT</div>
           </div>
           
           <ul class="pricing-features">
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>250 Tokens per month</span>
+              <span>200 tokens per month</span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
@@ -1516,15 +1684,43 @@
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>20+ HR templates</span>
+              <span>HR Copilot</span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>All calculators</span>
+              <span>Situation Simulator</span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>Situation Simulator access</span>
+              <span>Templates Library</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Manager Guides</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Conversation Scripts</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Basic ER Scripts</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Checklists & Quick Steps</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Basic Academy</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Monthly Masterclass</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Tools & Calculators</span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
@@ -1532,7 +1728,110 @@
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>Priority email + chat support</span>
+              <span>Up to 10 Exports / month</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-excluded">✗</div>
+              <span>Personalised Recommendations</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-excluded">✗</div>
+              <span>Monthly HR Essentials Digest</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-excluded">✗</div>
+              <span>Priority support</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-excluded">✗</div>
+              <span>Advanced analytics</span>
+            </li>
+          </ul>
+          
+          <div class="pricing-cta">
+            <a href="create-account.html" class="btn btn-primary">Start Free Trial</a>
+          </div>
+        </div>
+        
+        <!-- Business Plan -->
+        <div class="pricing-card featured">
+          <h3 class="pricing-tier">Business</h3>
+          <p class="pricing-description">Comprehensive HR support for scaling teams</p>
+          
+          <div class="pricing-price">
+            <div class="price-amount">£359</div>
+            <div class="price-billing">per month, billed monthly</div>
+            <div class="vat-note">+ VAT</div>
+          </div>
+          
+          <ul class="pricing-features">
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>600 Tokens per month</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>1 User License</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>HR Copilot</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Situation Simulator</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Templates Library</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Manager Guides</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Conversation Scripts</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Checklists & Quick Steps</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>PeoplePartner Academy</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Monthly Masterclass</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Tools & Calculators</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Real-time compliance updates</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Up to 30 Exports / month</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-excluded">✗</div>
+              <span>Personalised Recommendations</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Monthly HR Essentials Digest</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Risk Rating</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Priority email support</span>
             </li>
             <li>
               <div class="feature-icon feature-excluded">✗</div>
@@ -1549,33 +1848,77 @@
           </div>
         </div>
         
-        <!-- Business Plan -->
+        <!-- Enterprise Plan -->
         <div class="pricing-card">
-          <h3 class="pricing-tier">Business</h3>
-          <p class="pricing-description">For growing businesses managing multiple managers or teams</p>
+          <h3 class="pricing-tier">Enterprise</h3>
+          <p class="pricing-description">Advanced HR solutions for complex organizations</p>
           
           <div class="pricing-price">
-            <div class="price-amount">£369</div>
-            <div class="price-billing">per month, billed annually</div>
+            <div class="price-amount">£759</div>
+            <div class="price-billing">per month, billed monthly</div>
             <div class="vat-note">+ VAT</div>
           </div>
           
           <ul class="pricing-features">
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>600 Tokens per month</span>
+              <span>1000 Tokens per month</span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>Up to 5 User Licenses</span>
+              <span>1 User License</span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>Unlimited HR templates & calculators</span>
+              <span>HR Copilot</span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>Advanced Situation Simulator</span>
+              <span>Full Situation Simulator</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Templates Library</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Manager Guides</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Conversation Scripts</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Checklists & Quick Steps</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Full Academy</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Monthly Masterclass</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Tools & Calculators</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Real-time compliance updates</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Unlimited Exports / month</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Personalised Recommendations</span>
+            </li>
+            <li>
+              <div class="feature-icon feature-included">✓</div>
+              <span>Monthly HR Essentials Digest</span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
@@ -1590,67 +1933,12 @@
               <span>Priority support</span>
             </li>
             <li>
-              <div class="feature-icon feature-excluded">✗</div>
-              <span>Custom branding</span>
-            </li>
-            <li>
-              <div class="feature-icon feature-excluded">✗</div>
-              <span>Dedicated account manager</span>
-            </li>
-          </ul>
-          
-          <div class="pricing-cta">
-            <a href="create-account.html" class="btn btn-primary">Start Free Trial</a>
-          </div>
-        </div>
-        
-        <!-- Enterprise Plan -->
-        <div class="pricing-card">
-          <h3 class="pricing-tier">Enterprise</h3>
-          <p class="pricing-description">For large organisations replacing HR consultancy entirely</p>
-          
-          <div class="pricing-price">
-            <div class="price-amount">£797</div>
-            <div class="price-billing">per month, billed annually</div>
-            <div class="vat-note">+ VAT</div>
-          </div>
-          
-          <ul class="pricing-features">
-            <li>
               <div class="feature-icon feature-included">✓</div>
-              <span>1,500 Tokens per month</span>
-            </li>
-            <li>
-              <div class="feature-icon feature-included">✓</div>
-              <span>Unlimited User Licenses</span>
-            </li>
-            <li>
-              <div class="feature-icon feature-included">✓</div>
-              <span>Custom policy builder + branding</span>
-            </li>
-            <li>
-              <div class="feature-icon feature-included">✓</div>
-              <span>Advanced reporting & export</span>
-            </li>
-            <li>
-              <div class="feature-icon feature-included">✓</div>
-              <span>1:1 onboarding with HR expert</span>
-            </li>
-            <li>
-              <div class="feature-icon feature-included">✓</div>
-              <span>Quarterly compliance review</span>
+              <span>Custom Branding</span>
             </li>
             <li>
               <div class="feature-icon feature-included">✓</div>
               <span>Dedicated account manager</span>
-            </li>
-            <li>
-              <div class="feature-icon feature-included">✓</div>
-              <span>Custom integrations</span>
-            </li>
-            <li>
-              <div class="feature-icon feature-included">✓</div>
-              <span>White-label options</span>
             </li>
           </ul>
           
@@ -1661,7 +1949,7 @@
       </div>
       
       <div class="pricing-note">
-        <p>Annual billing saves around 20% compared to paying monthly.</p>
+        <p>Need a custom solution for your enterprise? <a href="#">Contact our sales team</a> for tailored pricing.</p>
       </div>
     </div>
   </section>
@@ -1771,34 +2059,46 @@
     </div>
   </footer>
 
-  <!-- PREMIUM CONTACT FORM MODAL -->
-  <div class="contact-modal" id="contactModal">
-    <div class="contact-form-container">
-      <div class="contact-form-banner">
-        <button class="close-contact-form" onclick="closeContactForm()">
-          <i class="fas fa-times"></i>
-        </button>
-        <h3>Hello! How can we help you today?</h3>
-      </div>
-      <div class="contact-form-content">
-        <form id="contactForm">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" placeholder="Please describe how we can help you..." required></textarea>
-          </div>
-          <button type="submit" class="submit-contact-btn">Send Message</button>
-        </form>
-      </div>
+  <!-- CONTACT FORM (Exact Homepage Version) -->
+<div class="contact-modal" id="contactModal">
+  <div class="contact-form-container">
+    <div class="contact-form-banner">
+      <button class="close-contact-form" onclick="closeContactForm()">
+        <i class="fas fa-times"></i>
+      </button>
+      <h3>Contact Us</h3>
     </div>
-  </div>
+
+    <div class="contact-form-content">
+
+      <!-- Greeting box (Homepage accurate) -->
+      <div class="contact-greeting">
+        <p>👋 Hi! Welcome to People Partner. How can I help you today?</p>
+      </div>
+
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Please describe how we can help you..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-contact-btn">Send Message</button>
+     </form>
+
+     </div>
+     </div>
+   </div>
+
 
   <!-- FLOATING CHAT BUBBLE -->
   <div class="floating-chat">
@@ -1832,6 +2132,21 @@
       }
     });
 
+    // === MOBILE MENU TOGGLE ===
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+        mobileMenu.classList.remove('active');
+      }
+    });
+
     // === CONTACT FORM FUNCTIONS ===
     function openContactForm() {
       document.getElementById('contactModal').classList.add('active');
@@ -1862,31 +2177,39 @@
     const priceAmounts = document.querySelectorAll('.price-amount');
     const priceBillings = document.querySelectorAll('.price-billing');
     
-    // Corrected pricing - annual prices with around 20% discount applied
-    const monthlyPrices = [45, 145, 299, 639]; // Standard monthly prices
-    const annualPrices = [52, 177, 369, 797];   // Monthly installment with 20% annual discount
+    // Updated pricing with 20% discount applied
+    const monthlyPrices = [25, 175, 359, 759]; // Monthly prices (with discount)
+    const annualPrices = [25, 219, 449, 949];  // Annual prices (20% lower)
+
+    // Set initial state to monthly billing
+    billingToggle.checked = false;
+    updatePricingDisplay(false);
 
     billingToggle.addEventListener('change', function() {
-      if (this.checked) {
-        // Switch to monthly billing (full price)
+      updatePricingDisplay(this.checked);
+    });
+
+    function updatePricingDisplay(isAnnual) {
+      if (isAnnual) {
+        // Switch to annual billing (20% higher)
         priceAmounts.forEach((amount, index) => {
-          amount.textContent = `£${monthlyPrices[index]}`;
+          amount.textContent = `£${annualPrices[index]}`;
         });
         
         priceBillings.forEach(billing => {
           billing.textContent = 'per month, billed annually';
         });
       } else {
-        // Switch to annual billing (discounted monthly rate)
+        // Switch to monthly billing (with 20% discount)
         priceAmounts.forEach((amount, index) => {
-          amount.textContent = `£${annualPrices[index]}`;
+          amount.textContent = `£${monthlyPrices[index]}`;
         });
         
         priceBillings.forEach(billing => {
           billing.textContent = 'per month, billed monthly';
         });
       }
-    });
+    }
 
     // Footer newsletter form submission
     document.querySelector('.footer .newsletter-form').addEventListener('submit', function(e) {
