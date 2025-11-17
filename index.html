@@ -206,7 +206,7 @@
     .header-actions {
       display: flex;
       align-items: center;
-      margin-left: -7mm; /* CHANGED: Moved 7mm to the left */
+      margin-left: -10px; /* CHANGED: Increased from -7mm to -10px for more left movement */
     }
 
     /* Mobile Menu Toggle - MOVED TO LEFT */
@@ -221,8 +221,8 @@
       cursor: pointer;
       padding: 0;
       z-index: 1001;
-      order: 0; /* CHANGED: Move to left */
-      margin-right: 40px; /* CHANGED: Added margin to separate from logo */
+      order: -1; /* CHANGED: Move to left */
+      margin-right: 16px; /* CHANGED: Added margin to separate from logo */
     }
 
     .mobile-menu-toggle span {
@@ -5036,6 +5036,3 @@
   </script>
 </body>
 </html>
-
-
-
