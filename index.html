@@ -6,9 +6,6 @@
   <title>People Partner AI | HR Clarity, Whenever You Need It</title>
   <meta name="description" content="Make confident people decisions with instant, ACAS-aligned answers, templates, and step-by-step guidance — all in one platform." />
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
-  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -211,7 +208,7 @@
       gap: 12px;
     }
 
-    /* Mobile Menu Toggle - LEFT POSITION */
+    /* Mobile Menu Toggle - LEFT POSITION - FIXED */
     .mobile-menu-toggle {
       display: none;
       flex-direction: column;
@@ -223,7 +220,6 @@
       cursor: pointer;
       padding: 0;
       z-index: 1001;
-      order: -1;
       margin-right: 16px;
     }
 
@@ -271,7 +267,7 @@
       visibility: visible;
     }
 
-    /* Mobile Menu - LEFT SIDED with Close Button */
+    /* Mobile Menu - LEFT SIDED with Close Button - FIXED */
     .mobile-menu {
       position: fixed;
       top: 0;
@@ -2654,10 +2650,12 @@
       
       .header-content {
         padding: 8px 0; /* Tighter vertical padding */
+        justify-content: flex-start; /* FIXED: Ensure proper alignment */
       }
       
       .logo {
         font-size: 1.1rem; /* Smaller logo text */
+        margin-right: auto; /* FIXED: Push other elements to the right */
       }
       
       .logo img {
@@ -2667,8 +2665,8 @@
       
       .mobile-menu-toggle {
         display: flex; /* Show hamburger menu */
-        order: -1; /* Move to left */
         margin-right: 16px;
+        order: -1; /* FIXED: Move to left side */
       }
       
       .nav-links {
@@ -3954,12 +3952,13 @@
   <header class="main-header" id="mainHeader">
     <div class="container header-content">
       <a href="index.html" class="logo">
-        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4IDBDOC4wNTg4IDAgMCA4LjA1ODggMCAxOEMwIDI3Ljk0MTIgOC4wNTg4IDM2IDE4IDM2QzI3Ljk0MTIgMzYgMzYgMjcuOTQxMiAzNiAxOEMzNiA4LjA1ODggMjcuOTQxMiAwIDE4IDBaTTE4IDMzLjVDOS40NDkgMzMuNSAyLjUgMjYuNTUxIDIuNSAxOEMyLjUgOS40NDkgOS40NDkgMi41IDE4IDIuNUMyNi41NTEgMi41IDMzLjUgOS40NDkgMzMuNSAxOEMzMy41IDI2LjU1MSAyNi41NTEgMzMuNSAxOCAzMy41WiIgZmlsbD0iIzFhMmI1NSIvPgo8cGF0aCBkPSJNMTggMTBDMTMuNTgxNyAxMCAxMCAxMy41ODE3IDEwIDE4QzEwIDIyLjQxODMgMTMuNTgxNyAyNiAxOCAyNkMyMi40MTgzIDI2IDI2IDIyLjQxODMgMjYgMTggQzI2IDEzLjU4MTcgMjIuNDE4MyAxMCAxOCAxMFpNMTggMjMuNUMxNS41MTQgMjMuNSAxMy41IDIxLjQ4NiAxMy41IDE5QzEzLjUgMTYuNTE0IDE1LjUxNCAxNC41IDE4IDE0LjVDMjAuNDg2IDE0LjUgMjIuNSAxNi41MTQgMjIuNSAxOUMyMi41IDIxLjQ4NiAyMC40ODYgMjMuNSAxOCAyMy41WiIgZmlsbD0iI2Q0YWYzNyIvPgo8L3N2Zz4K" alt="People Partner Logo">
+        <!-- Simple text logo as fallback -->
+        <span style="font-weight: 800; color: var(--primary-navy);">PP</span>
         People Partner
       </a>
       
       <div class="nav-container">
-        <!-- Mobile Menu Toggle - LEFT POSITION -->
+        <!-- Mobile Menu Toggle - LEFT POSITION - FIXED -->
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
           <span></span>
           <span></span>
@@ -3989,11 +3988,11 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
-    <!-- Mobile Menu - LEFT SIDED -->
+    <!-- Mobile Menu - LEFT SIDED - FIXED -->
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-menu-header">
         <div class="logo">
-          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4IDBDOC4wNTg4IDAgMCA4LjA1ODggMCAxOEMwIDI3Ljk0MTIgOC4wNTg4IDM2IDE4IDM2QzI3Ljk0MTIgMzYgMzYgMjcuOTQxMiAzNiAxOEMzNiA4LjA1ODggMjcuOTQxMiAwIDE4IDBaTTE4IDMzLjVDOS40NDkgMzMuNSAyLjUgMjYuNTUxIDIuNSAxOEMyLjUgOS40NDkgOS40NDkgMi41IDE4IDIuNUMyNi41NTEgMi41IDMzLjUgOS40NDkgMzMuNSAxOEMzMy41IDI2LjU1MSAyNi41NTEgMzMuNSAxOCAzMy41WiIgZmlsbD0iIzFhMmI1NSIvPgo8cGF0aCBkPSJNMTggMTBDMTMuNTgxNyAxMCAxMCAxMy41ODE3IDEwIDE4QzEwIDIyLjQxODMgMTMuNTgxNyAyNiAxOCAyNkMyMi40MTgzIDI2IDI2IDIyLjQxODMgMjYgMTggQzI2IDEzLjU4MTcgMjIuNDE4MyAxMCAxOCAxMFpNMTggMjMuNUMxNS41MTQgMjMuNSAxMy41IDIxLjQ4NiAxMy41IDE5QzEzLjUgMTYuNTE0IDE1LjUxNCAxNC41IDE4IDE0LjVDMjAuNDg2IDE0LjUgMjIuNSAxNi41MTQgMjIuNSAxOUMyMi41IDIxLjQ4NiAyMC40ODYgMjMuNSAxOCAyMy41WiIgZmlsbD0iI2Q0YWYzNyIvPgo8L3N2Zz4K" alt="People Partner Logo">
+          <span style="font-weight: 800; color: var(--primary-navy);">PP</span>
           People Partner
         </div>
         <button class="mobile-menu-close" id="mobileMenuClose">
@@ -4056,7 +4055,7 @@
             <div class="copilot-header">
               <div class="copilot-title">
                 <div class="copilot-logo">
-                  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4IDBDOC4wNTg4IDAgMCA4LjA1ODggMCAxOEMwIDI3Ljk0MTIgOC4wNTg4IDM2IDE4IDM2QzI3Ljk0MTIgMzYgMzYgMjcuOTQxMiAzNiAxOEMzNiA4LjA1ODggMjcuOTQxMiAwIDE4IDBaTTE4IDMzLjVDOS40NDkgMzMuNSAyLjUgMjYuNTUxIDIuNSAxOEMyLjUgOS40NDkgOS40NDkgMi41IDE4IDIuNUMyNi41NTEgMi41IDMzLjUgOS40NDkgMzMuNSAxOEMzMy41IDI2LjU1MSAyNi41NTEgMzMuNSAxOCAzMy41WiIgZmlsbD0iIzFhMmI1NSIvPgo8cGF0aCBkPSJNMTggMTBDMTMuNTgxNyAxMCAxMCAxMy41ODE3IDEwIDE4QzEwIDIyLjQxODMgMTMuNTgxNyAyNiAxOCAyNkMyMi40MTgzIDI2IDI2IDIyLjQxODMgMjYgMTggQzI2IDEzLjU4MTcgMjIuNDE4MyAxMCAxOCAxMFpNMTggMjMuNUMxNS41MTQgMjMuNSAxMy41IDIxLjQ4NiAxMy41IDE5QzEzLjUgMTYuNTE0IDE1LjUxNCAxNC41IDE4IDE0LjVDMjAuNDg2IDE0LjUgMjIuNSAxNi41MTQgMjIuNSAxOUMyMi41IDIxLjQ4NiAyMC40ODYgMjMuNSAxOCAyMy41WiIgZmlsbD0iI2Q0YWYzNyIvPgo8L3N2Zz4K" alt="People Partner AI" class="copilot-logo-icon">
+                  <span style="font-weight: 800; color: white;">PP</span>
                   <span>People Partner HR Copilot</span>
                 </div>
               </div>
@@ -4265,7 +4264,7 @@
               <div class="dashboard-header">
                 <div>
                   <h1 class="header-title">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4IDBDOC4wNTg4IDAgMCA4LjA1ODggMCAxOEMwIDI3Ljk0MTIgOC4wNTg4IDM2IDE4IDM2QzI3Ljk0MTIgMzYgMzYgMjcuOTQxMiAzNiAxOEMzNiA4LjA1ODggMjcuOTQxMiAwIDE4IDBaTTE4IDMzLjVDOS40NDkgMzMuNSAyLjUgMjYuNTUxIDIuNSAxOEMyLjUgOS40NDkgOS40NDkgMi41IDE4IDIuNUMyNi41NTEgMi41IDMzLjUgOS40NDkgMzMuNSAxOEMzMy41IDI2LjU1MSAyNi41NTEgMzMuNSAxOCAzMy41WiIgZmlsbD0iIzFhMmI1NSIvPgo8cGF0aCBkPSJNMTggMTBDMTMuNTgxNyAxMCAxMCAxMy41ODE3IDEwIDE4QzEwIDIyLjQxODMgMTMuNTgxNyAyNiAxOCAyNkMyMi40MTgzIDI2IDI2IDIyLjQxODMgMjYgMTggQzI2IDEzLjU4MTcgMjIuNDE4MyAxMCAxOCAxMFpNMTggMjMuNUMxNS41MTQgMjMuNSAxMy41IDIxLjQ4NiAxMy41IDE5QzEzLjUgMTYuNTE0IDE1LjUxNCAxNC41IDE4IDE0LjVDMjAuNDg2IDE0LjUgMjIuNSAxNi41MTQgMjIuNSAxOUMyMi41IDIxLjQ4NiAyMC40ODYgMjMuNSAxOCAyMy41WiIgZmlsbD0iI2Q0YWYzNyIvPgo8L3N2Zz4K" alt="People Partner AI" class="header-logo-icon">
+                    <span style="font-weight: 800;">PP</span>
                     People Partner Dashboard
                   </h1>
                   <div class="current-date" id="current-date">Loading date...</div>
