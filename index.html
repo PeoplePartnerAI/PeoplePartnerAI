@@ -134,7 +134,7 @@
       display: flex;
       align-items: center;
       font-weight: 800;
-      font-size: 1.6rem;
+      font-size: 1.68rem; /* CHANGED: Increased by 5% from 1.6rem */
       color: var(--primary-navy);
       text-decoration: none;
       transition: var(--transition);
@@ -206,6 +206,7 @@
     .header-actions {
       display: flex;
       align-items: center;
+      margin-left: -7mm; /* CHANGED: Moved 7mm to the left */
     }
 
     /* Mobile Menu Toggle - MOVED TO LEFT */
@@ -220,8 +221,8 @@
       cursor: pointer;
       padding: 0;
       z-index: 1001;
-      order: -1; /* Move to left */
-      margin-right: 16px;
+      order: -1; /* CHANGED: Move to left */
+      margin-right: 16px; /* CHANGED: Added margin to separate from logo */
     }
 
     .mobile-menu-toggle span {
