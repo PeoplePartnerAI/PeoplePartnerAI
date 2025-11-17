@@ -105,7 +105,7 @@
       color: var(--accent-gold);
     }
 
-    /* Header Styles - UPDATED TO MATCH PRICING PAGE */
+    /* Header Styles - OPTIMIZED FOR MOBILE */
     .main-header {
       position: sticky;
       top: 0;
@@ -116,6 +116,7 @@
       z-index: 1000;
       transition: var(--transition);
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      height: 70px;
     }
 
     .dark-mode .main-header {
@@ -127,14 +128,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
+      padding: 12px 0;
+      height: 100%;
     }
 
     .logo {
       display: flex;
       align-items: center;
       font-weight: 800;
-      font-size: 1.68rem; /* CHANGED: Increased by 5% from 1.6rem */
+      font-size: 1.5rem;
       color: var(--primary-navy);
       text-decoration: none;
       transition: var(--transition);
@@ -206,10 +208,10 @@
     .header-actions {
       display: flex;
       align-items: center;
-      margin-left: -10px; /* CHANGED: Increased from -7mm to -10px for more left movement */
+      gap: 12px;
     }
 
-    /* Mobile Menu Toggle - MOVED TO LEFT */
+    /* Mobile Menu Toggle - LEFT POSITION */
     .mobile-menu-toggle {
       display: none;
       flex-direction: column;
@@ -221,8 +223,8 @@
       cursor: pointer;
       padding: 0;
       z-index: 1001;
-      order: -1; /* CHANGED: Move to left */
-      margin-right: 16px; /* CHANGED: Added margin to separate from logo */
+      order: -1;
+      margin-right: 16px;
     }
 
     .mobile-menu-toggle span {
@@ -385,7 +387,6 @@
       border: none;
       cursor: pointer;
       font-size: 1.2rem;
-      margin-left: 20px;
       color: var(--text-dark);
       transition: var(--transition);
       width: 44px;
@@ -3949,16 +3950,16 @@
     </div>
   </div>
 
-  <!-- Main Header - UPDATED TO MATCH PRICING PAGE -->
+  <!-- Main Header - OPTIMIZED FOR MOBILE -->
   <header class="main-header" id="mainHeader">
     <div class="container header-content">
       <a href="index.html" class="logo">
-        <img src="assets/img/logo.png" alt="People Partner Logo">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4IDBDOC4wNTg4IDAgMCA4LjA1ODggMCAxOEMwIDI3Ljk0MTIgOC4wNTg4IDM2IDE4IDM2QzI3Ljk0MTIgMzYgMzYgMjcuOTQxMiAzNiAxOEMzNiA4LjA1ODggMjcuOTQxMiAwIDE4IDBaTTE4IDMzLjVDOS40NDkgMzMuNSAyLjUgMjYuNTUxIDIuNSAxOEMyLjUgOS40NDkgOS40NDkgMi41IDE4IDIuNUMyNi41NTEgMi41IDMzLjUgOS40NDkgMzMuNSAxOEMzMy41IDI2LjU1MSAyNi41NTEgMzMuNSAxOCAzMy41WiIgZmlsbD0iIzFhMmI1NSIvPgo8cGF0aCBkPSJNMTggMTBDMTMuNTgxNyAxMCAxMCAxMy41ODE3IDEwIDE4QzEwIDIyLjQxODMgMTMuNTgxNyAyNiAxOCAyNkMyMi40MTgzIDI2IDI2IDIyLjQxODMgMjYgMTggQzI2IDEzLjU4MTcgMjIuNDE4MyAxMCAxOCAxMFpNMTggMjMuNUMxNS41MTQgMjMuNSAxMy41IDIxLjQ4NiAxMy41IDE5QzEzLjUgMTYuNTE0IDE1LjUxNCAxNC41IDE4IDE0LjVDMjAuNDg2IDE0LjUgMjIuNSAxNi41MTQgMjIuNSAxOUMyMi41IDIxLjQ4NiAyMC40ODYgMjMuNSAxOCAyMy41WiIgZmlsbD0iI2Q0YWYzNyIvPgo8L3N2Zz4K" alt="People Partner Logo">
         People Partner
       </a>
       
       <div class="nav-container">
-        <!-- Mobile Menu Toggle - NOW ON LEFT -->
+        <!-- Mobile Menu Toggle - LEFT POSITION -->
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
           <span></span>
           <span></span>
@@ -3992,7 +3993,7 @@
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-menu-header">
         <div class="logo">
-          <img src="assets/img/logo.png" alt="People Partner Logo">
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4IDBDOC4wNTg4IDAgMCA4LjA1ODggMCAxOEMwIDI3Ljk0MTIgOC4wNTg4IDM2IDE4IDM2QzI3Ljk0MTIgMzYgMzYgMjcuOTQxMiAzNiAxOEMzNiA4LjA1ODggMjcuOTQxMiAwIDE4IDBaTTE4IDMzLjVDOS40NDkgMzMuNSAyLjUgMjYuNTUxIDIuNSAxOEMyLjUgOS40NDkgOS40NDkgMi41IDE4IDIuNUMyNi41NTEgMi41IDMzLjUgOS40NDkgMzMuNSAxOEMzMy41IDI2LjU1MSAyNi41NTEgMzMuNSAxOCAzMy41WiIgZmlsbD0iIzFhMmI1NSIvPgo8cGF0aCBkPSJNMTggMTBDMTMuNTgxNyAxMCAxMCAxMy41ODE3IDEwIDE4QzEwIDIyLjQxODMgMTMuNTgxNyAyNiAxOCAyNkMyMi40MTgzIDI2IDI2IDIyLjQxODMgMjYgMTggQzI2IDEzLjU4MTcgMjIuNDE4MyAxMCAxOCAxMFpNMTggMjMuNUMxNS41MTQgMjMuNSAxMy41IDIxLjQ4NiAxMy41IDE5QzEzLjUgMTYuNTE0IDE1LjUxNCAxNC41IDE4IDE0LjVDMjAuNDg2IDE0LjUgMjIuNSAxNi41MTQgMjIuNSAxOUMyMi41IDIxLjQ4NiAyMC40ODYgMjMuNSAxOCAyMy41WiIgZmlsbD0iI2Q0YWYzNyIvPgo8L3N2Zz4K" alt="People Partner Logo">
           People Partner
         </div>
         <button class="mobile-menu-close" id="mobileMenuClose">
@@ -4055,7 +4056,7 @@
             <div class="copilot-header">
               <div class="copilot-title">
                 <div class="copilot-logo">
-                  <img src="assets/img/logo.png" alt="People Partner AI" class="copilot-logo-icon">
+                  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4IDBDOC4wNTg4IDAgMCA4LjA1ODggMCAxOEMwIDI3Ljk0MTIgOC4wNTg4IDM2IDE4IDM2QzI3Ljk0MTIgMzYgMzYgMjcuOTQxMiAzNiAxOEMzNiA4LjA1ODggMjcuOTQxMiAwIDE4IDBaTTE4IDMzLjVDOS40NDkgMzMuNSAyLjUgMjYuNTUxIDIuNSAxOEMyLjUgOS40NDkgOS40NDkgMi41IDE4IDIuNUMyNi41NTEgMi41IDMzLjUgOS40NDkgMzMuNSAxOEMzMy41IDI2LjU1MSAyNi41NTEgMzMuNSAxOCAzMy41WiIgZmlsbD0iIzFhMmI1NSIvPgo8cGF0aCBkPSJNMTggMTBDMTMuNTgxNyAxMCAxMCAxMy41ODE3IDEwIDE4QzEwIDIyLjQxODMgMTMuNTgxNyAyNiAxOCAyNkMyMi40MTgzIDI2IDI2IDIyLjQxODMgMjYgMTggQzI2IDEzLjU4MTcgMjIuNDE4MyAxMCAxOCAxMFpNMTggMjMuNUMxNS41MTQgMjMuNSAxMy41IDIxLjQ4NiAxMy41IDE5QzEzLjUgMTYuNTE0IDE1LjUxNCAxNC41IDE4IDE0LjVDMjAuNDg2IDE0LjUgMjIuNSAxNi41MTQgMjIuNSAxOUMyMi41IDIxLjQ4NiAyMC40ODYgMjMuNSAxOCAyMy41WiIgZmlsbD0iI2Q0YWYzNyIvPgo8L3N2Zz4K" alt="People Partner AI" class="copilot-logo-icon">
                   <span>People Partner HR Copilot</span>
                 </div>
               </div>
@@ -4264,7 +4265,7 @@
               <div class="dashboard-header">
                 <div>
                   <h1 class="header-title">
-                    <img src="assets/img/logo.png" alt="People Partner AI" class="header-logo-icon">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4IDBDOC4wNTg4IDAgMCA4LjA1ODggMCAxOEMwIDI3Ljk0MTIgOC4wNTg4IDM2IDE4IDM2QzI3Ljk0MTIgMzYgMzYgMjcuOTQxMiAzNiAxOEMzNiA4LjA1ODggMjcuOTQxMiAwIDE4IDBaTTE4IDMzLjVDOS40NDkgMzMuNSAyLjUgMjYuNTUxIDIuNSAxOEMyLjUgOS40NDkgOS40NDkgMi41IDE4IDIuNUMyNi41NTEgMi41IDMzLjUgOS40NDkgMzMuNSAxOEMzMy41IDI2LjU1MSAyNi41NTEgMzMuNSAxOCAzMy41WiIgZmlsbD0iIzFhMmI1NSIvPgo8cGF0aCBkPSJNMTggMTBDMTMuNTgxNyAxMCAxMCAxMy41ODE3IDEwIDE4QzEwIDIyLjQxODMgMTMuNTgxNyAyNiAxOCAyNkMyMi40MTgzIDI2IDI2IDIyLjQxODMgMjYgMTggQzI2IDEzLjU4MTcgMjIuNDE4MyAxMCAxOCAxMFpNMTggMjMuNUMxNS41MTQgMjMuNSAxMy41IDIxLjQ4NiAxMy41IDE5QzEzLjUgMTYuNTE0IDE1LjUxNCAxNC41IDE4IDE0LjVDMjAuNDg2IDE0LjUgMjIuNSAxNi41MTQgMjIuNSAxOUMyMi41IDIxLjQ4NiAyMC40ODYgMjMuNSAxOCAyMy41WiIgZmlsbD0iI2Q0YWYzNyIvPgo8L3N2Zz4K" alt="People Partner AI" class="header-logo-icon">
                     People Partner Dashboard
                   </h1>
                   <div class="current-date" id="current-date">Loading date...</div>
@@ -4648,7 +4649,7 @@
   <script>
     // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
-      // Mobile menu functionality - UPDATED FOR LEFT-SIDED MENU
+      // Mobile menu functionality - OPTIMIZED FOR MOBILE
       const mobileMenuToggle = document.getElementById('mobileMenuToggle');
       const mobileMenu = document.getElementById('mobileMenu');
       const mobileMenuClose = document.getElementById('mobileMenuClose');
