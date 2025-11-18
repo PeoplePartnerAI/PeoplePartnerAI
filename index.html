@@ -1011,6 +1011,11 @@
       transform: rotateY(180deg);
     }
 
+    /* FIX FOR MOBILE: Add touch-friendly flip */
+    .flip-card.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
     .flip-front, .flip-back {
       position: absolute;
       width: 100%;
@@ -2695,7 +2700,6 @@
         width: 40px;
         height: 40px;
         margin-left: 8px;
-       margin-right: 4px; /* ADD THIS */
       }
       
       /* === MOBILE MENU STYLES === */
@@ -3712,7 +3716,16 @@
       padding: 14px 0; /* Reduced from ~18px */
     }
 
-        .nav-links {
+    .logo {
+      font-size: 17px; /* Reduced from 1.6rem */
+    }
+
+    .logo img {
+      height: 34px; /* Reduced from 36px */
+      margin-right: 10px; /* Slightly tighter */
+    }
+
+    .nav-links {
       margin-right: 24px; /* Tighter spacing */
     }
 
@@ -3724,16 +3737,6 @@
       font-size: 0.95rem; /* Slightly smaller */
       padding: 6px 0; /* Tighter vertical padding */
     }
-    .logo {
-      font-size: 17px; /* Reduced from 1.6rem */
-    }
-
-    .logo img {
-      height: 34px; /* Reduced from 36px */
-      margin-right: 10px; /* Slightly tighter */
-    }
-
-    
 
     .auth-buttons {
       gap: 10px; /* Tighter button spacing */
@@ -3748,7 +3751,7 @@
     .theme-toggle {
       width: 40px; /* More compact */
       height: 40px;
-      margin-left: 6px; /* Tighter spacing */
+      margin-left: 12px; /* Tighter spacing */
     }
 
     /* Mobile Header - Maximum 56px height */
@@ -3941,12 +3944,6 @@
     margin-bottom: 0 !important;
   }
 }
-@media (max-width: 768px) {
-  .theme-toggle {
-    margin-right: 4px !important;
-  }
-}
-
   </style>
 </head>
 <body>
@@ -5043,9 +5040,19 @@
       scrollRevealElements.forEach(el => {
         observer.observe(el);
       });
+
+      // FIX FOR MOBILE: Add touch-friendly flip card functionality
+      const flipCards = document.querySelectorAll('.flip-card');
+      
+      flipCards.forEach(card => {
+        card.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+            // Toggle flipped state on mobile
+            this.classList.toggle('flipped');
+          }
+        });
+      });
     });
   </script>
 </body>
 </html>
-
-
