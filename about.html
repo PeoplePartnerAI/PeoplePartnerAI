@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | People Partner AI</title>
+  <meta name="description" content="Learn about People Partner AI - our mission, team, and commitment to transforming HR management with AI-powered solutions." />
+  
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-navy: #1a2b55;
+      --secondary-navy: #1a2b55;
+      --accent-gold: #d4af37;
+      --icon-gold: #e0bc4a;
+      --light-gold: #f4e8c1;
+      --light-blue: #e6f0ff;
+      --light-bg: #f8f9fa;
+      --dark-bg: #0a1128;
+      --text-light: #ffffff;
+      --text-dark: #333333;
+      --text-muted: #6c757d;
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --border-radius: 12px;
+      --border-radius-lg: 20px;
+      --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --box-shadow-lg: 0 20px 60px rgba(15, 26, 58, 0.12);
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
+
+    .dark-mode {
+      --primary-navy: #1a2b55;
+      --secondary-navy: #2c3e6f;
+      --light-bg: #1a2b55;
+      --text-light: #f8f9fa;
+      --text-dark: #e9ecef;
+      --text-muted: #adb5bd;
+      --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      --box-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+      --glass-bg: rgba(44, 62, 111, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'DM Sans', Inter, system-ui, -apple-system;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      transition: var(--transition);
+      line-height: 1.6;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Utility Bar */
+    .utility-bar {
+      background: var(--primary-navy);
+      color: var(--text-light);
+      padding: 10px 0;
+      font-size: 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .utility-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .utility-usp {
+      display: flex;
+      align-items: center;
+    }
+
+    .utility-usp i {
+      margin-right: 8px;
+      color: var(--icon-gold);
+    }
+
+    /* Main Header */
+    .main-header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: var(--transition);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .dark-mode .main-header {
+      background-color: rgba(10, 17, 40, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--primary-navy);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .dark-mode .logo {
+      color: var(--text-light);
+    }
+
+    .logo:hover {
+      transform: translateY(-1px);
+    }
+
+    .logo img {
+      height: 36px;
+      margin-right: 12px;
+    }
+
+    /* Navigation */
+    .nav-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin-right: 28px;
+    }
+
+    .nav-links li {
+      margin: 0 18px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: var(--transition);
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .dark-mode .nav-links a {
+      color: var(--text-light);
+    }
+
+    .nav-links a.active {
+      color: var(--text-dark);
+    }
+
+    .dark-mode .nav-links a.active {
+      color: var(--text-light);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-right: 20px;
+      color: var(--text-dark);
+      transition: var(--transition);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .dark-mode .theme-toggle {
+      color: var(--text-light);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .theme-toggle:hover {
+      color: var(--accent-gold);
+      transform: rotate(15deg);
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    .theme-toggle i {
+      position: absolute;
+      transition: var(--transition);
+      font-size: 1.3rem;
+    }
+
+    .theme-toggle .fa-sun {
+      color: #FFD700;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .dark-mode .theme-toggle .fa-sun {
+      opacity: 0;
+      transform: scale(0) rotate(90deg);
+    }
+
+    .theme-toggle .fa-moon {
+      color: #f8f9fa;
+      opacity: 0;
+      transform: scale(0) rotate(-90deg);
+    }
+
+    .dark-mode .theme-toggle .fa-moon {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    /* Buttons */
+    .auth-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      font-size: 0.95rem;
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.7s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary-navy);
+      color: var(--primary-navy);
+      background: transparent;
+    }
+
+    .dark-mode .btn-outline {
+      border-color: var(--text-light);
+      color: var(--text-light);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(15, 26, 58, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+      background: var(--accent-gold);
+      color: var(--primary-navy);
+      border: none;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    /* PREMIUM HERO SECTION */
+    .hero {
+      padding: 140px 0 120px;
+      background: linear-gradient(135deg, #0a1128 0%, #1e3a8a 40%, #2b4c7e 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.03"><polygon points="0,0 1000,100 1000,0"/></svg>'),
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(30, 58, 138, 0.15) 0%, transparent 50%),
+        linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+      background-size: cover;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-pretitle {
+      display: inline-block;
+      color: var(--accent-gold);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* MISSION SECTION */
+    .mission-section {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .dark-mode .mission-section {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--primary-navy);
+      letter-spacing: -0.02em;
+    }
+
+    .dark-mode .section-header h2 {
+      color: var(--text-light);
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+
+    .mission-card {
+      background: var(--light-bg);
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--border-radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--box-shadow);
+    }
+
+    .dark-mode .mission-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .mission-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-6px);
+      box-shadow: var(--box-shadow-lg);
+    }
+
+    .mission-icon {
+      font-size: 56px;
+      margin-bottom: 20px;
+    }
+
+    .mission-card h4 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .dark-mode .mission-card h4 {
+      color: var(--text-light);
+    }
+
+    .mission-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* STORY SECTION */
+    .story-section {
+      padding: 100px 0;
+      background: var(--light-bg);
+    }
+
+    .story-content {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .story-text {
+      flex: 1;
+    }
+
+    .story-text h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: var(--primary-navy);
+      letter-spacing: -0.02em;
+    }
+
+    .dark-mode .story-text h2 {
+      color: var(--text-light);
+    }
+
+    .story-text p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .story-image {
+      flex: 1;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--box-shadow-lg);
+    }
+
+    .story-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* TEAM SECTION */
+    .team-section {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .dark-mode .team-section {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .team-member {
+      background: var(--light-bg);
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--border-radius-lg);
+      padding: 32px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--box-shadow);
+    }
+
+    .dark-mode .team-member {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .team-member:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-6px);
+      box-shadow: var(--box-shadow-lg);
+    }
+
+    .member-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      background: var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: var(--primary-navy);
+    }
+
+    .dark-mode .member-photo {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+    }
+
+    .team-member h4 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .dark-mode .team-member h4 {
+      color: var(--text-light);
+    }
+
+    .team-member .role {
+      font-size: 16px;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .team-member p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* VALUES SECTION */
+    .values-section {
+      padding: 100px 0;
+      background: var(--light-bg);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .value-card {
+      background: white;
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--border-radius-lg);
+      padding: 32px;
+      transition: var(--transition);
+      box-shadow: var(--box-shadow);
+    }
+
+    .dark-mode .value-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .value-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-6px);
+      box-shadow: var(--box-shadow-lg);
+    }
+
+    .value-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .value-icon {
+      font-size: 48px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .value-card h4 {
+      font-size: 20px;
+      margin-bottom: 0;
+      color: var(--text-dark);
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    .dark-mode .value-card h4 {
+      color: var(--text-light);
+    }
+
+    .value-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: white;
+      color: var(--text-dark);
+      padding: 70px 0 20px;
+      position: relative;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-mode .footer {
+      background-color: var(--light-bg);
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    }
+
+    .footer-newsletter-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 80px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-column {
+      flex: 1;
+      max-width: 550px;
+    }
+
+    .newsletter-column h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary-navy);
+    }
+
+    .dark-mode .newsletter-column h3 {
+      color: var(--text-light);
+    }
+
+    .newsletter-column p {
+      font-size: 1rem;
+      margin-bottom: 24px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .newsletter-form {
+      width: 100%;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 12px;
+      max-width: 450px;
+    }
+
+    .email-input {
+      flex: 1;
+      padding: 14px 18px;
+      background-color: #f8f9fa;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      color: var(--text-dark);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .dark-mode .email-input {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+    }
+
+    .email-input:focus {
+      outline: none;
+      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+      background-color: white;
+    }
+
+    .dark-mode .email-input:focus {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .subscribe-btn {
+      background-color: var(--accent-gold);
+      color: var(--primary-navy);
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+    }
+
+    .subscribe-btn:hover {
+      background-color: #e6b12f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+    }
+
+    .footer-links-column {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+    }
+
+    .footer-link-category h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: var(--primary-navy);
+    }
+
+    .dark-mode .footer-link-category h4 {
+      color: var(--text-light);
+    }
+
+    .footer-link-category ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-link-category li {
+      margin-bottom: 14px;
+    }
+
+    .footer-link-category a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: var(--transition);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .footer-link-category a:hover {
+      color: var(--accent-gold);
+    }
+
+    .footer-link-category a:hover::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--accent-gold);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .dark-mode .footer-bottom {
+      border-top-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 18px;
+    }
+
+    .social-icons a {
+      color: var(--text-muted);
+      font-size: 1.3rem;
+      transition: var(--transition);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .dark-mode .social-icons a {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .social-icons a:hover {
+      color: var(--accent-gold);
+      background: rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .dark-mode .social-icons a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: right;
+    }
+
+    .copyright p {
+      margin: 0;
+    }
+
+    /* FLOATING CHAT BUBBLE */
+    .floating-chat {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+    }
+
+    .chat-bubble {
+      width: 70px;
+      height: 70px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 3px solid white;
+    }
+
+    .chat-bubble::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .chat-bubble:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.8);
+    }
+
+    .chat-bubble:hover::before {
+      opacity: 1;
+    }
+
+    .chat-bubble::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      padding: 3px;
+      background: var(--accent-gold);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .chat-bubble:hover::after {
+      opacity: 1;
+    }
+
+    /* PREMIUM CONTACT FORM STYLES - UPDATED */
+    .contact-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 30px;
+    }
+
+    .contact-modal.active {
+      display: flex;
+    }
+
+    .contact-form-container {
+      background: white;
+      border-radius: var(--border-radius-lg);
+      width: 380px;
+      height: 441px;
+      box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .dark-mode .contact-form-container {
+      background: rgba(26, 43, 85, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-form-banner {
+      background: linear-gradient(135deg, #0a1128 0%, #1e3a8a 40%, #2b4c7e 100%);
+      color: white;
+      padding: 20px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
+    }
+
+    .contact-form-banner h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0;
+      position: relative;
+    }
+
+    .close-contact-form {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: var(--text-light);
+      transition: var(--transition);
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 2;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .close-contact-form:hover {
+      color: var(--accent-gold);
+      transform: rotate(90deg);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form-content {
+      padding: 20px 28px 28px;
+      overflow-y: auto;
+      height: calc(100% - 70px);
+    }
+
+    .contact-greeting {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .dark-mode .contact-greeting {
+      color: var(--text-light);
+      opacity: 0.8;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 0.85rem;
+    }
+
+    .dark-mode .form-group label {
+      color: var(--text-light);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text-dark);
+      font-size: 0.85rem;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-mode .form-group input,
+    .dark-mode .form-group textarea {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: var(--text-light);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+      background: white;
+    }
+
+    .dark-mode .form-group input:focus,
+    .dark-mode .form-group textarea:focus {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .form-group textarea {
+      min-height: 85px;
+      resize: vertical;
+    }
+
+    .submit-contact-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #e6c12e 100%);
+      color: var(--primary-navy);
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 4px;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .submit-contact-btn:active {
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .mission-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-newsletter-section {
+        gap: 50px;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .contact-modal {
+        justify-content: center;
+        padding-right: 0;
+      }
+
+      .contact-form-container {
+        width: 90%;
+        max-width: 380px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .nav-links,
+      .auth-buttons {
+        display: none;
+      }
+
+      .hero {
+        padding: 80px 0 60px;
+      }
+
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 90%;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-content {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .footer-newsletter-section {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .newsletter-column,
+      .footer-links-column {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .input-group {
+        flex-direction: column;
+      }
+
+      .email-input {
+        margin-bottom: 12px;
+      }
+
+      .floating-chat {
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .chat-bubble {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+
+      .contact-form-container {
+        height: 420px;
+      }
+
+      .contact-form-content {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <div class="container utility-content">
+      <div class="utility-usp">
+        <i class="fas fa-star"></i>
+        <span>What's New: HR Situation Simulator now available!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header" id="mainHeader">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.png" alt="People Partner Logo">
+        People Partner
+      </a>
+      
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="hr-copilot.html">HR Copilot</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+        </ul>
+        
+        <div class="header-actions">
+          <div class="auth-buttons">
+            <a href="sign-in.html" class="btn btn-outline">Sign In</a>
+            <a href="create-account.html" class="btn btn-primary">Start Free Trial</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PREMIUM HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="section-pretitle">About People Partner AI</span>
+        <h1>Transforming HR with<br>Intelligent Solutions</h1>
+        <p>We're on a mission to make HR management accessible, <br>efficient, and compliant for businesses of all sizes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION SECTION -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Mission & Vision</h2>
+        <p>Empowering businesses with AI-driven HR solutions that simplify complexity and drive growth</p>
+      </div>
+
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-icon">🎯</div>
+          <h4>Our Mission</h4>
+          <p>To democratize expert HR knowledge through AI, making professional HR support accessible to every business regardless of size or budget.</p>
+        </div>
+
+        <div class="mission-card">
+          <div class="mission-icon">🔮</div>
+          <h4>Our Vision</h4>
+          <p>A world where every business leader can confidently navigate HR challenges with the support of intelligent, accessible technology.</p>
+        </div>
+
+        <div class="mission-card">
+          <div class="mission-icon">💡</div>
+          <h4>Our Approach</h4>
+          <p>Combining deep HR expertise with cutting-edge AI to create practical solutions that solve real-world business challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-content">
+        <div class="story-text">
+          <h2>Our Story</h2>
+          <p>People Partner AI was founded in 2023 by a team of HR professionals and technology experts who recognized a critical gap in the market. Small and medium-sized businesses were struggling to access affordable, reliable HR support, while larger organizations faced inefficiencies in their HR processes.</p>
+          <p>We saw an opportunity to leverage artificial intelligence to bridge this gap, creating a platform that combines the expertise of seasoned HR professionals with the scalability and accessibility of modern technology.</p>
+          <p>Today, we serve thousands of businesses across the UK and beyond, helping them navigate complex employment legislation, streamline HR processes, and create better workplaces for their teams.</p>
+        </div>
+        <div class="story-image">
+          <!-- Placeholder for company image -->
+          <div style="width:100%;height:400px;background:linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);display:flex;align-items:center;justify-content:center;color:white;font-size:1.2rem;">
+            People Partner Team
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section class="team-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Meet Our Leadership Team</h2>
+        <p>The experts behind People Partner AI</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-photo">
+            <i class="fas fa-user"></i>
+          </div>
+          <h4>Sarah Johnson</h4>
+          <div class="role">CEO & Co-Founder</div>
+          <p>Former HR Director with 15+ years of experience in employment law and organizational development.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo">
+            <i class="fas fa-user"></i>
+          </div>
+          <h4>Michael Chen</h4>
+          <div class="role">CTO & Co-Founder</div>
+          <p>AI and machine learning expert with a background in developing enterprise SaaS solutions.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo">
+            <i class="fas fa-user"></i>
+          </div>
+          <h4>Emma Williams</h4>
+          <div class="role">Head of Product</div>
+          <p>Product management specialist focused on creating intuitive user experiences for complex HR challenges.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo">
+            <i class="fas fa-user"></i>
+          </div>
+          <h4>David Roberts</h4>
+          <div class="role">Head of HR Compliance</div>
+          <p>Employment law expert with extensive experience in ACAS procedures and tribunal representation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES SECTION -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Values</h2>
+        <p>The principles that guide everything we do</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-header">
+            <div class="value-icon">🤝</div>
+            <h4>Partnership</h4>
+          </div>
+          <p>We see ourselves as true partners to our clients, working collaboratively to solve their HR challenges and support their business growth.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-header">
+            <div class="value-icon">🔍</div>
+            <h4>Transparency</h4>
+          </div>
+          <p>We believe in clear, honest communication and straightforward pricing. No hidden fees, no confusing contracts.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-header">
+            <div class="value-icon">⚖️</div>
+            <h4>Compliance</h4>
+          </div>
+          <p>We're committed to ensuring our solutions are fully compliant with UK employment law and ACAS best practices.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-header">
+            <div class="value-icon">🚀</div>
+            <h4>Innovation</h4>
+          </div>
+          <p>We continuously evolve our platform, incorporating the latest AI advancements and user feedback to deliver cutting-edge solutions.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-header">
+            <div class="value-icon">💚</div>
+            <h4>Empathy</h4>
+          </div>
+          <p>We understand that HR involves real people with real challenges. Our solutions are designed with empathy and understanding.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-header">
+            <div class="value-icon">🌍</div>
+            <h4>Accessibility</h4>
+          </div>
+          <p>We're committed to making professional HR support accessible to businesses of all sizes, from startups to established enterprises.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-newsletter-section">
+        <!-- Newsletter -->
+        <div class="newsletter-column">
+          <h3>Stay Updated</h3>
+          <p>Get the latest HR insights and product updates delivered to your inbox</p>
+          <form class="newsletter-form">
+            <div class="input-group">
+              <input type="email" class="email-input" placeholder="Enter your email" required>
+              <button type="submit" class="subscribe-btn">Subscribe</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-links-column">
+          <div class="footer-links-grid">
+            <div class="footer-link-category">
+              <h4>Platform</h4>
+              <ul>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="hr-copilot.html">HR Copilot</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+              </ul>
+            </div>
+            <div class="footer-link-category">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div class="footer-link-category">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Book a Demo</a></li>
+                <li><a href="#">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <div class="copyright">
+          <p>© 2025 People Partner. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PREMIUM CONTACT FORM MODAL -->
+  <div class="contact-modal" id="contactModal">
+    <div class="contact-form-container">
+      <div class="contact-form-banner">
+        <button class="close-contact-form" onclick="closeContactForm()">
+          <i class="fas fa-times"></i>
+        </button>
+        <h3>Hello! How can we help you today?</h3>
+      </div>
+      <div class="contact-form-content">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Please describe how we can help you..." required></textarea>
+          </div>
+          <button type="submit" class="submit-contact-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING CHAT BUBBLE -->
+  <div class="floating-chat">
+    <div class="chat-bubble" id="chatBubble" onclick="openContactForm()">
+      <i class="fas fa-comment-alt" style="color: white;"></i>
+    </div>
+  </div>
+
+  <script>
+    // === THEME TOGGLE ===
+    const themeToggle = document.getElementById('themeToggle');
+    const mainHeader = document.getElementById('mainHeader');
+    
+    // Check for saved theme preference or default to light
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Apply the saved theme on page load
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      // Toggle the dark mode class
+      document.body.classList.toggle('dark-mode');
+      
+      // Update localStorage based on the current state
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // === CONTACT FORM FUNCTIONS ===
+    function openContactForm() {
+      document.getElementById('contactModal').classList.add('active');
+    }
+
+    function closeContactForm() {
+      document.getElementById('contactModal').classList.remove('active');
+    }
+
+    // Close modal when clicking outside the form
+    document.getElementById('contactModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeContactForm();
+      }
+    });
+
+    // Handle form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Here you would typically send the form data to your server
+      alert('Thank you for your message! We will get back to you soon.');
+      closeContactForm();
+      this.reset();
+    });
+  </script>
+</body>
+</html>

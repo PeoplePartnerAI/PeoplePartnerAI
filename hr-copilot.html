@@ -1,0 +1,2259 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HR Copilot | PeoplePartner AI</title>
+  <meta name="description" content="Your intelligent HR assistant for guidance, templates, and advice" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-navy: #1a2b55;
+      --secondary-navy: #1a2b55;
+      --accent-gold: #d4af37;
+      --icon-gold: #e0bc4a;
+      --light-gold: #f4e8c1;
+      --light-blue: #e6f0ff;
+      --light-bg: #f8f9fa;
+      --dark-bg: #0a1128;
+      --text-light: #ffffff;
+      --text-dark: #333333;
+      --text-muted: #6c757d;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --border-radius: 12px;
+      --border-radius-lg: 20px;
+      --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --box-shadow-lg: 0 20px 60px rgba(15, 26, 58, 0.12);
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --lite-blue: #3b82f6;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+      --delete: #FF6B6B;
+      --delete-dark: #FF5252;
+      --delete-light: #FF8787;
+    }
+
+    .dark-mode {
+      --primary-navy: #1a2b55;
+      --secondary-navy: #2c3e6f;
+      --light-bg: #1a2b55;
+      --text-light: #f8f9fa;
+      --text-dark: #e9ecef;
+      --text-muted: #adb5bd;
+      --border: #334155;
+      --border-light: #1e293b;
+      --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      --box-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+      --glass-bg: rgba(44, 62, 111, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --lite-blue: #60a5fa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'DM Sans', Inter, system-ui, -apple-system;
+    }
+
+    html, body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      transition: var(--transition);
+      line-height: 1.6;
+      font-weight: 400;
+      height: 100%;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Utility Bar */
+    .utility-bar {
+      background: var(--primary-navy);
+      color: var(--text-light);
+      padding: 10px 0;
+      font-size: 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .utility-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .utility-usp {
+      display: flex;
+      align-items: center;
+    }
+
+    .utility-usp i {
+      margin-right: 8px;
+      color: var(--icon-gold);
+    }
+
+    /* Main Header */
+    .main-header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: var(--transition);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .dark-mode .main-header {
+      background-color: rgba(10, 17, 40, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--primary-navy);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .dark-mode .logo {
+      color: var(--text-light);
+    }
+
+    .logo:hover {
+      transform: translateY(-1px);
+    }
+
+    .logo img {
+      height: 36px;
+      margin-right: 12px;
+    }
+
+    /* Navigation */
+    .nav-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin-right: 28px;
+    }
+
+    .nav-links li {
+      margin: 0 18px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: var(--transition);
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .dark-mode .nav-links a {
+      color: var(--text-light);
+    }
+
+    .nav-links a.active {
+      color: var(--text-dark);
+    }
+
+    .dark-mode .nav-links a.active {
+      color: var(--text-light);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-right: 20px;
+      color: var(--text-dark);
+      transition: var(--transition);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .dark-mode .theme-toggle {
+      color: var(--text-light);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .theme-toggle:hover {
+      color: var(--accent-gold);
+      transform: rotate(15deg);
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    .theme-toggle i {
+      position: absolute;
+      transition: var(--transition);
+      font-size: 1.3rem;
+    }
+
+    .theme-toggle .fa-sun {
+      color: #FFD700;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .dark-mode .theme-toggle .fa-sun {
+      opacity: 0;
+      transform: scale(0) rotate(90deg);
+    }
+
+    .theme-toggle .fa-moon {
+      color: #f8f9fa;
+      opacity: 0;
+      transform: scale(0) rotate(-90deg);
+    }
+
+    .dark-mode .theme-toggle .fa-moon {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: var(--transition);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .dark-mode .mobile-menu-toggle {
+      color: var(--text-light);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-menu-toggle:hover {
+      color: var(--accent-gold);
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      padding: 20px;
+    }
+
+    .dark-mode .mobile-menu {
+      background: var(--dark-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .mobile-nav-links li {
+      margin-bottom: 15px;
+    }
+
+    .mobile-nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: var(--transition);
+      display: block;
+      padding: 10px 0;
+    }
+
+    .dark-mode .mobile-nav-links a {
+      color: var(--text-light);
+    }
+
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active {
+      color: var(--accent-gold);
+    }
+
+    .mobile-auth-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Buttons */
+    .auth-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      font-size: 0.95rem;
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.7s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary-navy);
+      color: var(--primary-navy);
+      background: transparent;
+    }
+
+    .dark-mode .btn-outline {
+      border-color: var(--text-light);
+      color: var(--text-light);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(15, 26, 58, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+      background: var(--accent-gold);
+      color: var(--primary-navy);
+      border: none;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    /* MAIN LAYOUT */
+    .app-container {
+      display: flex;
+      height: calc(100vh - 80px);
+      overflow: hidden;
+    }
+    
+    /* SIDEBAR - UPDATED */
+    .sidebar {
+      width: 320px;
+      background: var(--light-bg);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s;
+      overflow-y: auto;
+    }
+    
+    .sidebar.collapsed {
+      transform: translateX(-100%);
+    }
+    
+    .sidebar-header {
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .new-chat-btn {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--primary-navy);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .new-chat-btn:hover {
+      background: var(--secondary-navy);
+      transform: translateY(-1px);
+    }
+    
+    .new-chat-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      fill: none;
+    }
+    
+    .chat-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+    }
+    
+    .chat-item {
+      padding: 12px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .15s;
+      margin-bottom: 4px;
+      border: 1px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .chat-item:hover {
+      background: var(--light-blue);
+      border-color: var(--border-light);
+    }
+    
+    .chat-item.active {
+      background: var(--primary-navy);
+      color: #fff;
+      border-color: var(--primary-navy);
+    }
+    
+    .chat-item-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    
+    .chat-item-content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .chat-item-title {
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .chat-item-preview {
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 2px;
+    }
+    
+    .chat-item.active .chat-item-preview {
+      color: rgba(255,255,255,0.8);
+    }
+    
+    .chat-item-time {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    
+    .chat-item.active .chat-item-time {
+      color: rgba(255,255,255,0.7);
+    }
+    
+    /* Welcome prompts in sidebar - UPDATED */
+    .welcome-prompt {
+      padding: 10px 12px;
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: .2s;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    
+    
+    .welcome-prompt:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent-gold);
+      opacity: 0.8;
+    }
+    
+    .welcome-prompt-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+    
+    /* Suggested Actions in Sidebar */
+    .suggested-actions {
+      padding: 55px 20px;
+      border-top: 1px solid var(--border-light);
+    }
+    .suggested-actions h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    
+    .suggested-action-btn {
+      width: 100%;
+      padding: 10px 14px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: .2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    
+    .suggested-action-btn:hover {
+      background: var(--light-bg);
+      border-color: var(--primary-navy);
+      transform: translateX(2px);
+    }
+    
+    .suggested-action-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+    
+    /* Colorful icons for suggested actions */
+    .suggested-action-btn:nth-child(2) svg {
+      color: var(--primary-navy);
+    }
+    
+    .suggested-action-btn:nth-child(3) svg {
+      color: var(--accent-gold);
+    }
+    
+    /* MAIN CHAT AREA - UPDATED */
+    .chat-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--light-bg);
+      position: relative;
+      transition: all .3s ease-in-out;
+      width: 100%;
+      margin-left: auto;
+      margin: 8px;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+    }
+    
+    /* Chat Header - UPDATED with reduced height */
+    .chat-header {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--light-bg);
+      min-height: 60px;
+    }
+    
+    .chat-title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .chat-title h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0;
+    }
+    
+    .chat-title .status {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+    
+    /* Chat Actions - UPDATED with reduced height */
+    .chat-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    
+    .chat-action-btn {
+      padding: 6px 10px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: .2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 32px;
+    }
+    
+    .chat-action-btn:hover {
+      background: var(--light-bg);
+      border-color: var(--primary-navy);
+    }
+    
+    .chat-action-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+    
+    /* DELETE BUTTON - UPDATED with reduced height */
+    .delete-btn {
+      padding: 6px 10px;
+      background: var(--delete);
+      color: #fff;
+      border: 1px solid var(--delete);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 32px;
+    }
+    
+    .delete-btn:hover {
+      background: var(--delete-dark);
+      border-color: var(--delete-dark);
+      transform: translateY(-1px);
+    }
+    
+    .delete-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: #fff;
+      stroke-width: 2;
+      fill: none;
+    }
+    
+    /* MESSAGES AREA - UPDATED to utilize more space */
+    .messages-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      scroll-behavior: smooth;
+    }
+    
+    .message {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .message-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .message.user .message-avatar {
+      background: linear-gradient(135deg, var(--primary-navy) 0%, var(--lite-blue) 100%);
+      color: #fff;
+    }
+    
+    .message.assistant .message-avatar {
+      background: var(--light-bg);
+      color: var(--primary-navy);
+      font-size: 20px;
+      overflow: hidden;
+      border: 1px solid #333;
+    }
+    
+    .message.assistant .message-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .message-content {
+      flex: 1;
+      max-width: 100%;
+    }
+    
+    .message-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .message-name {
+      font-weight: 700;
+      font-size: 14px;
+    }
+    
+    .message-time {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    .message-role {
+      display: none;
+    }
+    
+    /* Speech bubble styles for messages - UPDATED with increased width */
+    .message-bubble {
+      position: relative;
+      padding: 14px 18px;
+      border-radius: 18px;
+      max-width: 95%;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+    
+    .message.assistant .message-bubble {
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      color: var(--text-dark);
+    }
+    
+    .message.user .message-bubble {
+      background: var(--primary-navy);
+      color: #fff;
+    }
+    
+    /* Speech bubble tail/pointer */
+    .message-bubble:after {
+      content: '';
+      position: absolute;
+      bottom: 10px;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+    }
+    
+    .message.assistant .message-bubble:after {
+      left: -16px;
+      border-right-color: var(--light-blue);
+      border-left: 0;
+    }
+    
+    .message.user .message-bubble:after {
+      right: -16px;
+      border-left-color: var(--primary-navy);
+      border-right: 0;
+    }
+    
+    .message-text {
+      line-height: 1.7;
+      font-size: 15px;
+      color: inherit;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    
+    .message-text strong {
+      font-weight: 700;
+      color: inherit;
+    }
+    
+    .message-text ul, .message-text ol {
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+    
+    .message-text li {
+      margin: 6px 0;
+    }
+    
+    .message-text code {
+      background: var(--light-blue);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+    
+    .message.user .message-text code {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+    
+    /* Enhanced typing indicator */
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: var(--light-blue);
+      border-radius: 12px;
+      width: fit-content;
+      margin-top: 8px;
+    }
+    
+    .typing-text {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    
+    .typing-dots {
+      display: flex;
+      gap: 4px;
+    }
+    
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      animation: typing 1.4s infinite;
+    }
+    
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    
+    @keyframes typing {
+      0%, 60%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+      30% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+    
+    /* Suggestions */
+    .message-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    
+    .suggestion-chip {
+      padding: 8px 14px;
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: .2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .suggestion-chip:hover {
+      background: var(--primary-navy);
+      color: #fff;
+      border-color: var(--primary-navy);
+      transform: translateY(-1px);
+    }
+    
+    .suggestion-chip svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+    
+    /* INPUT AREA */
+    .input-area {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      background: var(--light-bg);
+      position: relative;
+    }
+    
+    .input-attachments {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .attachment-chip {
+      padding: 8px 12px;
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .attachment-chip svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+    
+    .remove-attachment {
+      cursor: pointer;
+      color: var(--danger);
+    }
+    
+    .remove-attachment:hover {
+      opacity: 0.7;
+    }
+    
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    
+    .input-container {
+      flex: 1;
+      position: relative;
+    }
+    
+    #messageInput {
+      width: 100%;
+      min-height: 96px;
+      max-height: 200px;
+      padding: 16px 18px 16px 18px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: inherit;
+      resize: none;
+      outline: none;
+      transition: .2s;
+      background: var(--light-bg);
+      color: var(--text-dark);
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    
+    #messageInput:focus {
+      border-color: var(--primary-navy);
+    }
+    
+    #messageInput::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .input-actions {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      display: flex;
+      gap: 6px;
+    }
+    
+    .input-action-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: .2s;
+      color: var(--text-muted);
+      display: none;
+    }
+    
+    .input-action-btn:hover {
+      background: var(--light-blue);
+      color: var(--text-dark);
+    }
+    
+    .input-action-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+    
+    #sendButton {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: var(--primary-navy);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: .2s;
+      flex-shrink: 0;
+      margin-bottom: 0;
+    }
+    
+    #sendButton:hover {
+      background: var(--secondary-navy);
+      transform: translateY(-1px);
+    }
+    
+    #sendButton:disabled {
+      background: var(--border);
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    #sendButton svg {
+      width: 20px;
+      height: 20px;
+      stroke: #fff;
+      stroke-width: 2.5;
+      fill: none;
+    }
+    
+    .input-hint {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    .hint-left {
+      display: none;
+    }
+    
+    /* PREMIUM DISCLAIMER */
+    .premium-disclaimer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFF0C2 100%);
+      border: 1px solid var(--accent-gold);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary-navy);
+      box-shadow: 0 1px 4px rgba(255, 184, 0, 0.15);
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+      height: 36px;
+    }
+    
+    .premium-disclaimer:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent-gold);
+    }
+    
+    .premium-disclaimer-icon {
+      font-size: 14px;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+    
+    .dark-mode .premium-disclaimer {
+      background: linear-gradient(135deg, #2A2400 0%, #3D3200 100%);
+      color: var(--accent-gold);
+      border-color: var(--accent-gold);
+    }
+    
+    /* FLOATING GLASS HELP BUTTON - MOVED TO CHAT AREA */
+    .help-button {
+      position: absolute;
+      bottom: 140px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-gold);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 20px rgba(255, 184, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      transition: var(--transition);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-navy);
+    }
+    
+    .help-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(255, 184, 0, 0.4);
+      background: var(--light-gold);
+    }
+    
+    .help-panel {
+      position: absolute;
+      bottom: 150px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      z-index: 99;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition);
+      overflow-y: auto;
+    }
+    
+    .help-panel.open {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .help-panel h3 {
+      margin: 0 0 12px 0;
+      font-size: 18px;
+      color: var(--primary-navy);
+    }
+    
+    .help-panel p {
+      margin: 0 0 16px 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-dark);
+    }
+    
+    .help-panel ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    .help-panel li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    .help-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 98;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    
+    .help-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    /* Dark theme adjustments for help panel */
+    .dark-mode .help-button {
+      background: var(--accent-gold);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--primary-navy);
+    }
+    
+    .dark-mode .help-panel {
+      background: rgba(30, 41, 59, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .dark-mode .help-panel h3 {
+      color: var(--text-light);
+    }
+    
+    .dark-mode .help-panel p,
+    .dark-mode .help-panel li {
+      color: var(--text-light);
+    }
+
+    /* BLUE SCROLLBARS */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: var(--light-blue);
+      border-radius: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-navy);
+      border-radius: 5px;
+      border: 2px solid var(--light-blue);
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary-navy);
+    }
+    
+    ::-webkit-scrollbar-corner {
+      background: var(--light-blue);
+    }
+    
+    /* Firefox scrollbar */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary-navy) var(--light-blue);
+    }
+    
+    /* Mobile Responsive - IMPROVED */
+    @media (max-width: 1024px) {
+      .sidebar {
+        width: 260px;
+      }
+      
+      .chat-area {
+        margin: 6px;
+      }
+      
+      .help-button {
+        bottom: 18px;
+        right: 18px;
+      }
+      
+      .help-panel {
+        right: 2px;
+        width: calc(100% - 40px);
+        max-width: 320px;
+      }
+      
+      .message-bubble {
+        max-width: 90%;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+      
+      .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        box-shadow: var(--box-shadow-lg);
+      }
+      
+      .nav-links,
+      .auth-buttons {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      
+      .chat-area {
+        margin: 4px;
+      }
+      
+      .help-button {
+        bottom: 16px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+      }
+      
+      .help-panel {
+        right: 16px;
+        bottom: 80px;
+        width: calc(100% - 32px);
+        max-width: 300px;
+      }
+      
+      .message-bubble {
+        max-width: 85%;
+      }
+      
+      .message {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .message-avatar {
+        width: 32px;
+        height: 32px;
+      }
+      
+      .message-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      
+      .message-time {
+        font-size: 10px;
+      }
+      
+      .chat-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      
+      .chat-action-btn, .delete-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+      
+      .input-area {
+        padding: 16px;
+      }
+      
+      .messages-container {
+        padding: 16px;
+      }
+      
+      .chat-header {
+        padding: 12px 16px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .header-content {
+        padding: 14px 0;
+      }
+      
+      .logo img {
+        width: 32px;
+        height: 32px;
+      }
+      
+      .logo {
+        font-size: 1.4rem;
+      }
+      
+      .sidebar {
+        width: 100%;
+      }
+      
+      .chat-area {
+        margin: 2px;
+      }
+      
+      .message-bubble {
+        max-width: 80%;
+      }
+      
+      .help-button {
+        bottom: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 16px;
+      }
+      
+      .help-panel {
+        right: 12px;
+        bottom: 70px;
+        width: calc(100% - 24px);
+        max-width: none;
+      }
+    }
+    /* FORCE REMOVE BOXES FROM SIDEBAR PROMPTS */
+    .welcome-prompt {
+      background: none !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 4px 0 !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+    }
+
+    .welcome-prompt:hover {
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+
+    .welcome-prompt:before {
+      display: none !important;
+    }
+
+    .welcome-prompt-text {
+      padding-left: 0 !important;
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      font-style: italic;
+    }
+
+    /* Italic and speech marks for popular searches */
+    .welcome-prompt-text:before {
+      content: '"';
+    }
+    
+    .welcome-prompt-text:after {
+      content: '"';
+    }
+  </style>
+</head>
+<body>
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <div class="container utility-content">
+      <div class="utility-usp">
+        <i class="fas fa-star"></i>
+        <span>What's New: HR Situation Simulator now available!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header" id="mainHeader">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <img src="assets/img/favicon.png" alt="People Partner Logo">
+        People Partner
+      </a>
+      
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="hr-copilot.html" class="active">HR Copilot</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+        
+        <div class="header-actions">
+          <div class="auth-buttons">
+            <a href="sign-in.html" class="btn btn-outline">Sign In</a>
+            <a href="create-account.html" class="btn btn-primary">Start Free Trial</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-links">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="hr-copilot.html" class="active">HR Copilot</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+      <div class="mobile-auth-buttons">
+        <a href="sign-in.html" class="btn btn-outline">Sign In</a>
+        <a href="create-account.html" class="btn btn-primary">Start Free Trial</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <button class="new-chat-btn" id="newChatBtn">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14m-7-7h14" stroke-linecap="round"/></svg>
+          New Conversation
+        </button>
+      </div>
+
+      <div class="chat-list" id="chatList">
+        <!-- Updated Popular Searches - Italic and in speech marks -->
+        <h3 style="font-size:14px;font-weight:700;margin:0px 12px 8px;color:var(--text-dark);text-transform:uppercase;letter-spacing:0.5px">Popular HR Questions</h3>
+        <div style="padding:0 12px">
+          <div class="welcome-prompt" data-prompt="How do I handle a day-one flexible working request?">
+            <div class="welcome-prompt-text">How do I handle a day-one flexible working request?</div>
+          </div>
+          
+          <div class="welcome-prompt" data-prompt="What do I do when mental health impacts performance?">
+            <div class="welcome-prompt-text">What do I do when mental health impacts performance?</div>
+          </div>
+          
+          <div class="welcome-prompt" data-prompt="How do I deal with persistent lateness?">
+            <div class="welcome-prompt-text">How do I deal with persistent lateness?</div>
+          </div>
+          
+          <div class="welcome-prompt" data-prompt="What's the process for a small-team redundancy?">
+            <div class="welcome-prompt-text">What's the process for a small-team redundancy?</div>
+          </div>
+          
+          <div class="welcome-prompt" data-prompt="How do I manage long-term sickness?">
+            <div class="welcome-prompt-text">How do I manage long-term sickness?</div>
+          </div>
+          
+          <div class="welcome-prompt" data-prompt="How do I investigate a bullying complaint?">
+            <div class="welcome-prompt-text">How do I investigate a bullying complaint?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suggested Actions - Only 2 links now -->
+      <div class="suggested-actions">
+        <h3>Quick Links</h3>
+        <button class="suggested-action-btn" id="checkTemplates" onclick="window.open('resources.html#templates', '_blank')">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          Browse Templates
+        </button>
+        <button class="suggested-action-btn" id="viewGuides" onclick="window.open('resources.html#guides', '_blank')">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Browse Guides
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CHAT AREA -->
+    <main class="chat-area">
+      <div class="chat-header">
+        <div class="chat-title">
+          <h3>HR Copilot</h3>
+          <div class="status">
+            <span class="status-dot"></span>
+            <span>Available</span>
+          </div>
+        </div>
+        <div class="chat-actions">
+          <button class="chat-action-btn" id="exportBtn">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export
+          </button>
+          <button class="chat-action-btn" id="attachDocBtn">
+            <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+            Upload
+          </button>
+          <button class="delete-btn" id="deleteBtn">
+            <svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            Delete
+          </button>
+        </div>
+      </div>
+
+      <div class="messages-container" id="messagesContainer">
+        <!-- Initial greeting with speech bubble -->
+        <div class="message assistant" id="initialGreeting">
+          <div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
+            <img src="assets/img/favicon.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
+          </div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-name">HR Copilot</span>
+              <span class="message-time" id="greetingTime"></span>
+            </div>
+            <div class="message-bubble">
+              <div class="message-text">Hello Sarah! I'm your HR Copilot, ready to assist with all your HR needs. I can help you with policy guidance, employment law questions, document creation, and HR best practices. What would you like to discuss today?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="input-attachments" id="attachments" style="display:none">
+          <!-- Attachments will appear here -->
+        </div>
+        
+        <div class="input-wrapper">
+          <div class="input-container">
+            <textarea 
+              id="messageInput" 
+              placeholder="Ask me anything about HR, employment law, or request a document..." 
+              rows="3"
+            ></textarea>
+            <div class="input-actions">
+              <!-- Microphone button removed -->
+            </div>
+          </div>
+          
+          <button id="sendButton" disabled>
+            <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        
+        <div class="input-hint">
+          <div class="hint-left">
+            <!-- Removed Enter/Shift+Enter hints -->
+          </div>
+          <div class="premium-disclaimer">
+            <div class="premium-disclaimer-icon">⚠️</div>
+            <div>AI responses are guidance only, not legal advice</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- FLOATING GLASS HELP BUTTON - MOVED TO CHAT AREA -->
+      <div class="help-button" id="helpButton">?</div>
+      <div class="help-panel" id="helpPanel">
+        <h3>How to use HR Copilot</h3>
+        <p>Get the most out of your HR Copilot with these tips:</p>
+        <ul>
+          <li><strong>Ask specific questions</strong> for more accurate responses</li>
+          <li><strong>Request document templates</strong> for common HR scenarios</li>
+          <li><strong>Upload files</strong> for context-specific guidance</li>
+          <li><strong>Use the sidebar prompts</strong> for quick access to popular topics</li>
+          <li><strong>Export conversations</strong> for record-keeping</li>
+        </ul>
+        <p>Remember: Always consult with qualified legal professionals for formal legal advice.</p>
+      </div>
+      <div class="help-overlay" id="helpOverlay"></div>
+    </main>
+  </div>
+
+  <script>
+    // === THEME TOGGLE ===
+    const themeToggle = document.getElementById('themeToggle');
+    const mainHeader = document.getElementById('mainHeader');
+    
+    // Check for saved theme preference or default to light
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Apply the saved theme on page load
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      // Toggle the dark mode class
+      document.body.classList.toggle('dark-mode');
+      
+      // Update localStorage based on the current state
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // === MOBILE MENU TOGGLE ===
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    // User profile to enable personalized responses
+    const userProfile = {
+      name: "Sarah",
+      role: "HR Manager",
+      companySize: "Medium (50-200 employees)",
+      industry: "Technology",
+      location: "United Kingdom",
+      preferences: {
+        detailLevel: "comprehensive",
+        includeTemplates: true,
+        includeLegalReferences: true
+      },
+      conversationHistory: [],
+      lastTopics: [],
+      messageCount: 0
+    };
+
+    // Set greeting time
+    document.getElementById('greetingTime').textContent = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+    // Auto-resize textarea
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+    const messagesContainer = document.getElementById('messagesContainer');
+    const chatList = document.getElementById('chatList');
+
+    messageInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 200) + 'px';
+      sendButton.disabled = !this.value.trim();
+    });
+
+    // Send message
+    function sendMessage(text) {
+      if (!text.trim()) return;
+
+      // Hide initial greeting if it exists
+      const initialGreeting = document.getElementById('initialGreeting');
+      if (initialGreeting) {
+        initialGreeting.style.display = 'none';
+      }
+
+      // Add user message with speech bubble
+      const userMessage = createMessage('user', text, 'You', 'SM');
+      messagesContainer.appendChild(userMessage);
+      
+      // Update user profile with conversation history
+      userProfile.conversationHistory.push({
+        type: 'user',
+        text: text,
+        timestamp: new Date()
+      });
+      
+      // Track topics for personalization
+      updateTopicHistory(text);
+      
+      // Increment message count
+      userProfile.messageCount++;
+      
+      // Clear input
+      messageInput.value = '';
+      messageInput.style.height = 'auto';
+      sendButton.disabled = true;
+
+      // Show enhanced typing indicator
+      const typingIndicator = document.createElement('div');
+      typingIndicator.className = 'message assistant';
+      typingIndicator.innerHTML = `
+        <div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
+          <img src="assets/img/favicon.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
+        </div>
+        <div class="message-content">
+          <div class="typing-indicator">
+            <div class="typing-text">HR Copilot is typing</div>
+            <div class="typing-dots">
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      messagesContainer.appendChild(typingIndicator);
+      scrollToBottom();
+
+      // Simulate AI response
+      setTimeout(() => {
+        typingIndicator.remove();
+        const response = generateConversationalResponse(text);
+        const aiMessage = createMessage('assistant', response.text, 'HR Copilot', '🤖', response);
+        messagesContainer.appendChild(aiMessage);
+        scrollToBottom();
+        
+        // Update user profile with AI response
+        userProfile.conversationHistory.push({
+          type: 'assistant',
+          text: response.text,
+          timestamp: new Date()
+        });
+        
+        // Show signup message after 3 messages back and forth
+        if (userProfile.messageCount >= 3) {
+          setTimeout(() => {
+            const signupMessage = createMessage('assistant', 
+              `Hi Sarah, I hope our conversation has been helpful so far! To continue getting personalized HR guidance and access to our full library of templates and resources, please sign up for a free trial. You'll get unlimited access to all our HR tools and expert support.`, 
+              'HR Copilot', '🤖');
+            messagesContainer.appendChild(signupMessage);
+            scrollToBottom();
+          }, 1000);
+        }
+      }, 2000);
+    }
+
+    function createMessage(type, text, name, avatar, extras = {}) {
+      const message = document.createElement('div');
+      message.className = `message ${type}`;
+      
+      const time = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+      
+      let avatarHtml = '';
+      if (type === 'assistant') {
+        avatarHtml = `<div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
+          <img src="assets/img/favicon.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
+        </div>`;
+      } else {
+        avatarHtml = `<div class="message-avatar">${avatar}</div>`;
+      }
+      
+      let extraContent = '';
+      
+      if (extras.suggestions) {
+        extraContent += '<div class="message-suggestions">';
+        extras.suggestions.forEach(s => {
+          extraContent += `<div class="suggestion-chip" onclick="sendMessage('${s}')">${s}</div>`;
+        });
+        extraContent += '</div>';
+      }
+      
+      message.innerHTML = `
+        ${avatarHtml}
+        <div class="message-content">
+          <div class="message-header">
+            <span class="message-name">${name}</span>
+            <span class="message-time">${time}</span>
+          </div>
+          <div class="message-bubble">
+            <div class="message-text">${text}</div>
+          </div>
+          ${extraContent}
+        </div>
+      `;
+      
+      return message;
+    }
+
+    // Update topic history for personalization
+    function updateTopicHistory(text) {
+      const topics = ['sick', 'leave', 'absence', 'flexible', 'working', 'redundancy', 'dismiss', 'performance', 'grievance', 'disciplinary', 'contract', 'recruitment', 'payroll'];
+      
+      const foundTopics = topics.filter(topic => 
+        text.toLowerCase().includes(topic)
+      );
+      
+      // Add new topics to history, remove duplicates, and keep only last 5
+      userProfile.lastTopics = [...new Set([...foundTopics, ...userProfile.lastTopics])].slice(0, 5);
+    }
+
+    // Generate conversational, non-overwhelming responses
+    function generateConversationalResponse(userText) {
+      const lower = userText.toLowerCase();
+      
+      // Check if this is a follow-up to a previous question
+      const lastAssistantMessage = userProfile.conversationHistory
+        .filter(msg => msg.type === 'assistant')
+        .pop();
+      
+      // Check if user is asking for templates/policies specifically
+      const wantsTemplate = lower.includes('template') || lower.includes('policy') || lower.includes('form') || lower.includes('document');
+      
+      if (lower.includes('sick') || lower.includes('absence') || lower.includes('leave')) {
+        if (wantsTemplate) {
+          return {
+            text: `I can help you with sick leave documentation, Sarah. Based on ACAS guidelines, I can provide return to work discussion forms, absence management policies, or fit note guidance documents. Would you like me to generate any of these for you, or do you need guidance on a specific situation?`,
+            suggestions: [
+              'Return to work form',
+              'Absence management policy',
+              'How to handle long-term sickness'
+            ]
+          };
+        } else {
+          return {
+            text: `I understand you're asking about managing sickness absence, Sarah. This can be challenging, especially when you're trying to balance support for the employee with business needs. Could you tell me a bit more about the situation? For example, how long has the employee been off, is this a recurring issue, or have you obtained medical advice? This will help me give you the most relevant guidance based on ACAS best practices.`,
+            suggestions: [
+              'Managing short-term absence',
+              'Long-term sickness process',
+              'Getting medical evidence'
+            ]
+          };
+        }
+      } else if (lower.includes('flexible') || lower.includes('remote') || lower.includes('work from home')) {
+        if (wantsTemplate) {
+          return {
+            text: `For flexible working requests, Sarah, I can provide flexible working request forms, policy templates, or decision letter templates. Would any of these be helpful? I can also walk you through the legal requirements and best practices for handling these requests.`,
+            suggestions: [
+              'Flexible working policy',
+              'Request assessment guide',
+              'Legal requirements overview'
+            ]
+          };
+        } else {
+          return {
+            text: `Flexible working requests are becoming more common, Sarah. The key is to handle them fairly while considering business needs. Could you share what type of flexible working is being requested, how long the employee has worked for you, or what your main concerns about the request are? I can then explain the legal framework and suggest practical next steps.`,
+            suggestions: [
+              'Valid reasons to refuse',
+              'Trial period guidance',
+              'Impact assessment'
+            ]
+          };
+        }
+      } else if (lower.includes('redundancy') || lower.includes('layoff')) {
+        if (wantsTemplate) {
+          return {
+            text: `Redundancy processes require careful documentation, Sarah. I can help with selection criteria matrices, consultation meeting templates, redundancy notice letters, or alternative employment registers. Which of these would be most useful for your situation?`,
+            suggestions: [
+              'Selection criteria template',
+              'Consultation process guide',
+              'Notice letter examples'
+            ]
+          };
+        } else {
+          return {
+            text: `Redundancy is a sensitive process that needs careful handling, Sarah. I'd like to understand your situation better. Could you tell me how many roles are potentially affected, what's the business reason for considering redundancy, or if you've explored alternatives? This will help me guide you through the ACAS-recommended process.`,
+            suggestions: [
+              'Consultation requirements',
+              'Selection criteria guidance',
+              'Alternative employment options'
+            ]
+          };
+        }
+      } else if (lower.includes('grievance') || lower.includes('complaint')) {
+        if (wantsTemplate) {
+          return {
+            text: `For grievance procedures, Sarah, these documents can help ensure fairness: grievance policies and procedures, investigation checklists, meeting record templates, or outcome letter templates. Would you like me to prepare any of these, or do you need guidance on handling a specific grievance?`,
+            suggestions: [
+              'Grievance policy template',
+              'Investigation guide',
+              'Meeting documentation'
+            ]
+          };
+        } else {
+          return {
+            text: `Handling grievances properly is important for maintaining trust and resolving issues effectively, Sarah. To help you best, could you share what type of grievance has been raised, whether it's informal or formal, or if you've started any investigation yet? I can then walk you through the ACAS Code of Practice steps.`,
+            suggestions: [
+              'Informal resolution options',
+              'Formal process steps',
+              'Investigation best practices'
+            ]
+          };
+        }
+      } else if (lower.includes('dismiss') || lower.includes('performance') || lower.includes('poor') || lower.includes('capability')) {
+        if (wantsTemplate) {
+          return {
+            text: `For performance management and potential dismissal, Sarah, these templates might help: performance improvement plans, capability procedures, warning letter templates, or dismissal meeting checklists. Which aspect would you like help with?`,
+            suggestions: [
+              'Performance improvement plan',
+              'Warning letter templates',
+              'Fair process checklist'
+            ]
+          };
+        } else {
+          return {
+            text: `Managing performance issues requires a fair and consistent approach, Sarah. To give you the right guidance, could you tell me what specific performance concerns you have, whether you've provided feedback and support, or how long this has been going on? I can then explain the ACAS-recommended process for handling capability issues.`,
+            suggestions: [
+              'Informal support options',
+              'Formal process overview',
+              'Documentation requirements'
+            ]
+          };
+        }
+      } else if (lower.includes('contract') || lower.includes('employ') || lower.includes('hire')) {
+        if (wantsTemplate) {
+          return {
+            text: `I can help with employment documentation, Sarah: employment contract templates, variation of contract letters, probation period review forms, or contract amendment templates. What type of contract document do you need?`,
+            suggestions: [
+              'Standard employment contract',
+              'Probation review form',
+              'Contract variation letter'
+            ]
+          };
+        } else {
+          return {
+            text: `Employment contracts set the foundation for the working relationship, Sarah. What specifically would you like to know about contracts? For example, are you hiring someone new, do you need to change existing terms, or are you concerned about contract compliance? I can explain the legal requirements and best practices.`,
+            suggestions: [
+              'Essential contract terms',
+              'Changing contract terms',
+              'Probation periods'
+            ]
+          };
+        }
+      } else {
+        return {
+          text: `Thanks for your question, Sarah. I'm here to help with HR guidance based on ACAS codes of practice and employment law principles. To make sure I give you the most useful information, could you tell me a bit more about what you're dealing with? Feel free to be specific about your situation. If you're looking for templates or policies, just let me know what type of document would be helpful.`,
+          suggestions: [
+            'Sickness absence guidance',
+            'Disciplinary procedures',
+            'Recruitment best practices',
+            'Employment contracts'
+          ]
+        };
+      }
+    }
+
+    function scrollToBottom() {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    // Event listeners
+    sendButton.addEventListener('click', () => sendMessage(messageInput.value));
+
+    messageInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage(messageInput.value);
+      }
+    });
+
+    // Sidebar welcome prompts
+    document.querySelectorAll('.welcome-prompt').forEach(prompt => {
+      prompt.addEventListener('click', () => {
+        const text = prompt.dataset.prompt;
+        sendMessage(text);
+      });
+    });
+
+    // New chat button
+    document.getElementById('newChatBtn').addEventListener('click', () => {
+      messagesContainer.innerHTML = `
+        <div class="message assistant" id="initialGreeting">
+          <div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
+            <img src="assets/img/favicon.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
+          </div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-name">HR Copilot</span>
+              <span class="message-time" id="greetingTime">${new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</span>
+            </div>
+            <div class="message-bubble">
+              <div class="message-text">Hello Sarah! I'm your HR Copilot, ready to assist with all your HR needs. I can help you with policy guidance, employment law questions, document creation, and HR best practices. What would you like to discuss today?</div>
+            </div>
+          </div>
+        </div>
+      `;
+      // Reset conversation history for new chat
+      userProfile.conversationHistory = [];
+      userProfile.lastTopics = [];
+      userProfile.messageCount = 0;
+    });
+
+    // Chat list items
+    document.querySelectorAll('.chat-item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.chat-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+    });
+
+    // Delete button functionality
+    document.getElementById('deleteBtn').addEventListener('click', () => {
+      if (confirm('Are you sure you want to delete this conversation? This action cannot be undone.')) {
+        messagesContainer.innerHTML = `
+          <div class="message assistant" id="initialGreeting">
+            <div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
+              <img src="assets/img/favicon.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
+            </div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name">HR Copilot</span>
+                <span class="message-time" id="greetingTime">${new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</span>
+              </div>
+              <div class="message-bubble">
+                <div class="message-text">Hello Sarah! I'm your HR Copilot, ready to assist with all your HR needs. I can help you with policy guidance, employment law questions, document creation, and HR best practices. What would you like to discuss today?</div>
+              </div>
+            </div>
+          </div>
+        `;
+        // Reset conversation history when deleting
+        userProfile.conversationHistory = [];
+        userProfile.lastTopics = [];
+        userProfile.messageCount = 0;
+      }
+    });
+
+    // Export functionality
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      alert('Export functionality: Download conversation as PDF or Word document');
+    });
+
+    // Upload document button functionality
+    document.getElementById('attachDocBtn').addEventListener('click', () => {
+      alert('Upload Document: Upload contracts, policies, or employee information');
+    });
+
+    // HELP BUTTON FUNCTIONALITY
+    const helpButton = document.getElementById('helpButton');
+    const helpPanel = document.getElementById('helpPanel');
+    const helpOverlay = document.getElementById('helpOverlay');
+
+    helpButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      helpPanel.classList.toggle('open');
+      helpOverlay.classList.toggle('open');
+    });
+
+    helpOverlay.addEventListener('click', () => {
+      helpPanel.classList.remove('open');
+      helpOverlay.classList.remove('open');
+    });
+
+    // Close help panel when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!helpPanel.contains(e.target) && e.target !== helpButton) {
+        helpPanel.classList.remove('open');
+        helpOverlay.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
