@@ -15,13 +15,13 @@
 
   <style>
     :root {
-      --primary-navy: #1a2b55;
-      --secondary-navy: #1a2b55;
-      --accent-gold: #d4af37;
-      --icon-gold: #e0bc4a;
-      --light-gold: #f4e8c1;
-      --light-blue: #e6f0ff;
-      --light-bg: #f8f9fa;
+      --primary-navy: #2a3f7a;
+      --secondary-navy: #3c5a9c;
+      --accent-gold: #e6c158;
+      --icon-gold: #d4af37;
+      --light-gold: #f9f1d6;
+      --light-blue: #eef5ff;
+      --light-bg: #fefefe;
       --dark-bg: #0a1128;
       --text-light: #ffffff;
       --text-dark: #333333;
@@ -36,8 +36,8 @@
     }
 
     .dark-mode {
-      --primary-navy: #1a2b55;
-      --secondary-navy: #2c3e6f;
+      --primary-navy: #2a3f7a;
+      --secondary-navy: #3c5a9c;
       --light-bg: #1a2b55;
       --text-light: #f8f9fa;
       --text-dark: #e9ecef;
@@ -236,7 +236,7 @@
     .theme-toggle:hover {
       color: var(--accent-gold);
       transform: rotate(15deg);
-      background-color: rgba(212, 175, 55, 0.1);
+      background-color: rgba(230, 193, 88, 0.1);
     }
 
     .theme-toggle i {
@@ -318,7 +318,7 @@
     }
 
     .btn-outline:hover {
-      background-color: rgba(15, 26, 58, 0.05);
+      background-color: rgba(42, 63, 122, 0.05);
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     }
@@ -327,19 +327,19 @@
       background: var(--accent-gold);
       color: var(--primary-navy);
       border: none;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 4px 12px rgba(230, 193, 88, 0.3);
       font-weight: 700;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 8px 20px rgba(230, 193, 88, 0.4);
     }
 
     /* PREMIUM HERO SECTION */
     .hero {
-      padding: 140px 0 120px;
-      background: linear-gradient(135deg, #0a1128 0%, #1e3a8a 40%, #2b4c7e 100%);
+      padding: 140px 0 140px;
+      background: linear-gradient(135deg, #1a2b55 0%, #2a3f7a 40%, #3c5a9c 100%);
       color: white;
       position: relative;
       overflow: hidden;
@@ -356,8 +356,8 @@
       background: 
         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.03"><polygon points="0,0 1000,100 1000,0"/></svg>'),
         radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(30, 58, 138, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(230, 193, 88, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(60, 90, 156, 0.15) 0%, transparent 50%),
         linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
       background-size: cover;
       z-index: 1;
@@ -369,19 +369,9 @@
       max-width: 900px;
       margin: 0 auto;
     }
-
-    .section-pretitle {
-      display: inline-block;
-      color: var(--accent-gold);
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
     
     .hero h1 {
-      font-size: 4rem;
+      font-size: 3.5rem;
       font-weight: 800;
       margin-bottom: 1.5rem;
       line-height: 1.1;
@@ -390,7 +380,7 @@
     }
 
     .hero p {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       margin-bottom: 2.5rem;
       opacity: 0.9;
       line-height: 1.6;
@@ -399,7 +389,7 @@
 
     /* MISSION SECTION */
     .mission-section {
-      padding: 100px 0;
+      padding: 80px 0;
       background: white;
     }
 
@@ -461,6 +451,7 @@
     .mission-icon {
       font-size: 56px;
       margin-bottom: 20px;
+      color: var(--icon-gold);
     }
 
     .mission-card h4 {
@@ -481,143 +472,15 @@
       line-height: 1.6;
     }
 
-    /* STORY SECTION */
-    .story-section {
-      padding: 100px 0;
-      background: var(--light-bg);
-    }
-
-    .story-content {
-      display: flex;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .story-text {
-      flex: 1;
-    }
-
-    .story-text h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      color: var(--primary-navy);
-      letter-spacing: -0.02em;
-    }
-
-    .dark-mode .story-text h2 {
-      color: var(--text-light);
-    }
-
-    .story-text p {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-
-    .story-image {
-      flex: 1;
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      box-shadow: var(--box-shadow-lg);
-    }
-
-    .story-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* TEAM SECTION */
-    .team-section {
-      padding: 100px 0;
-      background: white;
-    }
-
-    .dark-mode .team-section {
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-    }
-
-    .team-member {
-      background: var(--light-bg);
-      border: 2px solid rgba(0, 0, 0, 0.08);
-      border-radius: var(--border-radius-lg);
-      padding: 32px;
-      text-align: center;
-      transition: var(--transition);
-      box-shadow: var(--box-shadow);
-    }
-
-    .dark-mode .team-member {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .team-member:hover {
-      border-color: var(--accent-gold);
-      transform: translateY(-6px);
-      box-shadow: var(--box-shadow-lg);
-    }
-
-    .member-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin: 0 auto 20px;
-      background: var(--light-blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      color: var(--primary-navy);
-    }
-
-    .dark-mode .member-photo {
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text-light);
-    }
-
-    .team-member h4 {
-      font-size: 20px;
-      margin-bottom: 8px;
-      font-weight: 700;
-      color: var(--text-dark);
-    }
-
-    .dark-mode .team-member h4 {
-      color: var(--text-light);
-    }
-
-    .team-member .role {
-      font-size: 16px;
-      color: var(--accent-gold);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    .team-member p {
-      font-size: 15px;
-      color: var(--text-muted);
-      margin: 0;
-      line-height: 1.6;
-    }
-
     /* VALUES SECTION */
     .values-section {
-      padding: 100px 0;
+      padding: 80px 0;
       background: var(--light-bg);
     }
 
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 32px;
     }
 
@@ -652,6 +515,7 @@
       font-size: 48px;
       line-height: 1;
       flex-shrink: 0;
+      color: var(--icon-gold);
     }
 
     .value-card h4 {
@@ -667,6 +531,205 @@
     }
 
     .value-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* STORY SECTION */
+    .story-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .dark-mode .story-section {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .story-content {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .story-text {
+      flex: 1.2;
+    }
+
+    .story-text h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: var(--primary-navy);
+      letter-spacing: -0.02em;
+    }
+
+    .dark-mode .story-text h2 {
+      color: var(--text-light);
+    }
+
+    .story-text p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .story-image {
+      flex: 0.8;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--box-shadow-lg);
+    }
+
+    .story-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* TECHNOLOGY SECTION */
+    .technology-section {
+      padding: 80px 0;
+      background: var(--light-bg);
+    }
+
+    .dark-mode .technology-section {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .tech-card {
+      background: white;
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--border-radius-lg);
+      padding: 30px 20px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--box-shadow);
+    }
+
+    .dark-mode .tech-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .tech-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-6px);
+      box-shadow: var(--box-shadow-lg);
+    }
+
+    .tech-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      color: var(--icon-gold);
+    }
+
+    .tech-card h4 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .dark-mode .tech-card h4 {
+      color: var(--text-light);
+    }
+
+    .tech-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* TEAM SECTION */
+    .team-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .dark-mode .team-section {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .team-member {
+      background: var(--light-bg);
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--border-radius-lg);
+      padding: 40px;
+      transition: var(--transition);
+      box-shadow: var(--box-shadow);
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .dark-mode .team-member {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .team-member:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-6px);
+      box-shadow: var(--box-shadow-lg);
+    }
+
+    .member-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: var(--icon-gold);
+      flex-shrink: 0;
+    }
+
+    .dark-mode .member-photo {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--icon-gold);
+    }
+
+    .member-info {
+      flex: 1;
+    }
+
+    .team-member h4 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .dark-mode .team-member h4 {
+      color: var(--text-light);
+    }
+
+    .team-member .role {
+      font-size: 16px;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .team-member p {
       font-size: 15px;
       color: var(--text-muted);
       margin: 0;
@@ -758,8 +821,8 @@
 
     .email-input:focus {
       outline: none;
-      border-color: rgba(212, 175, 55, 0.5);
-      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+      border-color: rgba(230, 193, 88, 0.5);
+      box-shadow: 0 0 0 3px rgba(230, 193, 88, 0.2);
       background-color: white;
     }
 
@@ -778,13 +841,13 @@
       cursor: pointer;
       transition: var(--transition);
       white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 4px 12px rgba(230, 193, 88, 0.3);
     }
 
     .subscribe-btn:hover {
-      background-color: #e6b12f;
+      background-color: #e0b84c;
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 6px 16px rgba(230, 193, 88, 0.4);
     }
 
     .footer-links-column {
@@ -879,7 +942,7 @@
     }
 
     .social-icons a:hover {
-      color: var(--accent-gold);
+      color: var(--icon-gold);
       background: rgba(0, 0, 0, 0.08);
       transform: translateY(-3px);
     }
@@ -898,265 +961,6 @@
       margin: 0;
     }
 
-    /* FLOATING CHAT BUBBLE */
-    .floating-chat {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 1000;
-    }
-
-    .chat-bubble {
-      width: 70px;
-      height: 70px;
-      background: var(--accent-gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.8rem;
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      border: 3px solid white;
-    }
-
-    .chat-bubble::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
-      opacity: 0;
-      transition: var(--transition);
-    }
-
-    .chat-bubble:hover {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.8);
-    }
-
-    .chat-bubble:hover::before {
-      opacity: 1;
-    }
-
-    .chat-bubble::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 50%;
-      padding: 3px;
-      background: var(--accent-gold);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: var(--transition);
-    }
-
-    .chat-bubble:hover::after {
-      opacity: 1;
-    }
-
-    /* PREMIUM CONTACT FORM STYLES - UPDATED */
-    .contact-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 2000;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 30px;
-    }
-
-    .contact-modal.active {
-      display: flex;
-    }
-
-    .contact-form-container {
-      background: white;
-      border-radius: var(--border-radius-lg);
-      width: 380px;
-      height: 441px;
-      box-shadow: 
-        0 25px 50px -12px rgba(0, 0, 0, 0.25),
-        0 0 0 1px rgba(255, 255, 255, 0.1);
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-
-    .dark-mode .contact-form-container {
-      background: rgba(26, 43, 85, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .contact-form-banner {
-      background: linear-gradient(135deg, #0a1128 0%, #1e3a8a 40%, #2b4c7e 100%);
-      color: white;
-      padding: 20px 30px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-form-banner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
-    }
-
-    .contact-form-banner h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin: 0;
-      position: relative;
-    }
-
-    .close-contact-form {
-      background: none;
-      border: none;
-      font-size: 1.3rem;
-      cursor: pointer;
-      color: var(--text-light);
-      transition: var(--transition);
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      z-index: 2;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .close-contact-form:hover {
-      color: var(--accent-gold);
-      transform: rotate(90deg);
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .contact-form-content {
-      padding: 20px 28px 28px;
-      overflow-y: auto;
-      height: calc(100% - 70px);
-    }
-
-    .contact-greeting {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    .dark-mode .contact-greeting {
-      color: var(--text-light);
-      opacity: 0.8;
-    }
-
-    .form-group {
-      margin-bottom: 12px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
-      color: var(--text-dark);
-      font-size: 0.85rem;
-    }
-
-    .dark-mode .form-group label {
-      color: var(--text-light);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 2px solid rgba(0, 0, 0, 0.08);
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.9);
-      color: var(--text-dark);
-      font-size: 0.85rem;
-      transition: var(--transition);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .dark-mode .form-group input,
-    .dark-mode .form-group textarea {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.15);
-      color: var(--text-light);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent-gold);
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
-      background: white;
-    }
-
-    .dark-mode .form-group input:focus,
-    .dark-mode .form-group textarea:focus {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .form-group textarea {
-      min-height: 85px;
-      resize: vertical;
-    }
-
-    .submit-contact-btn {
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(135deg, var(--accent-gold) 0%, #e6c12e 100%);
-      color: var(--primary-navy);
-      border: none;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: var(--transition);
-      margin-top: 4px;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .submit-contact-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-    }
-
-    .submit-contact-btn:active {
-      transform: translateY(0);
-    }
-
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .mission-grid {
@@ -1164,7 +968,11 @@
       }
 
       .values-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .footer-newsletter-section {
@@ -1178,16 +986,6 @@
 
       .hero h1 {
         font-size: 3rem;
-      }
-
-      .contact-modal {
-        justify-content: center;
-        padding-right: 0;
-      }
-
-      .contact-form-container {
-        width: 90%;
-        max-width: 380px;
       }
     }
 
@@ -1216,6 +1014,23 @@
 
       .mission-grid {
         grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-member {
+        flex-direction: column;
+        text-align: center;
       }
 
       .story-content {
@@ -1252,25 +1067,6 @@
       .email-input {
         margin-bottom: 12px;
       }
-
-      .floating-chat {
-        bottom: 20px;
-        right: 20px;
-      }
-
-      .chat-bubble {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-      }
-
-      .contact-form-container {
-        height: 420px;
-      }
-
-      .contact-form-content {
-        padding: 18px;
-      }
     }
   </style>
 </head>
@@ -1299,7 +1095,6 @@
           <li><a href="hr-copilot.html">HR Copilot</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="resources.html">Resources</a></li>
-          <li><a href="about.html" class="active">About Us</a></li>
         </ul>
         
         <div class="header-actions">
@@ -1320,9 +1115,8 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <span class="section-pretitle">About People Partner AI</span>
-        <h1>Transforming HR with<br>Intelligent Solutions</h1>
-        <p>We're on a mission to make HR management accessible, <br>efficient, and compliant for businesses of all sizes.</p>
+        <h1>Intelligent HR Solutions<br>Powered by Expertise</h1>
+        <p>We're pioneering the future of HR management with AI that understands<br>the nuances of human resources and employment law.</p>
       </div>
     </div>
   </section>
@@ -1332,94 +1126,26 @@
     <div class="container">
       <div class="section-header">
         <h2>Our Mission & Vision</h2>
-        <p>Empowering businesses with AI-driven HR solutions that simplify complexity and drive growth</p>
+        <p>Transforming HR management through intelligent technology and deep expertise</p>
       </div>
 
       <div class="mission-grid">
         <div class="mission-card">
-          <div class="mission-icon">🎯</div>
+          <div class="mission-icon"><i class="fas fa-bullseye"></i></div>
           <h4>Our Mission</h4>
-          <p>To democratize expert HR knowledge through AI, making professional HR support accessible to every business regardless of size or budget.</p>
+          <p>To democratise expert HR knowledge through advanced AI, making professional HR support accessible to every business regardless of size or budget.</p>
         </div>
 
         <div class="mission-card">
-          <div class="mission-icon">🔮</div>
+          <div class="mission-icon"><i class="fas fa-eye"></i></div>
           <h4>Our Vision</h4>
-          <p>A world where every business leader can confidently navigate HR challenges with the support of intelligent, accessible technology.</p>
+          <p>A world where every business leader can confidently navigate HR challenges with the support of intelligent, accessible technology that understands context and nuance.</p>
         </div>
 
         <div class="mission-card">
-          <div class="mission-icon">💡</div>
+          <div class="mission-icon"><i class="fas fa-lightbulb"></i></div>
           <h4>Our Approach</h4>
-          <p>Combining deep HR expertise with cutting-edge AI to create practical solutions that solve real-world business challenges.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STORY SECTION -->
-  <section class="story-section">
-    <div class="container">
-      <div class="story-content">
-        <div class="story-text">
-          <h2>Our Story</h2>
-          <p>People Partner AI was founded in 2023 by a team of HR professionals and technology experts who recognized a critical gap in the market. Small and medium-sized businesses were struggling to access affordable, reliable HR support, while larger organizations faced inefficiencies in their HR processes.</p>
-          <p>We saw an opportunity to leverage artificial intelligence to bridge this gap, creating a platform that combines the expertise of seasoned HR professionals with the scalability and accessibility of modern technology.</p>
-          <p>Today, we serve thousands of businesses across the UK and beyond, helping them navigate complex employment legislation, streamline HR processes, and create better workplaces for their teams.</p>
-        </div>
-        <div class="story-image">
-          <!-- Placeholder for company image -->
-          <div style="width:100%;height:400px;background:linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);display:flex;align-items:center;justify-content:center;color:white;font-size:1.2rem;">
-            People Partner Team
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM SECTION -->
-  <section class="team-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Meet Our Leadership Team</h2>
-        <p>The experts behind People Partner AI</p>
-      </div>
-
-      <div class="team-grid">
-        <div class="team-member">
-          <div class="member-photo">
-            <i class="fas fa-user"></i>
-          </div>
-          <h4>Sarah Johnson</h4>
-          <div class="role">CEO & Co-Founder</div>
-          <p>Former HR Director with 15+ years of experience in employment law and organizational development.</p>
-        </div>
-
-        <div class="team-member">
-          <div class="member-photo">
-            <i class="fas fa-user"></i>
-          </div>
-          <h4>Michael Chen</h4>
-          <div class="role">CTO & Co-Founder</div>
-          <p>AI and machine learning expert with a background in developing enterprise SaaS solutions.</p>
-        </div>
-
-        <div class="team-member">
-          <div class="member-photo">
-            <i class="fas fa-user"></i>
-          </div>
-          <h4>Emma Williams</h4>
-          <div class="role">Head of Product</div>
-          <p>Product management specialist focused on creating intuitive user experiences for complex HR challenges.</p>
-        </div>
-
-        <div class="team-member">
-          <div class="member-photo">
-            <i class="fas fa-user"></i>
-          </div>
-          <h4>David Roberts</h4>
-          <div class="role">Head of HR Compliance</div>
-          <p>Employment law expert with extensive experience in ACAS procedures and tribunal representation.</p>
+          <p>Combining deep HR expertise with cutting-edge AI to create practical solutions that solve real-world business challenges efficiently and effectively.</p>
         </div>
       </div>
     </div>
@@ -1436,7 +1162,7 @@
       <div class="values-grid">
         <div class="value-card">
           <div class="value-header">
-            <div class="value-icon">🤝</div>
+            <div class="value-icon"><i class="fas fa-handshake"></i></div>
             <h4>Partnership</h4>
           </div>
           <p>We see ourselves as true partners to our clients, working collaboratively to solve their HR challenges and support their business growth.</p>
@@ -1444,7 +1170,7 @@
 
         <div class="value-card">
           <div class="value-header">
-            <div class="value-icon">🔍</div>
+            <div class="value-icon"><i class="fas fa-search"></i></div>
             <h4>Transparency</h4>
           </div>
           <p>We believe in clear, honest communication and straightforward pricing. No hidden fees, no confusing contracts.</p>
@@ -1452,7 +1178,7 @@
 
         <div class="value-card">
           <div class="value-header">
-            <div class="value-icon">⚖️</div>
+            <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
             <h4>Compliance</h4>
           </div>
           <p>We're committed to ensuring our solutions are fully compliant with UK employment law and ACAS best practices.</p>
@@ -1460,7 +1186,7 @@
 
         <div class="value-card">
           <div class="value-header">
-            <div class="value-icon">🚀</div>
+            <div class="value-icon"><i class="fas fa-rocket"></i></div>
             <h4>Innovation</h4>
           </div>
           <p>We continuously evolve our platform, incorporating the latest AI advancements and user feedback to deliver cutting-edge solutions.</p>
@@ -1468,7 +1194,7 @@
 
         <div class="value-card">
           <div class="value-header">
-            <div class="value-icon">💚</div>
+            <div class="value-icon"><i class="fas fa-heart"></i></div>
             <h4>Empathy</h4>
           </div>
           <p>We understand that HR involves real people with real challenges. Our solutions are designed with empathy and understanding.</p>
@@ -1476,10 +1202,98 @@
 
         <div class="value-card">
           <div class="value-header">
-            <div class="value-icon">🌍</div>
+            <div class="value-icon"><i class="fas fa-globe"></i></div>
             <h4>Accessibility</h4>
           </div>
           <p>We're committed to making professional HR support accessible to businesses of all sizes, from startups to established enterprises.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-content">
+        <div class="story-text">
+          <h2>Our Story</h2>
+          <p>People Partner AI was founded by a team of HR professionals and technology experts who recognised a critical gap in the market. Businesses of all sizes were struggling to access affordable, reliable HR support, while existing solutions often failed to understand the complexities of human resources.</p>
+          <p>We saw an opportunity to leverage artificial intelligence to bridge this gap, creating a platform that combines the expertise of seasoned HR professionals with the scalability and accessibility of modern technology. Our unique approach focuses on understanding context, nuance, and the human element in HR challenges.</p>
+          <p>Today, we serve thousands of businesses across the UK and beyond, helping them navigate complex employment legislation, streamline HR processes, and create better workplaces for their teams through intelligent, AI-powered solutions.</p>
+        </div>
+        <div class="story-image">
+          <!-- AI and HR themed image -->
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="AI and HR collaboration">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY SECTION -->
+  <section class="technology-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Technology</h2>
+        <p>Advanced AI designed specifically for HR challenges</p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fas fa-brain"></i></div>
+          <h4>Context-Aware AI</h4>
+          <p>Our proprietary AI understands the nuances of HR situations, considering company size, industry, and specific circumstances.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fas fa-balance-scale"></i></div>
+          <h4>Compliance Engine</h4>
+          <p>Continuously updated with the latest UK employment law and ACAS guidelines to ensure your HR practices remain fully compliant.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fas fa-sync-alt"></i></div>
+          <h4>Continuous Learning</h4>
+          <p>Our system learns from thousands of HR scenarios, constantly improving its ability to provide accurate, relevant guidance.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fas fa-lock"></i></div>
+          <h4>Enterprise Security</h4>
+          <p>Built with enterprise-grade security and data protection, ensuring your sensitive HR information remains confidential and secure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section class="team-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Leadership</h2>
+        <p>A team of HR experts and technology innovators</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-photo">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="member-info">
+            <h4>HR Leadership</h4>
+            <div class="role">HR Expertise</div>
+            <p>Our HR leadership brings decades of collective experience in employment law, organisational development, and HR strategy across multiple industries. They ensure our solutions address real-world HR challenges with practical, effective approaches.</p>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="member-info">
+            <h4>Technology Team</h4>
+            <div class="role">AI & Engineering</div>
+            <p>Our technology experts specialise in AI, machine learning, and enterprise software development, creating robust, scalable solutions. They focus on building intuitive interfaces that make complex HR processes simple and accessible for all users.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1548,42 +1362,6 @@
     </div>
   </footer>
 
-  <!-- PREMIUM CONTACT FORM MODAL -->
-  <div class="contact-modal" id="contactModal">
-    <div class="contact-form-container">
-      <div class="contact-form-banner">
-        <button class="close-contact-form" onclick="closeContactForm()">
-          <i class="fas fa-times"></i>
-        </button>
-        <h3>Hello! How can we help you today?</h3>
-      </div>
-      <div class="contact-form-content">
-        <form id="contactForm">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" placeholder="Please describe how we can help you..." required></textarea>
-          </div>
-          <button type="submit" class="submit-contact-btn">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- FLOATING CHAT BUBBLE -->
-  <div class="floating-chat">
-    <div class="chat-bubble" id="chatBubble" onclick="openContactForm()">
-      <i class="fas fa-comment-alt" style="color: white;"></i>
-    </div>
-  </div>
-
   <script>
     // === THEME TOGGLE ===
     const themeToggle = document.getElementById('themeToggle');
@@ -1607,31 +1385,6 @@
       } else {
         localStorage.setItem('theme', 'light');
       }
-    });
-
-    // === CONTACT FORM FUNCTIONS ===
-    function openContactForm() {
-      document.getElementById('contactModal').classList.add('active');
-    }
-
-    function closeContactForm() {
-      document.getElementById('contactModal').classList.remove('active');
-    }
-
-    // Close modal when clicking outside the form
-    document.getElementById('contactModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeContactForm();
-      }
-    });
-
-    // Handle form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Here you would typically send the form data to your server
-      alert('Thank you for your message! We will get back to you soon.');
-      closeContactForm();
-      this.reset();
     });
   </script>
 </body>
