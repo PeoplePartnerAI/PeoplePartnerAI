@@ -208,7 +208,7 @@
       align-items: center;
     }
 
-    /* Mobile Menu Toggle - MOVED TO LEFT */
+    /* Mobile Menu Toggle - MOVED TO RIGHT */
     .mobile-menu-toggle {
       display: none;
       flex-direction: column;
@@ -220,8 +220,7 @@
       cursor: pointer;
       padding: 0;
       z-index: 1001;
-      order: -1; /* Move to left */
-      margin-right: 16px;
+      margin-left: 16px; /* Changed from margin-right to margin-left */
     }
 
     .mobile-menu-toggle span {
@@ -268,18 +267,18 @@
       visibility: visible;
     }
 
-    /* Mobile Menu - LEFT SIDED with Close Button */
+    /* Mobile Menu - RIGHT SIDED with Close Button */
     .mobile-menu {
       position: fixed;
       top: 0;
-      left: -100%;
+      right: -100%; /* Changed from left: -100% */
       width: 85%;
       max-width: 320px;
       height: 100vh;
       background: white;
       z-index: 1000;
       transition: var(--transition);
-      box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1); /* Changed shadow direction */
       display: flex;
       flex-direction: column;
       overflow-y: auto;
@@ -290,7 +289,7 @@
     }
 
     .mobile-menu.active {
-      left: 0;
+      right: 0; /* Changed from left: 0 */
     }
 
     .mobile-menu-header {
@@ -1007,12 +1006,9 @@
       transform-style: preserve-3d;
     }
 
+    /* FIXED: Flip cards on mobile with touch-friendly approach */
+    .flip-card.flipped .flip-inner,
     .flip-card:hover .flip-inner {
-      transform: rotateY(180deg);
-    }
-
-    /* FIX FOR MOBILE: Add touch-friendly flip */
-    .flip-card.flipped .flip-inner {
       transform: rotateY(180deg);
     }
 
@@ -1841,7 +1837,7 @@
       color: white;
       font-size: 1.4rem; /* IMPROVED: Larger icons */
       cursor: pointer;
-      transition: all 0.4s cubic-bz(0.4, 0, 0.2, 1); /* IMPROVED: Smoother transition */
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* IMPROVED: Smoother transition */
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* IMPROVED: Enhanced shadow */
       min-height: 44px;
@@ -2618,31 +2614,31 @@
       transform: translateY(0);
     }
 
-/* FLOATING CHAT BUBBLE */
-.floating-chat {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 3001; /* Updated so it stays above the dim overlay */
-}
+    /* FLOATING CHAT BUBBLE */
+    .floating-chat {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 3001; /* Updated so it stays above the dim overlay */
+    }
 
-.chat-bubble {
-  width: 55px !important;   /* homepage size */
-  height: 55px !important;  /* homepage size */
-  background: var(--accent-gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.4rem !important; /* homepage font size */
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-  cursor: pointer;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  border: 3px solid white;
-}
+    .chat-bubble {
+      width: 55px !important;   /* homepage size */
+      height: 55px !important;  /* homepage size */
+      background: var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem !important; /* homepage font size */
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 3px solid white;
+    }
 
     /* ===== MOBILE OPTIMIZATION - Rocket.new Inspired ===== */
     /* Preserves all desktop functionality while optimizing mobile appearance */
@@ -2673,16 +2669,16 @@
       
       .mobile-menu-toggle {
         display: flex; /* Show hamburger menu */
-        order: -1; /* Move to left */
-        margin-right: 16px;
+        margin-left: 16px; /* Move to right */
       }
       
       .nav-links {
         display: none; /* Hide desktop nav */
       }
       
-      .auth-buttons .btn-primary {
-        display: none; /* Hide Start Free Trial button from header on mobile */
+      .auth-buttons .btn-primary,
+      .auth-buttons .btn-outline {
+        display: none; /* Hide Sign In and Start Free Trial buttons from header on mobile */
       }
       
       .auth-buttons {
@@ -2905,57 +2901,57 @@
       }
       
       .monitor-container {
-        transform: scale(0.75);
-        margin: -30px auto;
+        transform: scale(0.85);
+        margin: -20px auto; /* Compensate for scaling */
       }
       
       .monitor-screen {
-        height: 320px;
-        padding: 12px;
+        height: 360px;
+        padding: 15px;
       }
       
       .dashboard-content {
         flex-direction: column;
-        gap: 12px;
+        gap: 16px;
       }
       
       .welcome-card {
-        padding: 15px 12px;
+        padding: 20px 15px;
         height: auto;
-        margin-top: -8px;
+        margin-top: -5px;
       }
       
       .welcome-card h2 {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       
       .welcome-card p {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
       }
       
       .usage-stats {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
       }
       
       .metric-box {
         height: auto;
-        padding: 15px 12px;
-        min-height: 80px;
+        padding: 20px 15px;
+        min-height: 90px;
       }
       
       .roi-summary {
-        margin-top: 15px;
+        margin-top: 20px;
         width: 100%;
       }
       
       .roi-summary h3 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
+        font-size: 1.4rem;
+        margin-bottom: 20px;
       }
       
       .roi-points {
-        gap: 12px;
+        gap: 16px;
       }
       
       /* === CAROUSEL - Mobile Friendly === */
@@ -3083,72 +3079,6 @@
         padding: 30px 20px;
         margin: 20px;
       }
-
-      /* === FLIP CARDS - Ensure all cards flip on mobile === */
-      .flip-card {
-        height: 240px;
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-      }
-      
-      .flip-card.flipped .flip-inner {
-        transform: rotateY(180deg);
-      }
-      
-      /* === MOBILE MENU - Move auth buttons and remove theme toggle === */
-      .mobile-nav-links {
-        padding: 20px 0;
-        flex: 1;
-      }
-      
-      /* Add auth buttons to mobile menu */
-      .mobile-nav-links li:last-child {
-        border-bottom: none;
-      }
-      
-      /* Remove theme toggle from mobile header */
-      .header-actions .theme-toggle {
-        display: none;
-      }
-      
-      /* Hide auth buttons from header on mobile */
-      .auth-buttons {
-        display: none;
-      }
-      
-      /* === SINGLE CLOSE BUTTON - Ensure only one close button === */
-      .mobile-menu-close {
-        display: flex !important;
-      }
-      
-      /* Remove any duplicate close buttons */
-      .mobile-menu-header .logo + button:not(.mobile-menu-close) {
-        display: none;
-      }
-      
-      /* === IMPROVED MOBILE INTERACTIONS === */
-      /* Enhanced touch targets */
-      .btn, .flip-card, .carousel-btn {
-        min-height: 44px;
-        min-width: 44px;
-      }
-      
-      /* Disable hover effects for better touch experience */
-      .btn:hover {
-        transform: none;
-      }
-      
-      .flip-card:hover .flip-inner {
-        transform: none;
-      }
-      
-      .feature-card:hover {
-        transform: none;
-      }
-      
-      .process-step:hover {
-        transform: none;
-      }
     }
 
     /* === SMALL MOBILE REFINEMENTS (375px-430px) === */
@@ -3209,12 +3139,7 @@
       }
       
       .monitor-container {
-        transform: scale(0.65);
-        margin: -40px auto;
-      }
-      
-      .monitor-screen {
-        height: 280px;
+        transform: scale(0.78);
       }
       
       .carousel-slide {
@@ -3262,6 +3187,31 @@
       .container {
         width: 100%;
         max-width: 100%;
+      }
+    }
+
+    /* === IMPROVED MOBILE INTERACTIONS === */
+    @media (max-width: 768px) {
+      /* Disable hover effects for better touch experience */
+      .btn:hover {
+        transform: none;
+      }
+      
+      .flip-card:hover .flip-inner {
+        transform: none;
+      }
+      
+      .feature-card:hover {
+        transform: none;
+      }
+      
+      .process-step:hover {
+        transform: none;
+      }
+      
+      /* Enhanced scrolling performance */
+      .hero, .section {
+        -webkit-overflow-scrolling: touch;
       }
     }
 
@@ -3978,17 +3928,17 @@
     /* === MAINTAIN EXISTING BREAKPOINTS & LAYOUT === */
     /* No structural changes - only size and spacing refinements */
     @media (max-width: 768px) {
-  .footer-links-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px !important;
-    text-align: center !important;
-  }
+      .footer-links-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+        text-align: center !important;
+      }
 
-  .footer-link-category {
-    margin-bottom: 0 !important;
-  }
-}
+      .footer-link-category {
+        margin-bottom: 0 !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -4011,13 +3961,6 @@
       </a>
       
       <div class="nav-container">
-        <!-- Mobile Menu Toggle - NOW ON LEFT -->
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        
         <ul class="nav-links" id="navLinks">
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="hr-copilot.html">HR Copilot</a></li>
@@ -4033,6 +3976,12 @@
               <i class="fas fa-sun"></i>
               <i class="fas fa-moon"></i>
             </button>
+            <!-- Mobile Menu Toggle - NOW ON RIGHT -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </div>
         </div>
       </div>
@@ -4041,7 +3990,7 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
-    <!-- Mobile Menu - LEFT SIDED -->
+    <!-- Mobile Menu - RIGHT SIDED -->
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-menu-header">
         <div class="logo">
@@ -4701,7 +4650,7 @@
   <script>
     // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
-      // Mobile menu functionality - UPDATED FOR LEFT-SIDED MENU
+      // Mobile menu functionality - UPDATED FOR RIGHT-SIDED MENU
       const mobileMenuToggle = document.getElementById('mobileMenuToggle');
       const mobileMenu = document.getElementById('mobileMenu');
       const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -5086,38 +5035,14 @@
         observer.observe(el);
       });
 
-      // FIX FOR MOBILE: Add touch-friendly flip card functionality
+      // FIXED: Flip cards on mobile with touch-friendly approach
       const flipCards = document.querySelectorAll('.flip-card');
       
       flipCards.forEach(card => {
         card.addEventListener('click', function() {
-          if (window.innerWidth <= 768) {
-            // Toggle flipped state on mobile
-            this.classList.toggle('flipped');
-          }
+          this.classList.toggle('flipped');
         });
       });
-
-      // MOBILE MENU: Ensure auth buttons are in mobile menu
-      const mobileMenuActions = document.querySelector('.mobile-menu-actions');
-      if (mobileMenuActions && window.innerWidth <= 768) {
-        // Add Sign In and Start Free Trial to mobile menu if not already there
-        if (!mobileMenuActions.querySelector('.btn-outline')) {
-          const signInBtn = document.createElement('a');
-          signInBtn.href = 'sign-in.html';
-          signInBtn.className = 'btn btn-outline';
-          signInBtn.textContent = 'Sign In';
-          
-          const startTrialBtn = document.createElement('a');
-          startTrialBtn.href = 'create-account.html';
-          startTrialBtn.className = 'btn btn-primary';
-          startTrialBtn.textContent = 'Start Free Trial';
-          
-          mobileMenuActions.innerHTML = '';
-          mobileMenuActions.appendChild(startTrialBtn);
-          mobileMenuActions.appendChild(signInBtn);
-        }
-      }
     });
   </script>
 </body>
