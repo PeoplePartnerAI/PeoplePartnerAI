@@ -1841,7 +1841,7 @@
       color: white;
       font-size: 1.4rem; /* IMPROVED: Larger icons */
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* IMPROVED: Smoother transition */
+      transition: all 0.4s cubic-bz(0.4, 0, 0.2, 1); /* IMPROVED: Smoother transition */
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* IMPROVED: Enhanced shadow */
       min-height: 44px;
@@ -2644,7 +2644,6 @@
   border: 3px solid white;
 }
 
-
     /* ===== MOBILE OPTIMIZATION - Rocket.new Inspired ===== */
     /* Preserves all desktop functionality while optimizing mobile appearance */
 
@@ -2906,57 +2905,57 @@
       }
       
       .monitor-container {
-        transform: scale(0.85);
-        margin: -20px auto; /* Compensate for scaling */
+        transform: scale(0.75);
+        margin: -30px auto;
       }
       
       .monitor-screen {
-        height: 360px;
-        padding: 15px;
+        height: 320px;
+        padding: 12px;
       }
       
       .dashboard-content {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
       }
       
       .welcome-card {
-        padding: 20px 15px;
+        padding: 15px 12px;
         height: auto;
-        margin-top: -5px;
+        margin-top: -8px;
       }
       
       .welcome-card h2 {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
       
       .welcome-card p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
       }
       
       .usage-stats {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
       }
       
       .metric-box {
         height: auto;
-        padding: 20px 15px;
-        min-height: 90px;
+        padding: 15px 12px;
+        min-height: 80px;
       }
       
       .roi-summary {
-        margin-top: 20px;
+        margin-top: 15px;
         width: 100%;
       }
       
       .roi-summary h3 {
-        font-size: 1.4rem;
-        margin-bottom: 20px;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
       }
       
       .roi-points {
-        gap: 16px;
+        gap: 12px;
       }
       
       /* === CAROUSEL - Mobile Friendly === */
@@ -3084,6 +3083,72 @@
         padding: 30px 20px;
         margin: 20px;
       }
+
+      /* === FLIP CARDS - Ensure all cards flip on mobile === */
+      .flip-card {
+        height: 240px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      .flip-card.flipped .flip-inner {
+        transform: rotateY(180deg);
+      }
+      
+      /* === MOBILE MENU - Move auth buttons and remove theme toggle === */
+      .mobile-nav-links {
+        padding: 20px 0;
+        flex: 1;
+      }
+      
+      /* Add auth buttons to mobile menu */
+      .mobile-nav-links li:last-child {
+        border-bottom: none;
+      }
+      
+      /* Remove theme toggle from mobile header */
+      .header-actions .theme-toggle {
+        display: none;
+      }
+      
+      /* Hide auth buttons from header on mobile */
+      .auth-buttons {
+        display: none;
+      }
+      
+      /* === SINGLE CLOSE BUTTON - Ensure only one close button === */
+      .mobile-menu-close {
+        display: flex !important;
+      }
+      
+      /* Remove any duplicate close buttons */
+      .mobile-menu-header .logo + button:not(.mobile-menu-close) {
+        display: none;
+      }
+      
+      /* === IMPROVED MOBILE INTERACTIONS === */
+      /* Enhanced touch targets */
+      .btn, .flip-card, .carousel-btn {
+        min-height: 44px;
+        min-width: 44px;
+      }
+      
+      /* Disable hover effects for better touch experience */
+      .btn:hover {
+        transform: none;
+      }
+      
+      .flip-card:hover .flip-inner {
+        transform: none;
+      }
+      
+      .feature-card:hover {
+        transform: none;
+      }
+      
+      .process-step:hover {
+        transform: none;
+      }
     }
 
     /* === SMALL MOBILE REFINEMENTS (375px-430px) === */
@@ -3144,7 +3209,12 @@
       }
       
       .monitor-container {
-        transform: scale(0.78);
+        transform: scale(0.65);
+        margin: -40px auto;
+      }
+      
+      .monitor-screen {
+        height: 280px;
       }
       
       .carousel-slide {
@@ -3192,31 +3262,6 @@
       .container {
         width: 100%;
         max-width: 100%;
-      }
-    }
-
-    /* === IMPROVED MOBILE INTERACTIONS === */
-    @media (max-width: 768px) {
-      /* Disable hover effects for better touch experience */
-      .btn:hover {
-        transform: none;
-      }
-      
-      .flip-card:hover .flip-inner {
-        transform: none;
-      }
-      
-      .feature-card:hover {
-        transform: none;
-      }
-      
-      .process-step:hover {
-        transform: none;
-      }
-      
-      /* Enhanced scrolling performance */
-      .hero, .section {
-        -webkit-overflow-scrolling: touch;
       }
     }
 
@@ -5052,6 +5097,27 @@
           }
         });
       });
+
+      // MOBILE MENU: Ensure auth buttons are in mobile menu
+      const mobileMenuActions = document.querySelector('.mobile-menu-actions');
+      if (mobileMenuActions && window.innerWidth <= 768) {
+        // Add Sign In and Start Free Trial to mobile menu if not already there
+        if (!mobileMenuActions.querySelector('.btn-outline')) {
+          const signInBtn = document.createElement('a');
+          signInBtn.href = 'sign-in.html';
+          signInBtn.className = 'btn btn-outline';
+          signInBtn.textContent = 'Sign In';
+          
+          const startTrialBtn = document.createElement('a');
+          startTrialBtn.href = 'create-account.html';
+          startTrialBtn.className = 'btn btn-primary';
+          startTrialBtn.textContent = 'Start Free Trial';
+          
+          mobileMenuActions.innerHTML = '';
+          mobileMenuActions.appendChild(startTrialBtn);
+          mobileMenuActions.appendChild(signInBtn);
+        }
+      }
     });
   </script>
 </body>
