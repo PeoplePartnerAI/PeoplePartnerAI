@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HR Copilot | PeoplePartner AI</title>
   <meta name="description" content="Your intelligent HR assistant for guidance, templates, and advice" />
-  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="icon" type="image/png" href="C:\Users\Dal\OneDrive\Desktop\PPAI\assets\img\logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
     :root {
       --primary-navy: #1a2b55;
@@ -436,19 +435,20 @@
     /* MAIN LAYOUT */
     .app-container {
       display: flex;
-      height: calc(100vh - 80px);
+      height: calc(100vh - 120px); /* Reduced from 80px to 120px */
       overflow: hidden;
     }
     
-    /* SIDEBAR - UPDATED */
+    /* SIDEBAR */
     .sidebar {
-      width: 320px;
+      width: 280px;
       background: var(--light-bg);
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
       transition: transform .3s;
       overflow-y: auto;
+      padding-bottom: 10px;
     }
     
     .sidebar.collapsed {
@@ -456,7 +456,7 @@
     }
     
     .sidebar-header {
-      padding: 20px 20px 16px;
+      padding: 16px 16px 12px;
       border-bottom: 1px solid var(--border-light);
     }
     
@@ -493,11 +493,11 @@
     .chat-list {
       flex: 1;
       overflow-y: auto;
-      padding: 12px;
+      padding: 8px 8px;
     }
     
     .chat-item {
-      padding: 12px 16px;
+      padding: 12px 10px;
       border-radius: 10px;
       cursor: pointer;
       transition: .15s;
@@ -560,12 +560,11 @@
       color: rgba(255,255,255,0.7);
     }
     
-    /* Welcome prompts in sidebar - UPDATED */
+    /* Welcome prompts in sidebar */
     .welcome-prompt {
-      padding: 10px 12px;
-      background: var(--light-blue);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      padding: 8px 10px;
+      background: none !important;
+      border: none !important;
       cursor: pointer;
       transition: .2s;
       text-align: left;
@@ -574,31 +573,48 @@
       gap: 10px;
       position: relative;
       overflow: hidden;
-      margin-bottom: 8px;
-    }
-    
-    
-    .welcome-prompt:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--accent-gold);
-      opacity: 0.8;
+      margin-bottom: 6px;
     }
     
     .welcome-prompt-text {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 500;
       color: var(--text-dark);
-      line-height: 1.4;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+    
+    .welcome-prompt:hover .welcome-prompt-text {
+      color: var(--accent-gold);
+    }
+
+    /* Italic and speech marks for popular searches */
+    .welcome-prompt-text:before {
+      content: '"';
+    }
+    
+    .welcome-prompt-text:after {
+      content: '"';
+    }
+    
+    /* Premium styling for Popular HR Questions section */
+    .popular-questions-header {
+      font-size: 13px;
+      font-weight: 700;
+      margin: 8px 8px 8px;
+      color: var(--primary-navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .popular-questions-container {
+      max-width: 280px;
+      margin: 0 auto;
     }
     
     /* Suggested Actions in Sidebar */
     .suggested-actions {
-      padding: 55px 20px;
+      padding: 10px 16px;
       border-top: 1px solid var(--border-light);
     }
     .suggested-actions h3 {
@@ -608,6 +624,12 @@
       color: var(--text-muted);
       margin-bottom: 12px;
       font-weight: 700;
+    }
+    
+    .suggested-actions-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
     
     .suggested-action-btn {
@@ -624,7 +646,6 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 6px;
     }
     
     .suggested-action-btn:hover {
@@ -642,15 +663,66 @@
     }
     
     /* Colorful icons for suggested actions */
-    .suggested-action-btn:nth-child(2) svg {
+    .suggested-action-btn:nth-child(1) svg {
       color: var(--primary-navy);
     }
     
-    .suggested-action-btn:nth-child(3) svg {
+    .suggested-action-btn:nth-child(2) svg {
       color: var(--accent-gold);
     }
     
-    /* MAIN CHAT AREA - UPDATED */
+    /* SMALLER DISCLAIMER OUTSIDE CHAT BOX */
+    .global-disclaimer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFF0C2 100%);
+      border: 1px solid var(--accent-gold);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary-navy);
+      box-shadow: 0 2px 8px rgba(255, 184, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+      margin: 6px 16px 8px 16px;
+      text-align: center;
+      height: 32px;
+    }
+    
+    .global-disclaimer:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent-gold);
+    }
+    
+    .global-disclaimer-icon {
+      font-size: 14px;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+    
+    .dark-mode .global-disclaimer {
+      background: linear-gradient(135deg, #2A2400 0%, #3D3200 100%);
+      color: var(--accent-gold);
+      border-color: var(--accent-gold);
+    }
+    
+    /* MAIN CONTENT WRAPPER - NEW */
+    .main-content-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0; /* Essential for proper flexbox behavior */
+    }
+    
+    /* MAIN CHAT AREA - REDUCED HEIGHT WITH FIXED INPUT */
     .chat-area {
       flex: 1;
       display: flex;
@@ -659,47 +731,49 @@
       position: relative;
       transition: all .3s ease-in-out;
       width: 100%;
-      margin-left: auto;
-      margin: 8px;
+      margin: 4px 4px 8px 4px;
       border-radius: var(--border-radius-lg);
       box-shadow: var(--box-shadow);
       overflow: hidden;
+      height: calc(100vh - 200px); /* Reduced height */
+      min-height: 0; /* CRITICAL: Allows proper flexbox sizing */
     }
     
-    /* Chat Header - UPDATED with reduced height */
+    /* Chat Header - COMPRESSED */
     .chat-header {
-      padding: 12px 20px;
+      padding: 6px 16px;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: var(--light-bg);
-      min-height: 60px;
+      min-height: 40px;
+      flex-shrink: 0; /* Prevent header from shrinking */
     }
     
     .chat-title {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
+      align-items: center;
+      gap: 10px;
     }
     
     .chat-title h3 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       margin: 0;
     }
     
-    .chat-title .status {
-      font-size: 12px;
-      color: var(--text-muted);
+    .status {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--text-muted);
     }
     
     .status-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--success);
       animation: pulse 2s infinite;
@@ -714,27 +788,27 @@
       }
     }
     
-    /* Chat Actions - UPDATED with reduced height */
+    /* Chat Actions */
     .chat-actions {
       display: flex;
-      gap: 6px;
+      gap: 5px;
       align-items: center;
     }
     
     .chat-action-btn {
-      padding: 6px 10px;
+      padding: 5px 8px;
       background: white;
       border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 12px;
+      border-radius: 5px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--text-dark);
       cursor: pointer;
       transition: .2s;
       display: flex;
       align-items: center;
-      gap: 4px;
-      height: 32px;
+      gap: 3px;
+      height: 24px;
     }
     
     .chat-action-btn:hover {
@@ -743,56 +817,58 @@
     }
     
     .chat-action-btn svg {
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
     }
     
-    /* DELETE BUTTON - UPDATED with reduced height */
+    /* DELETE BUTTON - RED STYLING */
     .delete-btn {
-      padding: 6px 10px;
-      background: var(--delete);
+      padding: 5px 8px;
+      background: #dc2626;
       color: #fff;
-      border: 1px solid var(--delete);
-      border-radius: 6px;
-      font-size: 12px;
+      border: 1px solid #dc2626;
+      border-radius: 5px;
+      font-size: 11px;
       font-weight: 600;
       cursor: pointer;
       transition: .2s;
       display: flex;
       align-items: center;
-      gap: 4px;
-      height: 32px;
+      gap: 3px;
+      height: 24px;
     }
     
     .delete-btn:hover {
-      background: var(--delete-dark);
-      border-color: var(--delete-dark);
+      background: #b91c1c;
+      border-color: #b91c1c;
       transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
     }
     
     .delete-btn svg {
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       stroke: #fff;
       stroke-width: 2;
       fill: none;
     }
     
-    /* MESSAGES AREA - UPDATED to utilize more space */
+    /* MESSAGES AREA - FIXED WITH GUARANTEED INPUT VISIBILITY */
     .messages-container {
       flex: 1;
       overflow-y: auto;
-      padding: 20px;
+      padding: 10px 16px 0px 16px;
       scroll-behavior: smooth;
+      min-height: 0; /* CRITICAL: Allows scrolling instead of expanding */
     }
     
     .message {
       display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
+      gap: 12px;
+      margin-bottom: 12px;
       animation: fadeIn 0.3s ease;
     }
     
@@ -808,15 +884,15 @@
     }
     
     .message-avatar {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 14px;
     }
     
     .message.user .message-avatar {
@@ -827,7 +903,7 @@
     .message.assistant .message-avatar {
       background: var(--light-bg);
       color: var(--primary-navy);
-      font-size: 20px;
+      font-size: 16px;
       overflow: hidden;
       border: 1px solid #333;
     }
@@ -846,17 +922,17 @@
     .message-header {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
+      gap: 6px;
+      margin-bottom: 4px;
     }
     
     .message-name {
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
     }
     
     .message-time {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-muted);
     }
     
@@ -864,13 +940,13 @@
       display: none;
     }
     
-    /* Speech bubble styles for messages - UPDATED with increased width */
+    /* Speech bubble styles for messages */
     .message-bubble {
       position: relative;
-      padding: 14px 18px;
-      border-radius: 18px;
+      padding: 8px 12px;
+      border-radius: 14px;
       max-width: 95%;
-      line-height: 1.5;
+      line-height: 1.4;
       word-wrap: break-word;
     }
     
@@ -878,38 +954,40 @@
       background: var(--light-blue);
       border: 1px solid var(--border);
       color: var(--text-dark);
+      padding: 8px 12px;
     }
     
     .message.user .message-bubble {
       background: var(--primary-navy);
       color: #fff;
+      padding: 8px 12px;
     }
     
     /* Speech bubble tail/pointer */
     .message-bubble:after {
       content: '';
       position: absolute;
-      bottom: 10px;
+      bottom: 8px;
       width: 0;
       height: 0;
-      border: 8px solid transparent;
+      border: 6px solid transparent;
     }
     
     .message.assistant .message-bubble:after {
-      left: -16px;
+      left: -12px;
       border-right-color: var(--light-blue);
       border-left: 0;
     }
     
     .message.user .message-bubble:after {
-      right: -16px;
+      right: -12px;
       border-left-color: var(--primary-navy);
       border-right: 0;
     }
     
     .message-text {
-      line-height: 1.7;
-      font-size: 15px;
+      line-height: 1.5;
+      font-size: 14px;
       color: inherit;
       white-space: pre-wrap;
       word-wrap: break-word;
@@ -921,20 +999,20 @@
     }
     
     .message-text ul, .message-text ol {
-      margin: 12px 0;
-      padding-left: 24px;
+      margin: 8px 0;
+      padding-left: 18px;
     }
     
     .message-text li {
-      margin: 6px 0;
+      margin: 4px 0;
     }
     
     .message-text code {
       background: var(--light-blue);
-      padding: 2px 6px;
-      border-radius: 4px;
+      padding: 1px 4px;
+      border-radius: 3px;
       font-family: 'Courier New', monospace;
-      font-size: 13px;
+      font-size: 12px;
     }
     
     .message.user .message-text code {
@@ -942,31 +1020,31 @@
       color: #fff;
     }
     
-    /* Enhanced typing indicator */
+    /* Enhanced typing indicator - COMPACT */
     .typing-indicator {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
+      gap: 6px;
+      padding: 8px 12px;
       background: var(--light-blue);
-      border-radius: 12px;
+      border-radius: 10px;
       width: fit-content;
-      margin-top: 8px;
+      margin-top: 6px;
     }
     
     .typing-text {
-      font-size: 14px;
+      font-size: 12px;
       color: var(--text-muted);
     }
     
     .typing-dots {
       display: flex;
-      gap: 4px;
+      gap: 3px;
     }
     
     .typing-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--text-muted);
       animation: typing 1.4s infinite;
@@ -995,23 +1073,23 @@
     .message-suggestions {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
+      gap: 6px;
+      margin-top: 8px;
     }
     
     .suggestion-chip {
-      padding: 8px 14px;
+      padding: 6px 10px;
       background: var(--light-blue);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      font-size: 13px;
+      border-radius: 16px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-dark);
       cursor: pointer;
       transition: .2s;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
     }
     
     .suggestion-chip:hover {
@@ -1022,43 +1100,46 @@
     }
     
     .suggestion-chip svg {
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
     }
     
-    /* INPUT AREA */
+    /* INPUT AREA - GUARANTEED VISIBILITY WITH INCREASED HEIGHT */
     .input-area {
-      padding: 16px 20px;
+      padding: 4px 16px 8px 16px;
       border-top: 1px solid var(--border);
       background: var(--light-bg);
       position: relative;
+      margin-top: auto; /* Pushes to bottom */
+      flex-shrink: 0; /* Prevents shrinking */
+      z-index: 10; /* Ensures visibility */
     }
     
     .input-attachments {
       display: flex;
-      gap: 8px;
-      margin-bottom: 12px;
+      gap: 6px;
+      margin-bottom: 6px;
       flex-wrap: wrap;
     }
     
     .attachment-chip {
-      padding: 8px 12px;
+      padding: 6px 10px;
       background: var(--light-blue);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 13px;
+      border-radius: 6px;
+      font-size: 12px;
       font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
     
     .attachment-chip svg {
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
@@ -1077,7 +1158,7 @@
       position: relative;
       display: flex;
       align-items: flex-end;
-      gap: 12px;
+      gap: 10px;
     }
     
     .input-container {
@@ -1085,26 +1166,28 @@
       position: relative;
     }
     
+    /* INCREASED INPUT BOX HEIGHT */
     #messageInput {
       width: 100%;
-      min-height: 96px;
-      max-height: 200px;
-      padding: 16px 18px 16px 18px;
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      font-size: 15px;
+      min-height: 44px; /* Increased from 32px to 44px */
+      max-height: 88px; /* Increased from 64px to 88px */
+      padding: 12px 16px; /* Increased padding for better comfort */
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
       font-family: inherit;
       resize: none;
       outline: none;
       transition: .2s;
       background: var(--light-bg);
       color: var(--text-dark);
-      line-height: 1.5;
+      line-height: 1.4; /* Slightly increased line height */
       margin-bottom: 0;
     }
     
     #messageInput:focus {
       border-color: var(--primary-navy);
+      border-width: 2px;
     }
     
     #messageInput::placeholder {
@@ -1113,16 +1196,16 @@
     
     .input-actions {
       position: absolute;
-      right: 8px;
-      bottom: 8px;
+      right: 6px;
+      bottom: 6px;
       display: flex;
-      gap: 6px;
+      gap: 4px;
     }
     
     .input-action-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
       background: transparent;
       border: none;
       display: flex;
@@ -1140,17 +1223,17 @@
     }
     
     .input-action-btn svg {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
     }
     
     #sendButton {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
       background: var(--primary-navy);
       border: none;
       display: flex;
@@ -1174,8 +1257,8 @@
     }
     
     #sendButton svg {
-      width: 20px;
-      height: 20px;
+      width: 14px;
+      height: 14px;
       stroke: #fff;
       stroke-width: 2.5;
       fill: none;
@@ -1184,9 +1267,9 @@
     .input-hint {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-top: 8px;
-      font-size: 12px;
+      justify-content: flex-end;
+      margin-top: 4px;
+      font-size: 11px;
       color: var(--text-muted);
     }
     
@@ -1194,55 +1277,14 @@
       display: none;
     }
     
-    /* PREMIUM DISCLAIMER */
-    .premium-disclaimer {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      background: linear-gradient(135deg, #FFF9E6 0%, #FFF0C2 100%);
-      border: 1px solid var(--accent-gold);
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--primary-navy);
-      box-shadow: 0 1px 4px rgba(255, 184, 0, 0.15);
-      margin-top: 8px;
-      position: relative;
-      overflow: hidden;
-      height: 36px;
-    }
-    
-    .premium-disclaimer:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--accent-gold);
-    }
-    
-    .premium-disclaimer-icon {
-      font-size: 14px;
-      color: var(--accent-gold);
-      flex-shrink: 0;
-    }
-    
-    .dark-mode .premium-disclaimer {
-      background: linear-gradient(135deg, #2A2400 0%, #3D3200 100%);
-      color: var(--accent-gold);
-      border-color: var(--accent-gold);
-    }
-    
-    /* FLOATING GLASS HELP BUTTON - MOVED TO CHAT AREA */
+    /* FLOATING GLASS HELP BUTTON */
     .help-button {
       position: absolute;
-      bottom: 140px;
+      bottom: 80px;
       right: 20px;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
       background: var(--accent-gold);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -1253,7 +1295,7 @@
       cursor: pointer;
       z-index: 100;
       transition: var(--transition);
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--primary-navy);
     }
@@ -1266,16 +1308,16 @@
     
     .help-panel {
       position: absolute;
-      bottom: 150px;
+      bottom: 90px;
       right: 20px;
-      width: 300px;
-      max-height: 400px;
+      width: 280px;
+      max-height: 350px;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
-      border-radius: 16px;
+      border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      padding: 20px;
+      padding: 16px;
       z-index: 99;
       opacity: 0;
       transform: translateY(20px);
@@ -1289,27 +1331,27 @@
     }
     
     .help-panel h3 {
-      margin: 0 0 12px 0;
-      font-size: 18px;
+      margin: 0 0 10px 0;
+      font-size: 16px;
       color: var(--primary-navy);
     }
     
     .help-panel p {
-      margin: 0 0 16px 0;
-      font-size: 14px;
-      line-height: 1.5;
+      margin: 0 0 12px 0;
+      font-size: 13px;
+      line-height: 1.4;
       color: var(--text-dark);
     }
     
     .help-panel ul {
       margin: 0;
-      padding-left: 20px;
+      padding-left: 18px;
     }
     
     .help-panel li {
-      margin-bottom: 8px;
-      font-size: 14px;
-      line-height: 1.4;
+      margin-bottom: 6px;
+      font-size: 13px;
+      line-height: 1.3;
     }
     
     .help-overlay {
@@ -1353,19 +1395,19 @@
 
     /* BLUE SCROLLBARS */
     ::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
     }
     
     ::-webkit-scrollbar-track {
       background: var(--light-blue);
-      border-radius: 5px;
+      border-radius: 4px;
     }
     
     ::-webkit-scrollbar-thumb {
       background: var(--primary-navy);
-      border-radius: 5px;
-      border: 2px solid var(--light-blue);
+      border-radius: 4px;
+      border: 1px solid var(--light-blue);
     }
     
     ::-webkit-scrollbar-thumb:hover {
@@ -1382,7 +1424,7 @@
       scrollbar-color: var(--primary-navy) var(--light-blue);
     }
     
-    /* Mobile Responsive - IMPROVED */
+    /* Mobile Responsive */
     @media (max-width: 1024px) {
       .sidebar {
         width: 260px;
@@ -1390,21 +1432,29 @@
       
       .chat-area {
         margin: 6px;
+        height: calc(100vh - 180px);
       }
       
       .help-button {
-        bottom: 18px;
-        right: 18px;
+        bottom: 16px;
+        right: 16px;
       }
       
       .help-panel {
         right: 2px;
         width: calc(100% - 40px);
-        max-width: 320px;
+        max-width: 300px;
       }
       
       .message-bubble {
         max-width: 90%;
+      }
+      
+      .global-disclaimer {
+        margin: 4px 12px 6px 12px;
+        font-size: 11px;
+        padding: 6px 12px;
+        height: 28px;
       }
     }
     
@@ -1433,21 +1483,22 @@
       
       .chat-area {
         margin: 4px;
+        height: calc(100vh - 160px);
       }
       
       .help-button {
-        bottom: 16px;
-        right: 16px;
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
+        bottom: 14px;
+        right: 14px;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
       }
       
       .help-panel {
-        right: 16px;
-        bottom: 80px;
-        width: calc(100% - 32px);
-        max-width: 300px;
+        right: 14px;
+        bottom: 70px;
+        width: calc(100% - 28px);
+        max-width: 280px;
       }
       
       .message-bubble {
@@ -1456,18 +1507,18 @@
       
       .message {
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
       }
       
       .message-avatar {
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
       }
       
       .message-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 4px;
+        gap: 2px;
       }
       
       .message-time {
@@ -1480,20 +1531,27 @@
       }
       
       .chat-action-btn, .delete-btn {
-        font-size: 12px;
-        padding: 6px 10px;
+        font-size: 10px;
+        padding: 4px 6px;
       }
       
       .input-area {
-        padding: 16px;
+        padding: 12px;
       }
       
       .messages-container {
-        padding: 16px;
+        padding: 12px;
       }
       
       .chat-header {
-        padding: 12px 16px;
+        padding: 8px 12px;
+      }
+      
+      .global-disclaimer {
+        margin: 3px 8px 4px 8px;
+        font-size: 10px;
+        padding: 4px 8px;
+        height: 24px;
       }
     }
     
@@ -1521,6 +1579,7 @@
       
       .chat-area {
         margin: 2px;
+        height: calc(100vh - 140px);
       }
       
       .message-bubble {
@@ -1528,57 +1587,27 @@
       }
       
       .help-button {
-        bottom: 12px;
-        right: 12px;
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        font-size: 16px;
+        bottom: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        font-size: 14px;
       }
       
       .help-panel {
-        right: 12px;
-        bottom: 70px;
-        width: calc(100% - 24px);
+        right: 10px;
+        bottom: 60px;
+        width: calc(100% - 20px);
         max-width: none;
       }
-    }
-    /* FORCE REMOVE BOXES FROM SIDEBAR PROMPTS */
-    .welcome-prompt {
-      background: none !important;
-      border: none !important;
-      padding: 0 !important;
-      margin: 4px 0 !important;
-      box-shadow: none !important;
-      border-radius: 0 !important;
-    }
-
-    .welcome-prompt:hover {
-      background: none !important;
-      border: none !important;
-      box-shadow: none !important;
-      transform: none !important;
-    }
-
-    .welcome-prompt:before {
-      display: none !important;
-    }
-
-    .welcome-prompt-text {
-      padding-left: 0 !important;
-      background: none !important;
-      border: none !important;
-      box-shadow: none !important;
-      font-style: italic;
-    }
-
-    /* Italic and speech marks for popular searches */
-    .welcome-prompt-text:before {
-      content: '"';
-    }
-    
-    .welcome-prompt-text:after {
-      content: '"';
+      
+      .global-disclaimer {
+        margin: 2px 6px 3px 6px;
+        font-size: 9px;
+        padding: 3px 6px;
+        height: 22px;
+      }
     }
   </style>
 </head>
@@ -1597,7 +1626,7 @@
   <header class="main-header" id="mainHeader">
     <div class="container header-content">
       <a href="index.html" class="logo">
-        <img src="assets/img/favicon.png" alt="People Partner Logo">
+        <img src="C:\Users\Dal\OneDrive\Desktop\PPAI\assets\img\logo.png" alt="People Partner Logo">
         People Partner
       </a>
       
@@ -1651,15 +1680,11 @@
       </div>
 
       <div class="chat-list" id="chatList">
-        <!-- Updated Popular Searches - Italic and in speech marks -->
-        <h3 style="font-size:14px;font-weight:700;margin:0px 12px 8px;color:var(--text-dark);text-transform:uppercase;letter-spacing:0.5px">Popular HR Questions</h3>
-        <div style="padding:0 12px">
+        <!-- Updated Popular Searches - Premium spacing and styling -->
+        <h3 class="popular-questions-header">Popular HR Questions</h3>
+        <div class="popular-questions-container">
           <div class="welcome-prompt" data-prompt="How do I handle a day-one flexible working request?">
             <div class="welcome-prompt-text">How do I handle a day-one flexible working request?</div>
-          </div>
-          
-          <div class="welcome-prompt" data-prompt="What do I do when mental health impacts performance?">
-            <div class="welcome-prompt-text">What do I do when mental health impacts performance?</div>
           </div>
           
           <div class="welcome-prompt" data-prompt="How do I deal with persistent lateness?">
@@ -1678,581 +1703,289 @@
             <div class="welcome-prompt-text">How do I investigate a bullying complaint?</div>
           </div>
         </div>
-      </div>
 
-      <!-- Suggested Actions - Only 2 links now -->
-      <div class="suggested-actions">
-        <h3>Quick Links</h3>
-        <button class="suggested-action-btn" id="checkTemplates" onclick="window.open('resources.html#templates', '_blank')">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-          Browse Templates
-        </button>
-        <button class="suggested-action-btn" id="viewGuides" onclick="window.open('resources.html#guides', '_blank')">
-          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          Browse Guides
-        </button>
+        <!-- QUICK LINKS MOVED UNDER POPULAR HR SEARCHES -->
+        <div class="suggested-actions">
+          <h3>Quick Links</h3>
+          <div class="suggested-actions-container">
+            <button class="suggested-action-btn" id="checkTemplates">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              Browse Templates
+            </button>
+            <button class="suggested-action-btn" id="viewGuides">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              Browse Guides
+            </button>
+          </div>
+        </div>
       </div>
     </aside>
 
-    <!-- MAIN CHAT AREA -->
-    <main class="chat-area">
-      <div class="chat-header">
-        <div class="chat-title">
-          <h3>HR Copilot</h3>
-          <div class="status">
-            <span class="status-dot"></span>
-            <span>Available</span>
-          </div>
-        </div>
-        <div class="chat-actions">
-          <button class="chat-action-btn" id="exportBtn">
-            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Export
-          </button>
-          <button class="chat-action-btn" id="attachDocBtn">
-            <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-            Upload
-          </button>
-          <button class="delete-btn" id="deleteBtn">
-            <svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-            Delete
-          </button>
-        </div>
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-content-wrapper">
+      <!-- SMALLER DISCLAIMER OUTSIDE CHAT BOX -->
+      <div class="global-disclaimer">
+        <div class="global-disclaimer-icon">⚠️</div>
+        <div>AI responses are guidance only, not legal advice.</div>
       </div>
 
-      <div class="messages-container" id="messagesContainer">
-        <!-- Initial greeting with speech bubble -->
-        <div class="message assistant" id="initialGreeting">
-          <div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
-            <img src="assets/img/favicon.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
-          </div>
-          <div class="message-content">
-            <div class="message-header">
-              <span class="message-name">HR Copilot</span>
-              <span class="message-time" id="greetingTime"></span>
-            </div>
-            <div class="message-bubble">
-              <div class="message-text">Hello Sarah! I'm your HR Copilot, ready to assist with all your HR needs. I can help you with policy guidance, employment law questions, document creation, and HR best practices. What would you like to discuss today?</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="input-area">
-        <div class="input-attachments" id="attachments" style="display:none">
-          <!-- Attachments will appear here -->
-        </div>
-        
-        <div class="input-wrapper">
-          <div class="input-container">
-            <textarea 
-              id="messageInput" 
-              placeholder="Ask me anything about HR, employment law, or request a document..." 
-              rows="3"
-            ></textarea>
-            <div class="input-actions">
-              <!-- Microphone button removed -->
+      <!-- MAIN CHAT AREA - NOW SMALLER AND MORE COMPACT -->
+      <main class="chat-area">
+        <div class="chat-header">
+          <div class="chat-title">
+            <h3>HR Copilot</h3>
+            <div class="status">
+              <span class="status-dot"></span>
+              <span>Available</span>
             </div>
           </div>
           
-          <button id="sendButton" disabled>
-            <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="chat-actions">
+            <button class="chat-action-btn" id="exportBtn">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export
+            </button>
+            <button class="chat-action-btn" id="attachDocBtn">
+              <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+              Upload
+            </button>
+            <button class="delete-btn" id="deleteBtn">
+              <svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+              Delete
+            </button>
+          </div>
+        </div>
+
+        <div class="messages-container" id="messagesContainer">
+          <!-- Initial greeting with speech bubble -->
+          <div class="message assistant" id="initialGreeting">
+            <div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
+              <img src="C:\Users\Dal\OneDrive\Desktop\PPAI\assets\img\logo.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
+            </div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name">HR Copilot</span>
+                <span class="message-time" id="greetingTime"></span>
+              </div>
+              <div class="message-bubble">
+                <div class="message-text">Good morning. I'm your HR copilot. How may I assist you today?</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INPUT AREA - GUARANTEED VISIBILITY WITH INCREASED HEIGHT -->
+        <div class="input-area">
+          <div class="input-attachments" id="attachments" style="display:none">
+            <!-- Attachments will appear here -->
+          </div>
+          
+          <div class="input-wrapper">
+            <div class="input-container">
+              <textarea 
+                id="messageInput" 
+                placeholder="Ask me anything about HR, employment law, or request a document..." 
+                rows="1"
+              ></textarea>
+              <div class="input-actions">
+                <!-- Microphone button removed -->
+              </div>
+            </div>
+            
+            <button id="sendButton" disabled>
+              <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          
+          <div class="input-hint">
+            <div class="hint-left">
+              <!-- Removed Enter/Shift+Enter hints -->
+            </div>
+          </div>
         </div>
         
-        <div class="input-hint">
-          <div class="hint-left">
-            <!-- Removed Enter/Shift+Enter hints -->
-          </div>
-          <div class="premium-disclaimer">
-            <div class="premium-disclaimer-icon">⚠️</div>
-            <div>AI responses are guidance only, not legal advice</div>
-          </div>
+        <!-- FLOATING GLASS HELP BUTTON -->
+        <div class="help-button" id="helpButton">?</div>
+        <div class="help-panel" id="helpPanel">
+          <h3>How to use HR Copilot</h3>
+          <p>Get the most out of your HR Copilot with these tips:</p>
+          <ul>
+            <li><strong>Ask specific questions</strong> for more accurate responses</li>
+            <li><strong>Request document templates</strong> for common HR scenarios</li>
+            <li><strong>Upload files</strong> for context-specific guidance</li>
+            <li><strong>Use the sidebar prompts</strong> for quick access to popular topics</li>
+            <li><strong>Export conversations</strong> for record-keeping</li>
+          </ul>
+          <p>Remember: Always consult with qualified legal professionals for formal legal advice.</p>
         </div>
-      </div>
-      
-      <!-- FLOATING GLASS HELP BUTTON - MOVED TO CHAT AREA -->
-      <div class="help-button" id="helpButton">?</div>
-      <div class="help-panel" id="helpPanel">
-        <h3>How to use HR Copilot</h3>
-        <p>Get the most out of your HR Copilot with these tips:</p>
-        <ul>
-          <li><strong>Ask specific questions</strong> for more accurate responses</li>
-          <li><strong>Request document templates</strong> for common HR scenarios</li>
-          <li><strong>Upload files</strong> for context-specific guidance</li>
-          <li><strong>Use the sidebar prompts</strong> for quick access to popular topics</li>
-          <li><strong>Export conversations</strong> for record-keeping</li>
-        </ul>
-        <p>Remember: Always consult with qualified legal professionals for formal legal advice.</p>
-      </div>
-      <div class="help-overlay" id="helpOverlay"></div>
-    </main>
+        <div class="help-overlay" id="helpOverlay"></div>
+      </main>
+    </div>
   </div>
 
   <script>
-    // === THEME TOGGLE ===
+    // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
-    const mainHeader = document.getElementById('mainHeader');
+    const body = document.body;
     
     // Check for saved theme preference or default to light
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    
-    // Apply the saved theme on page load
-    if (currentTheme === 'dark') {
-      document.body.classList.add('dark-mode');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
     }
     
     themeToggle.addEventListener('click', () => {
-      // Toggle the dark mode class
-      document.body.classList.toggle('dark-mode');
-      
-      // Update localStorage based on the current state
-      if (document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-      } else {
-        localStorage.setItem('theme', 'light');
-      }
+      body.classList.toggle('dark-mode');
+      // Save the current theme to localStorage
+      const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', currentTheme);
     });
-
-    // === MOBILE MENU TOGGLE ===
+    
+    // Mobile Menu Toggle
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     
     mobileMenuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('active');
     });
-
+    
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+      if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
         mobileMenu.classList.remove('active');
       }
     });
-
-    // User profile to enable personalized responses
-    const userProfile = {
-      name: "Sarah",
-      role: "HR Manager",
-      companySize: "Medium (50-200 employees)",
-      industry: "Technology",
-      location: "United Kingdom",
-      preferences: {
-        detailLevel: "comprehensive",
-        includeTemplates: true,
-        includeLegalReferences: true
-      },
-      conversationHistory: [],
-      lastTopics: [],
-      messageCount: 0
-    };
-
+    
     // Set greeting time
-    document.getElementById('greetingTime').textContent = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-
-    // Auto-resize textarea
-    const messageInput = document.getElementById('messageInput');
-    const sendButton = document.getElementById('sendButton');
-    const messagesContainer = document.getElementById('messagesContainer');
-    const chatList = document.getElementById('chatList');
-
-    messageInput.addEventListener('input', function() {
-      this.style.height = 'auto';
-      this.style.height = Math.min(this.scrollHeight, 200) + 'px';
-      sendButton.disabled = !this.value.trim();
-    });
-
-    // Send message
-    function sendMessage(text) {
-      if (!text.trim()) return;
-
-      // Hide initial greeting if it exists
-      const initialGreeting = document.getElementById('initialGreeting');
-      if (initialGreeting) {
-        initialGreeting.style.display = 'none';
-      }
-
-      // Add user message with speech bubble
-      const userMessage = createMessage('user', text, 'You', 'SM');
-      messagesContainer.appendChild(userMessage);
-      
-      // Update user profile with conversation history
-      userProfile.conversationHistory.push({
-        type: 'user',
-        text: text,
-        timestamp: new Date()
-      });
-      
-      // Track topics for personalization
-      updateTopicHistory(text);
-      
-      // Increment message count
-      userProfile.messageCount++;
-      
-      // Clear input
-      messageInput.value = '';
-      messageInput.style.height = 'auto';
-      sendButton.disabled = true;
-
-      // Show enhanced typing indicator
-      const typingIndicator = document.createElement('div');
-      typingIndicator.className = 'message assistant';
-      typingIndicator.innerHTML = `
-        <div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
-          <img src="assets/img/favicon.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
-        </div>
-        <div class="message-content">
-          <div class="typing-indicator">
-            <div class="typing-text">HR Copilot is typing</div>
-            <div class="typing-dots">
-              <div class="typing-dot"></div>
-              <div class="typing-dot"></div>
-              <div class="typing-dot"></div>
-            </div>
-          </div>
-        </div>
-      `;
-      messagesContainer.appendChild(typingIndicator);
-      scrollToBottom();
-
-      // Simulate AI response
-      setTimeout(() => {
-        typingIndicator.remove();
-        const response = generateConversationalResponse(text);
-        const aiMessage = createMessage('assistant', response.text, 'HR Copilot', '🤖', response);
-        messagesContainer.appendChild(aiMessage);
-        scrollToBottom();
-        
-        // Update user profile with AI response
-        userProfile.conversationHistory.push({
-          type: 'assistant',
-          text: response.text,
-          timestamp: new Date()
-        });
-        
-        // Show signup message after 3 messages back and forth
-        if (userProfile.messageCount >= 3) {
-          setTimeout(() => {
-            const signupMessage = createMessage('assistant', 
-              `Hi Sarah, I hope our conversation has been helpful so far! To continue getting personalized HR guidance and access to our full library of templates and resources, please sign up for a free trial. You'll get unlimited access to all our HR tools and expert support.`, 
-              'HR Copilot', '🤖');
-            messagesContainer.appendChild(signupMessage);
-            scrollToBottom();
-          }, 1000);
-        }
-      }, 2000);
-    }
-
-    function createMessage(type, text, name, avatar, extras = {}) {
-      const message = document.createElement('div');
-      message.className = `message ${type}`;
-      
-      const time = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-      
-      let avatarHtml = '';
-      if (type === 'assistant') {
-        avatarHtml = `<div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
-          <img src="assets/img/favicon.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
-        </div>`;
-      } else {
-        avatarHtml = `<div class="message-avatar">${avatar}</div>`;
-      }
-      
-      let extraContent = '';
-      
-      if (extras.suggestions) {
-        extraContent += '<div class="message-suggestions">';
-        extras.suggestions.forEach(s => {
-          extraContent += `<div class="suggestion-chip" onclick="sendMessage('${s}')">${s}</div>`;
-        });
-        extraContent += '</div>';
-      }
-      
-      message.innerHTML = `
-        ${avatarHtml}
-        <div class="message-content">
-          <div class="message-header">
-            <span class="message-name">${name}</span>
-            <span class="message-time">${time}</span>
-          </div>
-          <div class="message-bubble">
-            <div class="message-text">${text}</div>
-          </div>
-          ${extraContent}
-        </div>
-      `;
-      
-      return message;
-    }
-
-    // Update topic history for personalization
-    function updateTopicHistory(text) {
-      const topics = ['sick', 'leave', 'absence', 'flexible', 'working', 'redundancy', 'dismiss', 'performance', 'grievance', 'disciplinary', 'contract', 'recruitment', 'payroll'];
-      
-      const foundTopics = topics.filter(topic => 
-        text.toLowerCase().includes(topic)
-      );
-      
-      // Add new topics to history, remove duplicates, and keep only last 5
-      userProfile.lastTopics = [...new Set([...foundTopics, ...userProfile.lastTopics])].slice(0, 5);
-    }
-
-    // Generate conversational, non-overwhelming responses
-    function generateConversationalResponse(userText) {
-      const lower = userText.toLowerCase();
-      
-      // Check if this is a follow-up to a previous question
-      const lastAssistantMessage = userProfile.conversationHistory
-        .filter(msg => msg.type === 'assistant')
-        .pop();
-      
-      // Check if user is asking for templates/policies specifically
-      const wantsTemplate = lower.includes('template') || lower.includes('policy') || lower.includes('form') || lower.includes('document');
-      
-      if (lower.includes('sick') || lower.includes('absence') || lower.includes('leave')) {
-        if (wantsTemplate) {
-          return {
-            text: `I can help you with sick leave documentation, Sarah. Based on ACAS guidelines, I can provide return to work discussion forms, absence management policies, or fit note guidance documents. Would you like me to generate any of these for you, or do you need guidance on a specific situation?`,
-            suggestions: [
-              'Return to work form',
-              'Absence management policy',
-              'How to handle long-term sickness'
-            ]
-          };
-        } else {
-          return {
-            text: `I understand you're asking about managing sickness absence, Sarah. This can be challenging, especially when you're trying to balance support for the employee with business needs. Could you tell me a bit more about the situation? For example, how long has the employee been off, is this a recurring issue, or have you obtained medical advice? This will help me give you the most relevant guidance based on ACAS best practices.`,
-            suggestions: [
-              'Managing short-term absence',
-              'Long-term sickness process',
-              'Getting medical evidence'
-            ]
-          };
-        }
-      } else if (lower.includes('flexible') || lower.includes('remote') || lower.includes('work from home')) {
-        if (wantsTemplate) {
-          return {
-            text: `For flexible working requests, Sarah, I can provide flexible working request forms, policy templates, or decision letter templates. Would any of these be helpful? I can also walk you through the legal requirements and best practices for handling these requests.`,
-            suggestions: [
-              'Flexible working policy',
-              'Request assessment guide',
-              'Legal requirements overview'
-            ]
-          };
-        } else {
-          return {
-            text: `Flexible working requests are becoming more common, Sarah. The key is to handle them fairly while considering business needs. Could you share what type of flexible working is being requested, how long the employee has worked for you, or what your main concerns about the request are? I can then explain the legal framework and suggest practical next steps.`,
-            suggestions: [
-              'Valid reasons to refuse',
-              'Trial period guidance',
-              'Impact assessment'
-            ]
-          };
-        }
-      } else if (lower.includes('redundancy') || lower.includes('layoff')) {
-        if (wantsTemplate) {
-          return {
-            text: `Redundancy processes require careful documentation, Sarah. I can help with selection criteria matrices, consultation meeting templates, redundancy notice letters, or alternative employment registers. Which of these would be most useful for your situation?`,
-            suggestions: [
-              'Selection criteria template',
-              'Consultation process guide',
-              'Notice letter examples'
-            ]
-          };
-        } else {
-          return {
-            text: `Redundancy is a sensitive process that needs careful handling, Sarah. I'd like to understand your situation better. Could you tell me how many roles are potentially affected, what's the business reason for considering redundancy, or if you've explored alternatives? This will help me guide you through the ACAS-recommended process.`,
-            suggestions: [
-              'Consultation requirements',
-              'Selection criteria guidance',
-              'Alternative employment options'
-            ]
-          };
-        }
-      } else if (lower.includes('grievance') || lower.includes('complaint')) {
-        if (wantsTemplate) {
-          return {
-            text: `For grievance procedures, Sarah, these documents can help ensure fairness: grievance policies and procedures, investigation checklists, meeting record templates, or outcome letter templates. Would you like me to prepare any of these, or do you need guidance on handling a specific grievance?`,
-            suggestions: [
-              'Grievance policy template',
-              'Investigation guide',
-              'Meeting documentation'
-            ]
-          };
-        } else {
-          return {
-            text: `Handling grievances properly is important for maintaining trust and resolving issues effectively, Sarah. To help you best, could you share what type of grievance has been raised, whether it's informal or formal, or if you've started any investigation yet? I can then walk you through the ACAS Code of Practice steps.`,
-            suggestions: [
-              'Informal resolution options',
-              'Formal process steps',
-              'Investigation best practices'
-            ]
-          };
-        }
-      } else if (lower.includes('dismiss') || lower.includes('performance') || lower.includes('poor') || lower.includes('capability')) {
-        if (wantsTemplate) {
-          return {
-            text: `For performance management and potential dismissal, Sarah, these templates might help: performance improvement plans, capability procedures, warning letter templates, or dismissal meeting checklists. Which aspect would you like help with?`,
-            suggestions: [
-              'Performance improvement plan',
-              'Warning letter templates',
-              'Fair process checklist'
-            ]
-          };
-        } else {
-          return {
-            text: `Managing performance issues requires a fair and consistent approach, Sarah. To give you the right guidance, could you tell me what specific performance concerns you have, whether you've provided feedback and support, or how long this has been going on? I can then explain the ACAS-recommended process for handling capability issues.`,
-            suggestions: [
-              'Informal support options',
-              'Formal process overview',
-              'Documentation requirements'
-            ]
-          };
-        }
-      } else if (lower.includes('contract') || lower.includes('employ') || lower.includes('hire')) {
-        if (wantsTemplate) {
-          return {
-            text: `I can help with employment documentation, Sarah: employment contract templates, variation of contract letters, probation period review forms, or contract amendment templates. What type of contract document do you need?`,
-            suggestions: [
-              'Standard employment contract',
-              'Probation review form',
-              'Contract variation letter'
-            ]
-          };
-        } else {
-          return {
-            text: `Employment contracts set the foundation for the working relationship, Sarah. What specifically would you like to know about contracts? For example, are you hiring someone new, do you need to change existing terms, or are you concerned about contract compliance? I can explain the legal requirements and best practices.`,
-            suggestions: [
-              'Essential contract terms',
-              'Changing contract terms',
-              'Probation periods'
-            ]
-          };
-        }
-      } else {
-        return {
-          text: `Thanks for your question, Sarah. I'm here to help with HR guidance based on ACAS codes of practice and employment law principles. To make sure I give you the most useful information, could you tell me a bit more about what you're dealing with? Feel free to be specific about your situation. If you're looking for templates or policies, just let me know what type of document would be helpful.`,
-          suggestions: [
-            'Sickness absence guidance',
-            'Disciplinary procedures',
-            'Recruitment best practices',
-            'Employment contracts'
-          ]
-        };
-      }
-    }
-
-    function scrollToBottom() {
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    // Event listeners
-    sendButton.addEventListener('click', () => sendMessage(messageInput.value));
-
-    messageInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        sendMessage(messageInput.value);
-      }
-    });
-
-    // Sidebar welcome prompts
-    document.querySelectorAll('.welcome-prompt').forEach(prompt => {
-      prompt.addEventListener('click', () => {
-        const text = prompt.dataset.prompt;
-        sendMessage(text);
-      });
-    });
-
-    // New chat button
-    document.getElementById('newChatBtn').addEventListener('click', () => {
-      messagesContainer.innerHTML = `
-        <div class="message assistant" id="initialGreeting">
-          <div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
-            <img src="assets/img/favicon.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
-          </div>
-          <div class="message-content">
-            <div class="message-header">
-              <span class="message-name">HR Copilot</span>
-              <span class="message-time" id="greetingTime">${new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</span>
-            </div>
-            <div class="message-bubble">
-              <div class="message-text">Hello Sarah! I'm your HR Copilot, ready to assist with all your HR needs. I can help you with policy guidance, employment law questions, document creation, and HR best practices. What would you like to discuss today?</div>
-            </div>
-          </div>
-        </div>
-      `;
-      // Reset conversation history for new chat
-      userProfile.conversationHistory = [];
-      userProfile.lastTopics = [];
-      userProfile.messageCount = 0;
-    });
-
-    // Chat list items
-    document.querySelectorAll('.chat-item').forEach(item => {
-      item.addEventListener('click', () => {
-        document.querySelectorAll('.chat-item').forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-      });
-    });
-
-    // Delete button functionality
-    document.getElementById('deleteBtn').addEventListener('click', () => {
-      if (confirm('Are you sure you want to delete this conversation? This action cannot be undone.')) {
-        messagesContainer.innerHTML = `
-          <div class="message assistant" id="initialGreeting">
-            <div class="message-avatar" style="background:var(--light-bg); border:1px solid #333;">
-              <img src="assets/img/favicon.png" alt="PP" style="width:28px;height:28px;border-radius:50%">
-            </div>
-            <div class="message-content">
-              <div class="message-header">
-                <span class="message-name">HR Copilot</span>
-                <span class="message-time" id="greetingTime">${new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</span>
-              </div>
-              <div class="message-bubble">
-                <div class="message-text">Hello Sarah! I'm your HR Copilot, ready to assist with all your HR needs. I can help you with policy guidance, employment law questions, document creation, and HR best practices. What would you like to discuss today?</div>
-              </div>
-            </div>
-          </div>
-        `;
-        // Reset conversation history when deleting
-        userProfile.conversationHistory = [];
-        userProfile.lastTopics = [];
-        userProfile.messageCount = 0;
-      }
-    });
-
-    // Export functionality
-    document.getElementById('exportBtn').addEventListener('click', () => {
-      alert('Export functionality: Download conversation as PDF or Word document');
-    });
-
-    // Upload document button functionality
-    document.getElementById('attachDocBtn').addEventListener('click', () => {
-      alert('Upload Document: Upload contracts, policies, or employee information');
-    });
-
-    // HELP BUTTON FUNCTIONALITY
+    const greetingTime = document.getElementById('greetingTime');
+    const now = new Date();
+    greetingTime.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    
+    // Help Panel Toggle
     const helpButton = document.getElementById('helpButton');
     const helpPanel = document.getElementById('helpPanel');
     const helpOverlay = document.getElementById('helpOverlay');
-
+    
     helpButton.addEventListener('click', (e) => {
       e.stopPropagation();
       helpPanel.classList.toggle('open');
       helpOverlay.classList.toggle('open');
     });
-
+    
     helpOverlay.addEventListener('click', () => {
       helpPanel.classList.remove('open');
       helpOverlay.classList.remove('open');
     });
-
+    
     // Close help panel when clicking outside
     document.addEventListener('click', (e) => {
-      if (!helpPanel.contains(e.target) && e.target !== helpButton) {
+      if (!helpButton.contains(e.target) && !helpPanel.contains(e.target)) {
         helpPanel.classList.remove('open');
         helpOverlay.classList.remove('open');
       }
+    });
+    
+    // Chat functionality
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+    const messagesContainer = document.getElementById('messagesContainer');
+    const newChatBtn = document.getElementById('newChatBtn');
+    const welcomePrompts = document.querySelectorAll('.welcome-prompt');
+    
+    // Auto-resize textarea
+    messageInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+      
+      // Enable/disable send button based on input
+      sendButton.disabled = this.value.trim() === '';
+    });
+    
+    // Send message function
+    function sendMessage() {
+      const message = messageInput.value.trim();
+      if (message === '') return;
+      
+      // Add user message
+      addMessage(message, 'user');
+      
+      // Clear input
+      messageInput.value = '';
+      messageInput.style.height = 'auto';
+      sendButton.disabled = true;
+      
+      // Simulate AI response after a delay
+      setTimeout(() => {
+        addMessage("I'm analyzing your question and will provide HR guidance shortly. For complex legal matters, I recommend consulting with a qualified employment law specialist.", 'assistant');
+      }, 1000);
+    }
+    
+    // Add message to chat
+    function addMessage(text, sender) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${sender}`;
+      
+      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      
+      messageDiv.innerHTML = `
+        <div class="message-avatar">
+          ${sender === 'user' ? 'U' : '<img src="C:\\Users\\Dal\\OneDrive\\Desktop\\PPAI\\assets\\img\\logo.png" alt="PP" style="width:28px;height:28px;border-radius:50%">'}
+        </div>
+        <div class="message-content">
+          <div class="message-header">
+            <span class="message-name">${sender === 'user' ? 'You' : 'HR Copilot'}</span>
+            <span class="message-time">${time}</span>
+          </div>
+          <div class="message-bubble">
+            <div class="message-text">${text}</div>
+          </div>
+        </div>
+      `;
+      
+      messagesContainer.appendChild(messageDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+    
+    // Send message on button click
+    sendButton.addEventListener('click', sendMessage);
+    
+    // Send message on Enter key (but allow Shift+Enter for new line)
+    messageInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+    
+    // New chat button
+    newChatBtn.addEventListener('click', () => {
+      // In a real app, this would create a new chat session
+      alert('Starting a new conversation...');
+    });
+    
+    // Welcome prompt clicks
+    welcomePrompts.forEach(prompt => {
+      prompt.addEventListener('click', () => {
+        const promptText = prompt.getAttribute('data-prompt');
+        messageInput.value = promptText;
+        messageInput.focus();
+        sendButton.disabled = false;
+      });
+    });
+    
+    // Quick links
+    document.getElementById('checkTemplates').addEventListener('click', () => {
+      addMessage("I'd like to browse HR document templates", 'user');
+      setTimeout(() => {
+        addMessage("I can help you with various HR document templates. What specific document are you looking for? (e.g., employment contract, disciplinary letter, performance review form)", 'assistant');
+      }, 1000);
+    });
+    
+    document.getElementById('viewGuides').addEventListener('click', () => {
+      addMessage("I'd like to view HR guides", 'user');
+      setTimeout(() => {
+        addMessage("I can provide guidance on various HR topics. What specific area are you interested in? (e.g., recruitment, employee relations, performance management, compliance)", 'assistant');
+      }, 1000);
     });
   </script>
 </body>
