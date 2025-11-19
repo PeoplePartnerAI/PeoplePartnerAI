@@ -170,9 +170,10 @@
       margin: 0 18px;
     }
 
+    /* FIXED: Nav links always black in light mode, white in dark mode */
     .nav-links a {
       text-decoration: none;
-      color: #333333; /* FIXED: Always black regardless of theme */
+      color: #333333; /* Always black in light mode */
       font-weight: 500;
       font-size: 1rem;
       transition: var(--transition);
@@ -180,13 +181,13 @@
       padding: 8px 0;
     }
 
-    /* FIXED: Removed dark mode styling for nav links to keep them black */
     .dark-mode .nav-links a {
-      color: #333333; /* Keep black even in dark mode */
+      color: #ffffff; /* Always white in dark mode */
     }
 
+    /* FIXED: Only the underline changes color on hover */
     .nav-links a:hover {
-      color: var(--accent-gold);
+      color: inherit; /* Keep the same text color */
     }
 
     .nav-links a::after {
@@ -303,7 +304,6 @@
 
     .dark-mode .mobile-menu-header {
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    
     }
 
     .mobile-menu-close {
@@ -1008,7 +1008,10 @@
       transform-style: preserve-3d;
     }
 
-    .flip-card:hover .flip-inner {
+    /* FIXED: Flip cards work on mobile */
+    .flip-card:hover .flip-inner,
+    .flip-card:focus .flip-inner,
+    .flip-card:active .flip-inner {
       transform: rotateY(180deg);
     }
 
@@ -2132,6 +2135,11 @@
       gap: 50px;
     }
 
+    .footer-link-category {
+      display: flex;
+      flex-direction: column;
+    }
+
     .footer-link-category h4 {
       font-size: 1.1rem;
       font-weight: 600;
@@ -2614,32 +2622,31 @@
       transform: translateY(0);
     }
 
-/* FLOATING CHAT BUBBLE */
-.floating-chat {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 3001; /* Updated so it stays above the dim overlay */
-}
+    /* FLOATING CHAT BUBBLE */
+    .floating-chat {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 3001; /* Updated so it stays above the dim overlay */
+    }
 
-.chat-bubble {
-  width: 55px !important;   /* homepage size */
-  height: 55px !important;  /* homepage size */
-  background: var(--accent-gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.4rem !important; /* homepage font size */
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-  cursor: pointer;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  border: 3px solid white;
-}
-
+    .chat-bubble {
+      width: 55px !important;   /* homepage size */
+      height: 55px !important;  /* homepage size */
+      background: var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem !important; /* homepage font size */
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 3px solid white;
+    }
 
     /* ===== MOBILE OPTIMIZATION - Rocket.new Inspired ===== */
     /* Preserves all desktop functionality while optimizing mobile appearance */
@@ -2819,6 +2826,12 @@
       
       .flip-card {
         height: 240px; /* Optimized mobile height */
+      }
+      
+      /* FIXED: Flip cards work on mobile */
+      .flip-card:active .flip-inner,
+      .flip-card:focus .flip-inner {
+        transform: rotateY(180deg);
       }
       
       .flip-front, .flip-back {
@@ -3928,17 +3941,17 @@
     /* === MAINTAIN EXISTING BREAKPOINTS & LAYOUT === */
     /* No structural changes - only size and spacing refinements */
     @media (max-width: 768px) {
-  .footer-links-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px !important;
-    text-align: center !important;
-  }
+      .footer-links-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+        text-align: center !important;
+      }
 
-  .footer-link-category {
-    margin-bottom: 0 !important;
-  }
-}
+      .footer-link-category {
+        margin-bottom: 0 !important;
+      }
+    }
   </style>
 </head>
 <body>
